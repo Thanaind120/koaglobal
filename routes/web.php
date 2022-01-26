@@ -27,13 +27,14 @@ Route::get('/corporation', function () { return view('layouts/frontend/corporate
 
 Route::get('/salesnetwork', function () { return view('layouts/frontend/salesnetwork'); });
 
-Route::get('/contactus', function () { return view('layouts/frontend/contact'); });
+Route::get('/contactus','ContactUsController@index');
 
 Route::get('/news', function () { return view('layouts/frontend/news'); });
 
 Route::get('/news000', function () { return view('layouts/frontend/news000'); });
 
-Route::get('/register', function () { return view('layouts/frontend/register'); });
+Route::get('/register','RegisterController@index');
+
 
 //*-----------------------------------------------------------------------------------------------------------------------------------------*//
 
@@ -62,6 +63,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/backoffice/news/edit/{id}','NewsController@edit');   // edit News view
     Route::put('/backoffice/news/update/{id}','NewsController@update'); //update News data
     Route::delete('/backoffice/news/delete/{id}','NewsController@destroy'); //delete News data
+    //** Register **//
+    Route::get('/backoffice/register','RegisterController@register'); // get all News data  
+    //** Contact Us **//
+    Route::get('/backoffice/contact_us','ContactUsController@contact_us'); // get all News data  
     //** News Release **//
     Route::get('/backoffice/news_release','MasterSetupController@news_release'); // get all News Release data  
     Route::get('/backoffice/news_release/create','MasterSetupController@create');  // create News Release view 

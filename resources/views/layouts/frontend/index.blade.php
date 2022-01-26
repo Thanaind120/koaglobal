@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="fxb-block fxb-margin">
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_01.jpg')}}" alt="">
                                             </p>
@@ -121,7 +121,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products02v.jpg')}}" alt="">
                                             </p>
@@ -131,7 +131,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products03v.jpg')}}" alt="">
                                             </p>
@@ -141,7 +141,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_04.jpg')}}" alt="">
                                             </p>
@@ -151,7 +151,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_05.jpg')}}"
                                                     alt="inductors">
@@ -162,7 +162,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_06.jpg')}}" alt="">
                                             </p>
@@ -172,7 +172,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_07.jpg')}}"
                                                     alt="varistors">
@@ -183,7 +183,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_08.jpg')}}" alt="">
                                             </p>
@@ -193,7 +193,7 @@
                                         </a>
                                     </div>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="register.html" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_09.jpg')}}" alt="">
                                             </p>
@@ -259,7 +259,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a class="card-news" href="news000.html" target="_self">
+                                                    <a class="card-news" href="{{ url('/news000')}}" target="_self">
                                                         <span class="_day">2020.07.30</span>
                                                         <span class="_category _category-01">Notices Events</span>
                                                         <span class="_title">

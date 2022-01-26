@@ -64,7 +64,7 @@
                     <ul class="nav nav-main">
                         <li class="<?php echo (isset($active[0]))?$active[0]:'';?>">
                             <a href="{{ url('backoffice/dashboard') }}">
-                                <i class="fa  fa-dashboard" aria-hidden="true"></i>
+                                <i class="fa fa-dashboard" aria-hidden="true"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
@@ -83,15 +83,27 @@
                                     <a href="{{ url('backoffice/news') }}">
                                         News
                                     </a>
-                                </li>                    
+                                </li>                 
                             </ul>
                         </li>
-
+                        <li class="<?php echo (isset($active[6]))?$active[6]:'';?>">
+                            <a href="{{ url('backoffice/register') }}">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                <span>Register</span>
+                            </a>
+                        </li>
+                        <li class="<?php echo (isset($active[7]))?$active[7]:'';?>">
+                            <a href="{{ url('backoffice/contact_us') }}">
+                                <i class="fa fa-weixin" aria-hidden="true"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </li>
                         {{-- <hr class="separator" /> --}}
                         <br>
                         <div class="sidebar-widget widget-stats">
                             <div class="widget-header">
-                                <h6><font color="white">MANAGEMENT</font></h6>
+                                {{-- <h6><font color="white">MANAGEMENT</font></h6> --}}
+                                <h6><font color="white">MASTER SETUP</font></h6>
                                 {{-- <div class="widget-toggle">+</div> --}}
                             </div>
                         </div>
@@ -99,14 +111,15 @@
                         <li class="nav-parent <?php echo (isset($nav_active[1]))?$nav_active[1]:'';?>">
                             <a>
                                 <i class="fa fa-users" aria-hidden="true"></i>
-                                <span>User Management</span>
+                                {{-- <span>User Management</span> --}}
+                                <span>Management</span>
                             </a>
                             <ul class="nav nav-children">
-                                <li class="<?php echo (isset($active[3]))?$active[3]:'';?>">
+                                {{-- <li class="<?php echo (isset($active[3]))?$active[3]:'';?>">
                                     <a href="#">
                                         User
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="<?php echo (isset($active[4]))?$active[4]:'';?>">
                                     <a href="{{ url('backoffice/news_release') }}">
                                         News Release
