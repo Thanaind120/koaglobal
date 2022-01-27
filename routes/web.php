@@ -28,13 +28,14 @@ Route::get('/corporation', function () { return view('layouts/frontend/corporate
 Route::get('/salesnetwork', function () { return view('layouts/frontend/salesnetwork'); });
 
 Route::get('/contactus','ContactUsController@index');
+Route::post('/contactus','ContactUsController@store')->name('contactus.insert');
 
 Route::get('/news', function () { return view('layouts/frontend/news'); });
 
 Route::get('/news000', function () { return view('layouts/frontend/news000'); });
 
 Route::get('/register','RegisterController@index');
-
+Route::post('/register','RegisterController@store')->name('register.insert');
 
 //*-----------------------------------------------------------------------------------------------------------------------------------------*//
 

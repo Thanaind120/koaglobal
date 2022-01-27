@@ -91,7 +91,9 @@
                             </div>
 
                             <div class="contact-form col-md-9">
-                                <form class="row">
+                                <form class="row" method="POST" enctype="multipart/form-data"
+                                    action="{{ route('contactus.insert') }}">
+                                    @csrf
                                     <div class="l-main1col">
                                         <div class="l-contact">
                                             <div class="scfForm">
@@ -100,95 +102,108 @@
                                                 <div class="row">
                                                     <div class="name col-md-4">
                                                         <label>Type of Inquiry <span>*</span></label>
-                                                        <select class="scfDropList">
+                                                        <select class="scfDropList" id="id_iunqiry" name="type_inquiry">
                                                             <option selected="selected" value=""></option>
-                                                            <option value="Customer Service">Customer Service</option>
-                                                            <option value="Samples">Samples</option>
-                                                            <option value="Support">Support</option>
-                                                            <option value="Product Engineering＆Quality">Product
-                                                                Engineering＆Quality</option>
-                                                            <option value="Sales">Sales</option>
-                                                            <option value="Field Application Engineer">Field Application
-                                                                Engineer</option>
-                                                            <option value="Catalogue">Catalogue</option>
+                                                            <?php
+                                                            foreach ($type_of_iunqiry as $key=>$val){
+                                                          ?>
+                                                            <option name="type_inquiry" value="{{ $val->id_iunqiry }}">
+                                                                {{ $val->type_iunqiry_en }}</option>
+                                                            <?php
+                                                        }
+                                                        ?>
                                                         </select>
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Primary Application <span>*</span></label>
-                                                        <select class="scfDropList">
+                                                        <select class="scfDropList" id="id_application"
+                                                            name="application">
                                                             <option selected="selected" value=""></option>
-                                                            <option value="Smart home">Smart home</option>
-                                                            <option value="Healthcare">Healthcare</option>
-                                                            <option value="Automotive">Automotive</option>
-                                                            <option value="Smartphone">Smartphone</option>
-                                                            <option value="Wearable">Wearable</option>
-                                                            <option value="Base Station">Base Station</option>
-                                                            <option value="Network">Network</option>
-                                                            <option value="Data Center">Data Center</option>
-                                                            <option value="Lighting">Lighting</option>
-                                                            <option value="White Goods">White Goods</option>
-                                                            <option value="Industrial">Industrial</option>
-                                                            <option value="Security＆Safety">Security＆Safety</option>
-                                                            <option value="Others">Others</option>
+                                                            <?php
+                                                            foreach ($application as $key=>$val){
+                                                          ?>
+                                                            <option name="application"
+                                                                value="{{ $val->id_application }}">
+                                                                {{ $val->application_name_en }}
+                                                            </option>
+                                                            <?php
+                                                        }
+                                                        ?>
                                                         </select>
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Primary Product Category <span>*</span></label>
-                                                        <select class="scfDropList">
+                                                        <select class="scfDropList" id="id_product_category"
+                                                            name="product_category">
                                                             <option selected="selected" value=""></option>
-                                                            <option value="Resistors">Resistors</option>
-                                                            <option value="Inductors">Inductors</option>
-                                                            <option value="Sensors">Sensors</option>
-                                                            <option value="Fuses">Fuses</option>
-                                                            <option value="Varistors">Varistors</option>
-                                                            <option value="LTCC">LTCC</option>
+                                                            <?php
+                                                            foreach ($product_category as $key=>$val){
+                                                          ?>
+                                                            <option name="product_category"
+                                                                value="{{ $val->id_product_category }}">
+                                                                {{ $val->product_category_en }}
+                                                            </option>
+                                                            <?php
+                                                        }
+                                                        ?>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-12 scfMultipleLineGeneralPanel">
                                                         <label>Primary Product Category <span>*</span></label>
-                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox">
+                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox"
+                                                            name="product_message">
                                                         </textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-4">
                                                         <label>First Name<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox"
+                                                            name="firstname">
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Last Name<span>*</span></label>
-                                                        <input type="text" maxlength="100"
-                                                            class="sscfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox"
+                                                            name="lastname">
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>(Company) Email Address<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfEmailTextBox">
+                                                        <input type="text" maxlength="100" class="scfEmailTextBox"
+                                                            name="email">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-4">
                                                         <label>Company Name<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox"
+                                                            name="company_name">
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Country / Area<span>*</span></label>
-                                                        <input type="text" maxlength="100"
-                                                            class="sscfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox"
+                                                            name="area">
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Postal / Zip Code<span>*</span></label>
-                                                        <select class="scfDropList">
+                                                        <select class="scfDropList" id="id_zip_code" name="zip_code">
                                                             <option selected="selected" value=""></option>
-                                                            <option value="	Samphanthawong">Samphanthawong</option>
-                                                            <option value="Udon Thani">Udon Thani</option>
-                                                            <option value="Nong Khai">Nong Khai</option>
+                                                            <?php
+                                                            foreach ($zip_code as $key=>$val){
+                                                          ?>
+                                                            <option name="zip_code"
+                                                                value="{{ $val->id_zip_code }}">
+                                                                {{ $val->zip_code_en }}
+                                                            </option>
+                                                            <?php
+                                                        }
+                                                        ?>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-12 scfSubmitButtonBorder">
-                                                        <a href="#" class="button-normal scfSubmitButton">Send
-                                                            Message</a>
+                                                        <button type="submit" class="btn btn-24 scfSubmitButton">Send
+                                                            Message</button>
                                                     </div>
                                                 </div>
                                                 <div class="row">

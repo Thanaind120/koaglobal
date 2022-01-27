@@ -45,7 +45,26 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = date('Y-m-d');
+        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('m/d/Y');
+        $time = date('H:i:s');
+        $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
+        RegisterModel::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'title_name' => $request->title_name,
+            'department_name' => $request->department_name,
+            'organization_name' => $request->organization_name,
+            'location_name' => $request->location_name,
+            'product_message' => $request->product_message,
+            'save_date' => $newDate,
+            'save_time' => $newTime,
+            'created_at' => Carbon::now(),
+            'update_at' => Carbon::now(),
+        ]);
+        return redirect('register');
     }
 
     /**

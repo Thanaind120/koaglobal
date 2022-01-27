@@ -81,7 +81,9 @@
                     <div class="row">
                         <div class="contact-wrap row">
                             <div class="contact-form col-md-12">
-                                <form class="row">
+                                <form class="row" method="POST" enctype="multipart/form-data"
+                                action="{{ route('register.insert') }}">
+                                @csrf
                                     <div class="l-main1col">
                                         <div class="l-contact">
                                             <div class="scfForm">
@@ -90,52 +92,52 @@
                                                 <div class="row">
                                                     <div class="name col-md-3">
                                                         <label>First Name<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="firstname">
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>Last Name<span>*</span></label>
                                                         <input type="text" maxlength="100"
-                                                            class="sscfSingleLineTextBox">
+                                                            class="sscfSingleLineTextBox" name="lastname">
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>Email <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfEmailTextBox">
+                                                        <input type="text" maxlength="100" class="scfEmailTextBox" name="email">
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>Contact number<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfEmailTextBox">
+                                                        <input type="text" maxlength="100" class="scfEmailTextBox" name="tel">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-3">
                                                         <label>You job title<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="title_name">
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>You department<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="department_name">
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>You organization<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox">
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="organization_name">
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>Your location<span>*</span></label>
                                                         <input type="text" maxlength="100"
-                                                            class="sscfSingleLineTextBox">
+                                                            class="sscfSingleLineTextBox" name="location_name">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-12 scfMultipleLineGeneralPanel">
                                                         <label>Primary Product Category <span>*</span></label>
-                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox">
+                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox" name="product_message">
                                                         </textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 scfSubmitButtonBorder">
-                                                        <a href="#" class="button-normal scfSubmitButton">Send
-                                                            Message</a>
+                                                        <button type="submit" class="btn btn-24 scfSubmitButton">Send
+                                                            Message</button>
                                                     </div>
                                                 </div>
                                                 <div class="row">

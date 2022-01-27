@@ -111,11 +111,11 @@
 
                                         <tr class="gradeX">
 
-                                            <td class="center">{{ $val->type_inquiry }}</td>
+                                            <td class="center">{{ $val->type_iunqiry_en }}</td>
 
-                                            <td class="center">{{ $val->application }}</td>
+                                            <td class="center">{{ $val->application_name_en }}</td>
 
-                                            <td class="center">{{ $val->product_category }}</td>
+                                            <td class="center">{{ $val->product_category_en }}</td>
 
                                             <td class="center">{{ $val->product_message }}</td>
 
@@ -127,7 +127,7 @@
 
                                             <td class="center">{{ $val->area }}</td>
 
-                                            <td class="center">{{ $val->zip_code }}</td>
+                                            <td class="center">{{ $val->zip_code_en }}</td>
 
                                         </tr>
 

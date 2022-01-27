@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ContactUsModel;
+use App\Models\ApplicationModel;
+use App\Models\PostalModel;
+use App\Models\ProductCategoryModel;
+use App\Models\TypeOfInquiryModel;
 use Carbon\Carbon;
 
 class ContactUsController extends Controller
@@ -18,12 +22,20 @@ class ContactUsController extends Controller
 
     public function index()
     {
-        return view('layouts/frontend/contact');
+        $application = ApplicationModel::get();
+        $zip_code = PostalModel::get();
+        $product_category = ProductCategoryModel::get();
+        $type_of_iunqiry = TypeOfInquiryModel::get();
+        return view('layouts/frontend/contact', compact('application'), compact('zip_code'))->with('product_category',$product_category)->with('type_of_iunqiry',$type_of_iunqiry);
     }
 
     public function contact_us()
     {
-        $contact = ContactUsModel::get();
+        $contact = DB::table('contact_us')
+        ->leftJoin('application', 'contact_us.application', '=', 'application.id_application')
+        ->leftJoin('type_of_iunqiry', 'contact_us.type_inquiry', '=', 'type_of_iunqiry.id_iunqiry')
+        ->leftJoin('zip_code', 'contact_us.zip_code', '=', 'zip_code.id_zip_code')
+        ->leftJoin('product_category', 'contact_us.product_category', '=', 'product_category.id_product_category')->get();
         return view('layouts/backend/contact')->with('contact',$contact);
     }
 
@@ -45,7 +57,27 @@ class ContactUsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = date('Y-m-d');
+        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('m/d/Y');
+        $time = date('H:i:s');
+        $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
+        ContactUsModel::create([
+            'type_inquiry' => $request->type_inquiry,
+            'application' => $request->application,
+            'product_category' => $request->product_category,
+            'product_message' => $request->product_message,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'company_name' => $request->company_name,
+            'area' => $request->area,
+            'zip_code' => $request->zip_code,
+            'save_date' => $newDate,
+            'save_time' => $newTime,
+            'created_at' => Carbon::now(),
+            'update_at' => Carbon::now(),
+        ]);
+        return redirect('contactus');
     }
 
     /**
