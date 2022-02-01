@@ -46,7 +46,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $date = date('Y-m-d');
-        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('m/d/Y');
+        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
         $time = date('H:i:s');
         $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
         RegisterModel::create([
@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'product_message' => $request->product_message,
             'save_date' => $newDate,
             'save_time' => $newTime,
+            'amount' => 1,
             'created_at' => Carbon::now(),
             'update_at' => Carbon::now(),
         ]);

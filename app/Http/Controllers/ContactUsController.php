@@ -58,7 +58,7 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $date = date('Y-m-d');
-        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('m/d/Y');
+        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
         $time = date('H:i:s');
         $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
         ContactUsModel::create([
