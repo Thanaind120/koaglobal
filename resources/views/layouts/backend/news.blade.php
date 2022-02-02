@@ -106,7 +106,7 @@
 
                                             <th class="center">Archive</th>
 
-                                            <th class="center">News</th>
+                                            <th class="center">Headliness</th>
 
                                             <th class="center">Tools</th>
 

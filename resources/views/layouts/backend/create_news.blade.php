@@ -83,8 +83,7 @@
                                                             <?php
                                                             foreach ($archive as $key=>$val){
                                                           ?>
-                                                            <option name="id_archives"
-                                                                value="{{ $val->id_archive }}">
+                                                            <option name="id_archives" value="{{ $val->id_archive }}">
                                                                 {{ $val->year }}</option>
                                                             <?php
                                                           }
@@ -102,8 +101,7 @@
                                                 <label class="col-md-3 control-label" for="inputDefault">Date
                                                     :</label>
                                                 <div class="col-md-3">
-                                                    <input type="date" class="form-control" name="save_date"
-                                                        value="">
+                                                    <input type="date" class="form-control" name="save_date" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +110,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="inputDefault">News (TH)
+                                                <label class="col-md-3 control-label" for="inputDefault">Headliness (TH)
                                                     :</label>
                                                 <div class="col-md-6">
                                                     <textarea type="text" class="form-control" name="news_name_th"
@@ -125,11 +123,41 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="inputDefault">News (EN)
+                                                <label class="col-md-3 control-label" for="inputDefault">Headliness (EN)
                                                     :</label>
                                                 <div class="col-md-6">
                                                     <textarea type="text" class="form-control" name="news_name_en"
                                                         value=""></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">News Content (TH) :</label>
+                                                <div class="col-md-7">
+                                                    <textarea type="text" id="editor1" rows="2" class="form-control"
+                                                        name="detail_th" data-toggle="tooltip" data-trigger="hover"
+                                                        data-placement="top"
+                                                        data-title="detail_th">
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">News Content (EN) :</label>
+                                                <div class="col-md-7">
+                                                    <textarea type="text" id="editor2" rows="2" class="form-control"
+                                                        name="detail_en" data-toggle="tooltip" data-trigger="hover"
+                                                        data-placement="top"
+                                                        data-title="detail_en">
+                                                    </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -153,7 +181,8 @@
                                                                     name="image" required />
                                                             </span>
                                                             <br>
-                                                            <br><img src="{{ asset('backend/assets/images/image_news/nopic.jpg') }}"
+                                                            <br><img
+                                                                src="{{ asset('backend/assets/images/image_news/nopic.jpg') }}"
                                                                 class="rounded" id="images" alt="Cinque Terre"
                                                                 width="40%">
                                                         </div>
@@ -226,7 +255,69 @@
 
         }
 
+        CKEDITOR.replace('editor1', {
+            toolbar: [{
+                    name: 'document',
+                    groups: ['mode', 'document', 'doctools'],
+                    items: ['Source']
+                },
+                {
+                    name: 'clipboard',
+                    items: ['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord']
+                },
+                {
+                    name: 'basicstyles',
+                    groups: ['basicstyles', 'cleanup'],
+                    items: ['Bold', 'Italic', 'Strike', '-', 'TextColor']
+                },
+                {
+                    name: 'paragraph',
+                    groups: ['list', 'indent', 'blocks', 'align'],
+                    items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blocks']
+                }
+            ],
+            height: 250,
+            resize_enabled: true,
+            wordcount: {
+                showParagraphs: false,
+                showWordCount: true,
+                showCharCount: true,
+                countSpacesAsChars: false,
+                countHTML: false,
+                maxWordCount: -1,
+                maxCharCount: 20000
+            }
+        });
+
+        function CKupdate() {
+            for (instance in CKEDITOR.instances)
+                CKEDITOR.instances[instance].updateElement();
+        }
+
+        CKEDITOR.replace( 'editor2', {toolbar:[
+            { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] },
+            { name: 'clipboard', items: [ 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord' ] },
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike', '-', 'TextColor' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blocks' ] }
+        ],
+        height:250,
+        resize_enabled:true,
+        wordcount: {
+            showParagraphs: false,
+            showWordCount: true,
+            showCharCount: true,
+            countSpacesAsChars: false,
+            countHTML: false,
+            maxWordCount: -1,
+            maxCharCount: 20000}
+        });
+        function CKupdate(){
+            for ( instance in CKEDITOR.instances )
+                CKEDITOR.instances[instance].updateElement();
+        }
+
     </script>
+
 </body>
 
 </html>

@@ -57,6 +57,8 @@ class NewsController extends Controller
             'save_date' => $request->save_date,
             'news_name_en' => $request->news_name_en,
             'news_name_th' => $request->news_name_th,
+            'detail_en' => $request->detail_en,
+            'detail_th' => $request->detail_th,
             'image' => $image_gen,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -114,6 +116,8 @@ class NewsController extends Controller
             'save_date' => $request->save_date,
             'news_name_en' => $request->news_name_en,
             'news_name_th' => $request->news_name_th,
+            'detail_en' => $request->detail_en,
+            'detail_th' => $request->detail_th,
             'image' => $image_gen,
             'updated_at' => Carbon::now()
         ]);

@@ -48,7 +48,25 @@
 
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css') }}" />
 
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" />
+		
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}" />
 
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css') }}" />
+
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/dropzone/css/basic.css') }}" />
+	
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/dropzone/css/dropzone.css') }}" />
+	
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-markdown/css/bootstrap-markdown.min.css') }}" />
+	
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/summernote/summernote.css') }}" />
+	
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/summernote/summernote-bs3.css') }}" />
+	
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/codemirror/lib/codemirror.css') }}" />
+	
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/codemirror/theme/monokai.css') }}" />
 
 <!-- Theme CSS -->
 
@@ -71,3 +89,5 @@
 <!-- Head Libs -->
 
 <script src="{{ asset('backend/assets/vendor/modernizr/modernizr.js') }}"></script>
+
+<script src="{{ asset('backend/assets/app-assets/js/ckeditor/ckeditor.js') }}"></script>

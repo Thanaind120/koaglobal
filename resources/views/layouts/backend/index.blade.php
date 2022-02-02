@@ -47,7 +47,7 @@
 
             </header>
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h1 mb-0 text-gray-800">Statistics</h1>
+                <h1 class="h1 mb-0 text-gray-800">Analytics</h1>
             </div>
             <!-- start: page -->
             <div class="row">
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="widget-summary-col">
                                             <div class="summary">
-                                                <h4 class="title">History Of All Registered Visitors</h4>
+                                                <h4 class="title">All Registered Visitors</h4>
                                                 <div class="info">
                                                     <strong class="amount">
                                                         <?php foreach($total_register as $key=>$val){ ?>
@@ -78,7 +78,74 @@
                                                 </div>
                                             </div>
                                             <div class="summary-footer">
-                                                <a class="text-muted text-uppercase">(Report)</a>
+                                                <a class="text-muted text-uppercase">(All Reports)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-md-12 col-lg-6 col-xl-6">
+                            <section class="panel panel-featured-left panel-featured-secondary">
+                                <div class="panel-body">
+                                    <div class="widget-summary">
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon bg-secondary">
+                                                <i class="fa fa-user"></i>
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Visitors Registered This Year</h4>
+                                                <div class="info">
+                                                    <strong class="amount">
+                                                        <?php foreach($year_register as $key=>$val){ ?>
+                                                        <?php if($val->year_register != ''){ ?>
+                                                        {{ $val->year_register }}
+                                                        <?php }else{ ?>
+                                                        0
+                                                        <?php } ?>
+                                                        <?php } ?>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div class="summary-footer">
+                                                <a class="text-muted text-uppercase">(Annual Report)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-md-12 col-lg-6 col-xl-6">
+                            <section class="panel panel-featured-left panel-featured-quartenary">
+                                <div class="panel-body">
+                                    <div class="widget-summary">
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon bg-quartenary">
+                                                <i>
+                                                    <image src="{{ asset('backend/assets/images/month.png') }}"
+                                                        width="60px">
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Visitors Registered This Month</h4>
+                                                <div class="info">
+                                                    <strong class="amount">
+                                                        <?php foreach($month_register as $key=>$val){ ?>
+                                                        <?php if($val->month_register != ''){ ?>
+                                                        {{ $val->month_register }}
+                                                        <?php }else{ ?>
+                                                        0
+                                                        <?php } ?>
+                                                        <?php } ?>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div class="summary-footer">
+                                                <a class="text-muted text-uppercase">(Monthly Report)</a>
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +158,10 @@
                                     <div class="widget-summary">
                                         <div class="widget-summary-col widget-summary-col-icon">
                                             <div class="summary-icon bg-tertiary">
-                                                <i class="fa fa-user"></i>
+                                                <i>
+                                                    <image src="{{ asset('backend/assets/images/day.png') }}"
+                                                        width="60px">
+                                                </i>
                                             </div>
                                         </div>
                                         <div class="widget-summary-col">
@@ -110,7 +180,7 @@
                                                 </div>
                                             </div>
                                             <div class="summary-footer">
-                                                <a class="text-muted text-uppercase">(Report)</a>
+                                                <a class="text-muted text-uppercase">(Report Today)</a>
                                             </div>
                                         </div>
                                     </div>
