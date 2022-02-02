@@ -133,7 +133,7 @@
                                             <td class="center" width="25%">
                                                 <button class="btn btn-primary"
                                                     onclick="update_banner({{ $val->id_banner }})">
-                                                    <i class="fa fa-cog" title="edit"></i>
+                                                    <i class="fa fa-edit" title="edit"></i>
                                                 </button>
                                                 <button class="btn btn-danger"
                                                     onclick="delete_banner({{ $val->id_banner }})">

@@ -137,7 +137,7 @@
                                             <td class="center" width="20%">
                                                 <button class="btn btn-primary"
                                                     onclick="update_news({{ $val->id_news }})">
-                                                    <i class="fa fa-cog" title="edit"></i>
+                                                    <i class="fa fa-edit" title="edit"></i>
                                                 </button>
                                                 <button class="btn btn-danger"
                                                     onclick="delete_news({{ $val->id_news }})">

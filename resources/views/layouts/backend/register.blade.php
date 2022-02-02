@@ -75,6 +75,20 @@
 
                             <div class="panel-body">
 
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="mb-md">
+
+                                        <a href="{{ route('register.export') }}" class="btn btn-success"><img src="{{ asset('backend/assets/images/xls.png') }}" width="24" />&nbsp;&nbsp;Excel</a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
                                 <table class="table table-bordered table-striped mb-none" id="datatable-default">
 
                                     <thead>

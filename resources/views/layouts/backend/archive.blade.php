@@ -125,7 +125,7 @@
                                             <td class="center" width="25%">
                                                 <button class="btn btn-primary"
                                                     onclick="update_arc({{ $val->id_archive }})">
-                                                    <i class="fa fa-cog" title="edit"></i>
+                                                    <i class="fa fa-edit" title="edit"></i>
                                                 </button>
                                                 <button class="btn btn-danger"
                                                     onclick="delete_arc({{ $val->id_archive }})">

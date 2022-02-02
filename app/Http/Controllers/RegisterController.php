@@ -102,6 +102,11 @@ class RegisterController extends Controller
         //
     }
 
+    public function excel(Request $request)
+    {
+        
+    }
+
     /**
      * Remove the specified resource from storage.
      *
