@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\RegisterImport;
+use App\Exports\RegisterExport;
 use App\Models\RegisterModel;
 use Carbon\Carbon;
 
@@ -102,9 +105,9 @@ class RegisterController extends Controller
         //
     }
 
-    public function excel(Request $request)
+    public function fileExport(Request $request)
     {
-        
+        return Excel::download(new RegisterExport, 'Register-collection.xlsx');
     }
 
     /**

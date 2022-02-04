@@ -102,51 +102,86 @@
                                                 <div class="row">
                                                     <div class="name col-md-4">
                                                         <label>Type of Inquiry <span>*</span></label>
-                                                        <select class="scfDropList" id="id_iunqiry" name="type_inquiry">
+                                                        <select class="scfDropList" name="type_inquiry">
+                                                            <option name="type_inquiry" selected="selected" value=""></option>
+                                                            <option name="type_inquiry" value="Customer Service">Customer Service</option>
+                                                            <option name="type_inquiry" value="Samples">Samples</option>
+                                                            <option name="type_inquiry" value="Support">Support</option>
+                                                            <option name="type_inquiry" value="Product Engineering＆Quality">Product Engineering＆Quality</option>
+                                                            <option name="type_inquiry" value="Sales">Sales</option>
+                                                            <option name="type_inquiry" value="Field Application Engineer">Field Application Engineer</option>
+                                                            <option name="type_inquiry" value="Catalogue">Catalogue</option>
+                                                        </select>
+                                                         {{-- <select class="scfDropList" id="id_iunqiry" name="type_inquiry">
                                                             <option selected="selected" value=""></option>
                                                             <?php
-                                                            foreach ($type_of_iunqiry as $key=>$val){
+                                                            // foreach ($type_of_iunqiry as $key=>$val){
                                                           ?>
                                                             <option name="type_inquiry" value="{{ $val->id_iunqiry }}">
                                                                 {{ $val->type_iunqiry_en }}</option>
                                                             <?php
-                                                        }
+                                                        // }
                                                         ?>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Primary Application <span>*</span></label>
-                                                        <select class="scfDropList" id="id_application"
+                                                        <select class="scfDropList" name="application">
+                                                            <option name="application" selected="selected" value=""></option>
+                                                            <option name="application" value="Smart home">Smart home</option>
+                                                            <option name="application" value="Healthcare">Healthcare</option>
+                                                            <option name="application" value="Automotive">Automotive</option>
+                                                            <option name="application" value="Smartphone">Smartphone</option>
+                                                            <option name="application" value="Wearable">Wearable</option>
+                                                            <option name="application" value="Base Station">Base Station</option>
+                                                            <option name="application" value="Network">Network</option>
+                                                            <option name="application" value="Data Center">Data Center</option>
+                                                            <option name="application" value="Lighting">Lighting</option>
+                                                            <option name="application" value="White Goods">White Goods</option>
+                                                            <option name="application" value="Industrial">Industrial</option>
+                                                            <option name="application" value="Security＆Safety">Security＆Safety</option>
+                                                            <option name="application" value="Others">Others</option>
+                                                        </select>
+                                                        {{-- <select class="scfDropList" id="id_application"
                                                             name="application">
                                                             <option selected="selected" value=""></option>
                                                             <?php
-                                                            foreach ($application as $key=>$val){
+                                                            // foreach ($application as $key=>$val){
                                                           ?>
                                                             <option name="application"
                                                                 value="{{ $val->id_application }}">
                                                                 {{ $val->application_name_en }}
                                                             </option>
                                                             <?php
-                                                        }
+                                                        // }
                                                         ?>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Primary Product Category <span>*</span></label>
-                                                        <select class="scfDropList" id="id_product_category"
+                                                        <select class="scfDropList" name="product_category">
+                                                            <option name="product_category" selected="selected" value=""></option>
+                                                            <option name="product_category" value="Resistors">Resistors</option>
+                                                            <option name="product_category" value="Inductors">Inductors</option>
+                                                            <option name="product_category" value="Sensors">Sensors</option>
+                                                            <option name="product_category" value="Fuses">Fuses</option>
+                                                            <option name="product_category" value="Varistors">Varistors</option>
+                                                            <option name="product_category" value="LTCC">LTCC</option>
+                                                        </select>
+                                                        {{-- <select class="scfDropList" id="id_product_category"
                                                             name="product_category">
                                                             <option selected="selected" value=""></option>
                                                             <?php
-                                                            foreach ($product_category as $key=>$val){
+                                                            // foreach ($product_category as $key=>$val){
                                                           ?>
                                                             <option name="product_category"
                                                                 value="{{ $val->id_product_category }}">
                                                                 {{ $val->product_category_en }}
                                                             </option>
                                                             <?php
-                                                        }
+                                                        // }
                                                         ?>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -187,19 +222,25 @@
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Postal / Zip Code<span>*</span></label>
-                                                        <select class="scfDropList" id="id_zip_code" name="zip_code">
+                                                        <select class="scfDropList" name="zip_code">
+                                                            <option name="zip_code" selected="selected" value=""></option>
+                                                            <option name="zip_code" value="	Samphanthawong">Samphanthawong</option>
+                                                            <option name="zip_code" value="Udon Thani">Udon Thani</option>
+                                                            <option name="zip_code" value="Nong Khai">Nong Khai</option>
+                                                        </select>
+                                                        {{-- <select class="scfDropList" id="id_zip_code" name="zip_code">
                                                             <option selected="selected" value=""></option>
                                                             <?php
-                                                            foreach ($zip_code as $key=>$val){
+                                                            // foreach ($zip_code as $key=>$val){
                                                           ?>
                                                             <option name="zip_code"
                                                                 value="{{ $val->id_zip_code }}">
                                                                 {{ $val->zip_code_en }}
                                                             </option>
                                                             <?php
-                                                        }
+                                                        // }
                                                         ?>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
                                                     <div class="col-md-12 scfSubmitButtonBorder">
                                                         <button type="submit" class="btn btn-24 scfSubmitButton">Send

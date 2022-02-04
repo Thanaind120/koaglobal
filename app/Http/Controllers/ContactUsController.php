@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ContactUsImport;
+use App\Exports\ContactUsExport;
 use App\Models\ContactUsModel;
 use App\Models\ApplicationModel;
 use App\Models\PostalModel;
@@ -22,20 +25,22 @@ class ContactUsController extends Controller
 
     public function index()
     {
-        $application = ApplicationModel::get();
-        $zip_code = PostalModel::get();
-        $product_category = ProductCategoryModel::get();
-        $type_of_iunqiry = TypeOfInquiryModel::get();
-        return view('layouts/frontend/contact', compact('application'), compact('zip_code'))->with('product_category',$product_category)->with('type_of_iunqiry',$type_of_iunqiry);
+        // $application = ApplicationModel::get();
+        // $zip_code = PostalModel::get();
+        // $product_category = ProductCategoryModel::get();
+        // $type_of_iunqiry = TypeOfInquiryModel::get();
+        // return view('layouts/frontend/contact', compact('application'), compact('zip_code'))->with('product_category',$product_category)->with('type_of_iunqiry',$type_of_iunqiry);
+        return view('layouts/frontend/contact');
     }
 
     public function contact_us()
     {
-        $contact = DB::table('contact_us')
-        ->leftJoin('application', 'contact_us.application', '=', 'application.id_application')
-        ->leftJoin('type_of_iunqiry', 'contact_us.type_inquiry', '=', 'type_of_iunqiry.id_iunqiry')
-        ->leftJoin('zip_code', 'contact_us.zip_code', '=', 'zip_code.id_zip_code')
-        ->leftJoin('product_category', 'contact_us.product_category', '=', 'product_category.id_product_category')->get();
+        // $contact = DB::table('contact_us')
+        // ->leftJoin('application', 'contact_us.application', '=', 'application.id_application')
+        // ->leftJoin('type_of_iunqiry', 'contact_us.type_inquiry', '=', 'type_of_iunqiry.id_iunqiry')
+        // ->leftJoin('zip_code', 'contact_us.zip_code', '=', 'zip_code.id_zip_code')
+        // ->leftJoin('product_category', 'contact_us.product_category', '=', 'product_category.id_product_category')->get();
+        $contact = ContactUsModel::get();
         return view('layouts/backend/contact')->with('contact',$contact);
     }
 
@@ -114,9 +119,10 @@ class ContactUsController extends Controller
         //
     }
 
-    public function excel(Request $request)
+    public function fileExport(Request $request)
     {
-        
+       
+        return Excel::download(new ContactUsExport, 'Contact-collection.xlsx');
     }
 
     /**

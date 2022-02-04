@@ -81,7 +81,7 @@
 
                                         <div class="mb-md">
 
-                                        <a href="{{ route('register.export') }}" class="btn btn-success"><img src="{{ asset('backend/assets/images/xls.png') }}" width="24" />&nbsp;&nbsp;Excel</a>
+                                        <a href="{{ route('register.file-export') }}" class="btn btn-success"><img src="{{ asset('backend/assets/images/xls.png') }}" width="24" />&nbsp;&nbsp;Excel</a>
 
                                         </div>
 

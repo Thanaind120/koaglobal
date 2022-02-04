@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,10 +69,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::delete('/backoffice/news/delete/{id}','NewsController@destroy'); //delete News data
     //** Register **//
     Route::get('/backoffice/register','RegisterController@register'); // get all News data  
-    Route::post('/backoffice/register/excel','RegisterController@excel')->name('register.export'); // export News data
+    Route::get('/backoffice/register/file-export', [RegisterController::class, 'fileExport'])->name('register.file-export'); // export Register data
     //** Contact Us **//
     Route::get('/backoffice/contact_us','ContactUsController@contact_us'); // get all Contact data  
-    Route::post('/backoffice/contact_us/excel','ContactUsController@excel')->name('contact.export'); // export Contact data
+    Route::get('/backoffice/contact_us/file-export', [ContactUsController::class, 'fileExport'])->name('contact.file-export'); // export Contact data
     //** News Release **//
     Route::get('/backoffice/news_release','MasterSetupController@news_release'); // get all News Release data  
     Route::get('/backoffice/news_release/create','MasterSetupController@create');  // create News Release view 

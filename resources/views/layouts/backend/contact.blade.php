@@ -81,7 +81,7 @@
 
                                         <div class="mb-md">
 
-                                        <a href="{{ route('contact.export') }}" class="btn btn-success"><img src="{{ asset('backend/assets/images/xls.png') }}" width="24" />&nbsp;&nbsp;Excel</a>
+                                        <a href="{{ route('contact.file-export') }}" class="btn btn-success"><img src="{{ asset('backend/assets/images/xls.png') }}" width="24" />&nbsp;&nbsp;Excel</a>
 
                                         </div>
 
@@ -125,11 +125,14 @@
 
                                         <tr class="gradeX">
 
-                                            <td class="center">{{ $val->type_iunqiry_en }}</td>
+                                            <td class="center">{{ $val->type_inquiry }}</td>
+                                            {{-- <td class="center">{{ $val->type_iunqiry_en }}</td> --}}
 
-                                            <td class="center">{{ $val->application_name_en }}</td>
+                                            <td class="center">{{ $val->application }}</td>
+                                            {{-- <td class="center">{{ $val->application_name_en }}</td> --}}
 
-                                            <td class="center">{{ $val->product_category_en }}</td>
+                                            <td class="center">{{ $val->product_category }}</td>
+                                            {{-- <td class="center">{{ $val->product_category_en }}</td> --}}
 
                                             <td class="center">{{ $val->product_message }}</td>
 
@@ -141,7 +144,8 @@
 
                                             <td class="center">{{ $val->area }}</td>
 
-                                            <td class="center">{{ $val->zip_code_en }}</td>
+                                            <td class="center">{{ $val->zip_code }}</td>
+                                            {{-- <td class="center">{{ $val->zip_code_en }}</td> --}}
 
                                         </tr>
 
