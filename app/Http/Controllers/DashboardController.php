@@ -6,11 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\RegisterModel;
+use App\Models\bannerModel;
+use App\Models\MasterSetupModel;
+use App\Models\NewsModel;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function __construct(){}
+
+    public function index(){
+        $banner = bannerModel::get();
+        $news = DB::table('news')
+        ->leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
+        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
+        return view('layouts/frontend/index')->with('banner', $banner)->with('News', $news);
+    }
     
     public function home(){
         

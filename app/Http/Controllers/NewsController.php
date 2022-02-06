@@ -12,6 +12,21 @@ use Carbon\Carbon;
 
 class NewsController extends Controller
 {
+
+    public function index(){
+        $news_release = MasterSetupModel::get();
+        $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
+        $news = DB::table('news')
+        ->leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
+        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
+        return view('layouts/frontend/news')->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
+    }
+
+    public function index000($id){
+        $news = NewsModel::find($id);
+        return view('layouts/frontend/news000')->with('news', $news);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,23 +61,38 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $image = $request->file('image');
-         if($image != ''){
-             $image_gen = 'news_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-             $image->move(public_path() . '/backend/assets/images/image_news', $image_gen);
-         }
+        if($image != ''){
+            $image_gen = 'news_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
+            $image->move(public_path() . '/backend/assets/images/image_news', $image_gen);
+            NewsModel::create([
+                'id_news_releases' => $request->id_news_releases,
+                'id_archives' => $request->id_archives,
+                'save_date' => $request->save_date,
+                'news_name_en' => $request->news_name_en,
+                'news_name_th' => $request->news_name_th,
+                'detail_en' => $request->detail_en,
+                'detail_th' => $request->detail_th,
+                'url' => $request->url,
+                'image' => $image_gen,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
 
-         NewsModel::create([
-            'id_news_releases' => $request->id_news_releases,
-            'id_archives' => $request->id_archives,
-            'save_date' => $request->save_date,
-            'news_name_en' => $request->news_name_en,
-            'news_name_th' => $request->news_name_th,
-            'detail_en' => $request->detail_en,
-            'detail_th' => $request->detail_th,
-            'image' => $image_gen,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
+        }else{
+            NewsModel::create([
+                'id_news_releases' => $request->id_news_releases,
+                'id_archives' => $request->id_archives,
+                'save_date' => $request->save_date,
+                'news_name_en' => $request->news_name_en,
+                'news_name_th' => $request->news_name_th,
+                'detail_en' => $request->detail_en,
+                'detail_th' => $request->detail_th,
+                'url' => $request->url,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+        
         return redirect('backoffice/news');
     }
 
@@ -109,18 +139,33 @@ class NewsController extends Controller
             if (file_exists($path_img) != '') {
                 unlink($path_img);
             }
-         }
-         NewsModel::find($id)->update([
-            'id_news_releases' => $request->id_news_releases,
-            'id_archives' => $request->id_archives,
-            'save_date' => $request->save_date,
-            'news_name_en' => $request->news_name_en,
-            'news_name_th' => $request->news_name_th,
-            'detail_en' => $request->detail_en,
-            'detail_th' => $request->detail_th,
-            'image' => $image_gen,
-            'updated_at' => Carbon::now()
-        ]);
+            NewsModel::find($id)->update([
+                'id_news_releases' => $request->id_news_releases,
+                'id_archives' => $request->id_archives,
+                'save_date' => $request->save_date,
+                'news_name_en' => $request->news_name_en,
+                'news_name_th' => $request->news_name_th,
+                'detail_en' => $request->detail_en,
+                'detail_th' => $request->detail_th,
+                'url' => $request->url,
+                'image' => $image_gen,
+                'updated_at' => Carbon::now()
+            
+            ]);
+        }else{
+            NewsModel::find($id)->update([
+                'id_news_releases' => $request->id_news_releases,
+                'id_archives' => $request->id_archives,
+                'save_date' => $request->save_date,
+                'news_name_en' => $request->news_name_en,
+                'news_name_th' => $request->news_name_th,
+                'detail_en' => $request->detail_en,
+                'detail_th' => $request->detail_th,
+                'url' => $request->url,
+                'updated_at' => Carbon::now()
+            
+            ]);
+        }
         return redirect('backoffice/news');
     }
 
@@ -133,11 +178,15 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $image = NewsModel::where('id_news', $id)->first()->image;
-		$path_img = public_path('backend/assets/images/image_news/'. $image);
-		if (file_exists($path_img) != '') {
-			unlink($path_img);
-		}
+        if($image != ''){
+            $path_img = public_path('backend/assets/images/image_news/'. $image);
+                if (file_exists($path_img) != '') {
+                    unlink($path_img);
+                }
+            NewsModel::find($id)->delete();
+        }else{
+            NewsModel::find($id)->delete();
+        }
         
-        NewsModel::find($id)->delete();
     }
 }

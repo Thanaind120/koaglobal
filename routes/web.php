@@ -18,7 +18,7 @@ use App\Http\Controllers\ContactUsController;
 
 //*---------------------------------------------------------------- FRONTEND ---------------------------------------------------------------*//
 
-Route::get('/', function () { return view('layouts/frontend/index'); });
+Route::get('/','DashboardController@index');
 
 Auth::routes(); // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -33,9 +33,9 @@ Route::get('/salesnetwork', function () { return view('layouts/frontend/salesnet
 Route::get('/contactus','ContactUsController@index');
 Route::post('/contactus','ContactUsController@store')->name('contactus.insert');
 
-Route::get('/news', function () { return view('layouts/frontend/news'); });
+Route::get('/news','NewsController@index');
 
-Route::get('/news000', function () { return view('layouts/frontend/news000'); });
+Route::get('/news000/{id}','NewsController@index000');
 
 Route::get('/register','RegisterController@index');
 Route::post('/register','RegisterController@store')->name('register.insert');

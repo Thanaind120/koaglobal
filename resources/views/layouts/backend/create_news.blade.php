@@ -132,8 +132,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="row">
+                                    <hr id="hide_one" style="display: none;">
+                                    <div class="row" id="hidden_one" style="display: none;">
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">News Content (TH) :</label>
@@ -148,7 +148,7 @@
                                         </div>
                                     </div>
                                     <p></p>
-                                    <div class="row">
+                                    <div class="row" id="hidden_two" style="display: none;">
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">News Content (EN) :</label>
@@ -162,8 +162,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="row">
+                                    <hr id="hide_two" style="display: none;">
+                                    <div class="row" id="hidden_three" style="display: none;">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Upload File :</label>
@@ -178,7 +178,7 @@
                                                                 <span class="fileupload-exists">Change</span>
                                                                 <span class="fileupload-new">Select file</span>
                                                                 <input type="file" accept="image/*" id="img"
-                                                                    name="image" required />
+                                                                    name="image" />
                                                             </span>
                                                             <br>
                                                             <br><img
@@ -187,6 +187,18 @@
                                                                 width="40%">
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr id="hide_three" style="display: none;">
+                                    <div class="row" id="hidden_four" style="display: none;">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="inputDefault">Url
+                                                    :</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control" name="url" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -213,6 +225,35 @@
     </section>
     @include('layouts.backend.inc_footer');
     <script>
+
+        $("#id_news_release").change(function () {
+            var x = document.getElementById("id_news_release").value;
+            console.log(x);
+            if(x == 3){
+                $('#hidden_one').show();
+                $('#hidden_two').show();
+                $('#hide_one').show();
+            }else{
+                $('#hidden_one').hide();
+                $('#hidden_two').hide();
+                $('#hide_one').hide();
+            }
+            if(x == 2){
+                $('#hidden_three').show();
+                $('#hide_two').show();
+            }else{
+                $('#hidden_three').hide();
+                $('#hide_two').hide();
+            }
+            if(x == 1){
+                $('#hidden_four').show();
+                $('#hide_three').show();
+            }else{
+                $('#hidden_four').hide();
+                $('#hide_three').hide();
+            }
+        });
+
         var _URL = window.URL || window.webkitURL;
 
         $("#img").change(function () {

@@ -97,94 +97,15 @@
                                     <div class="l-news">
 
                                         <ul>
-
+                                            <?php foreach ($news as $key=>$val){ ?>
                                             <li>
-                                                <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                    <span class="_day">2021.07.13</span>
-                                                    <span class="_category _category-03">Products</span>
-                                                    <span class="_title">High heat resistant resistors HSG73P series has
-                                                        now added Sn plating
-                                                        type</span>
+                                                <a class="card-news" href="{{ ($val->url != '')? $val->url : url('/news000/'.$val->id_news) }}" target="_blank">
+                                                    <span class="_day">{{ $val->save_date }}</span>
+                                                    <span class="_category _category-03">{{ $val->news_release_topics_en }}</span>
+                                                    <span class="_title">{{ $val->news_name_en }}</span>
                                                 </a>
                                             </li>
-
-                                            <li>
-                                                <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                    <span class="_day">2021.03.03</span>
-                                                    <span class="_category _category-03">Products</span>
-                                                    <span class="_title">New Flat Chip Resistors HSG73P series - High
-                                                        Temperature Resistance up to
-                                                        200 deg. C </span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="card-news" href="javascript:void(0)" target="_self">
-                                                    <span class="_day">2020.10.12</span>
-                                                    <span class="_category _category-01">Notices Events</span>
-                                                    <span class="_title">
-                                                        <div style="text-align: left;">
-                                                            <span style="color: #366092;">
-                                                                KOA to Exhibit at [CEATEC 2020 ONLINE] from 20-23 Oct
-                                                                2020.<strong><br>
-                                                                </strong>
-                                                            </span>
-                                                        </div>
-                                                    </span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="card-news" href="news000.html" target="_self">
-                                                    <span class="_day">2020.07.30</span>
-                                                    <span class="_category _category-01">Notices Events</span>
-                                                    <span class="_title">
-                                                        <div style="text-align: left;">
-                                                            <p><span
-                                                                    style="font-family: tahoma; font-size: 14px; color: #c00000;">Relocation
-                                                                    of Koa
-                                                                    Denko (S) Pte. Ltd. Thailand Representative Office
-                                                                    &amp; Contact Number</span>
-                                                            </p>
-                                                        </div>
-                                                        <div id="gtx-trans"
-                                                            style="position: absolute; left: -118px; top: -25.0119px;">
-                                                            <div class="gtx-trans-icon">&nbsp;</div>
-                                                        </div>
-                                                    </span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                    <span class="_day">2020.07.07</span>
-                                                    <span class="_category _category-03">Products</span>
-                                                    <span class="_title">New Voltage Divider RK92D series(SIP Type) for
-                                                        High Voltage Circuit up to
-                                                        4kV</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                    <span class="_day">2020.06.11</span>
-                                                    <span class="_category _category-03">Products</span>
-                                                    <span class="_title">Small Type Platinum Thin Film Thermal Sensor
-                                                        SDT101 series offers 1kΩ
-                                                    </span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                    <span class="_day">2020.05.25</span>
-                                                    <span class="_category _category-03">Products</span>
-                                                    <span class="_title">Current Sense Power Shunt Resistors HS Series
-                                                        enables 50W(1000A) by
-                                                        50μΩ</span>
-                                                </a>
-                                            </li>
-
+                                            <?php } ?>
                                             <li>
                                                 <a class="card-news" href="javascript:void(0)" target="_self">
                                                     <span class="_day">2020.04.28</span>
@@ -223,11 +144,15 @@
                             </a>
                             <ul class="l-localNav wrap-acc">
 
-                                <li><a href="javascript:void(0)" class="">Product News</a></li>
+                                <?php foreach ($news_release as $key=>$val){ ?>
 
-                                <li><a href="javascript:void(0)" class="">Event・Information</a></li>
+                                <li><a href="javascript:void(0)" class="">{{ $val->news_release_name_en }}</a></li>
 
-                                <li><a href="javascript:void(0)" class="">IR News</a></li>
+                                <?php } ?>
+
+                                {{-- <li><a href="javascript:void(0)" class="">Event・Information</a></li> --}}
+
+                                {{-- <li><a href="javascript:void(0)" class="">IR News</a></li> --}}
 
                             </ul>
 
@@ -238,9 +163,13 @@
                             </a>
                             <ul class="l-localNav wrap-acc">
 
-                                <li><a href="javascript:void(0)" class="is-active">2021</a></li>
+                                <?php foreach ($archive as $key=>$val){ ?>
 
-                                <li><a href="javascript:void(0)" class="">2020</a></li>
+                                <li><a href="javascript:void(0)">{{ $val->year }}</a></li>
+
+                                <?php } ?>
+
+                                {{-- <li><a href="javascript:void(0)" class="is-active">2020</a></li>
 
                                 <li><a href="javascript:void(0)" class="">2019</a></li>
 
@@ -250,7 +179,7 @@
 
                                 <li><a href="javascript:void(0)" class="">2016</a></li>
 
-                                <li><a href="javascript:void(0)" class="">2015</a></li>
+                                <li><a href="javascript:void(0)" class="">2015</a></li> --}}
 
                             </ul>
 

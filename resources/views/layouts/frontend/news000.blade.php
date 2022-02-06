@@ -103,10 +103,13 @@
 
 
                                         <h1>
-                                            <div style="text-align: left;">
+                                            {{-- <div style="text-align: left;">
                                                 <p><span style="font-family: tahoma; font-size: 14px; color: #c00000;">Relocation
                                                         of Koa Denko (S) Pte. Ltd.
                                                         Thailand Representative Office &amp; Contact Number</span></p>
+                                            </div> --}}
+                                            <div style="text-align: left;">
+                                                <p><span style="font-family: tahoma; font-size: 14px;">{{ $news->news_name_en }}</span></p>
                                             </div>
                                             <div id="gtx-trans"
                                                 style="position: absolute; left: -118px; top: -25.0119px;">
@@ -114,9 +117,10 @@
                                             </div>
                                         </h1>
                                         <p class="_day">
-                                            2020.07.30
+                                            {{ $news->save_date }}
                                         </p>
-                                        <img src="{{ asset('frontend/img/imgnews100.png') }}" alt="">
+                                        <img src="{{ asset('backend/assets/images/image_news/'.$news->image) }}" alt="">
+                                        {{-- <img src="{{ asset('frontend/img/imgnews100.png') }}" alt=""> --}}
 
 
 

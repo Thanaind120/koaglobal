@@ -40,34 +40,12 @@
             <div class="slider-wrapper">
                 <div class="flexslider clearfix">
                     <ul class="slides">
+                        <?php foreach ($banner as $key=>$val){ ?>
                         <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('frontend/img/slider/top_slide_pc_01.jpg' ) }}" alt="">
-                            <img class="visible-xs" src="{{ asset('frontend/img/slider/SP_uniqueness.jpg' ) }}" alt="">
+                            <img class="hidden-xs" src="{{ asset('backend/assets/images/banner/'.$val->image_banner) }}" alt="">
+                            <img class="visible-xs" src="{{ asset('backend/assets/images/banner/'.$val->image_banner2) }}" alt="">
                         </li>
-                        <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('frontend/img/slider/top_slide_pc_02.jpg' ) }}" alt="">
-                            <img class="visible-xs" src="{{ asset('frontend/img/slider/SP_corporate.jpg' ) }}" alt="">
-                        </li>
-                        <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('frontend/img/slider/top_slide_pc_03.jpg' ) }}" alt="">
-                            <img class="visible-xs" src="{{ asset('frontend/img/slider/SP_technology.jpg' ) }}" alt="">
-                        </li>
-                        <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('frontend/img/slider/top_slide_pc_0402.jpg' ) }}"
-                                alt="">
-                            <img class="visible-xs" src="{{ asset('frontend/img/slider/SP_powerShunts-banner.png' ) }}"
-                                alt="">
-                        </li>
-                        <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('frontend/img/slider/top_slide_pc_0502.jpg' ) }}"
-                                alt="">
-                            <img class="visible-xs"
-                                src="{{ asset('frontend/img/slider/SP_increased-power-ratings.png' ) }}" alt="">
-                        </li>
-                        <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('frontend/img/slider/top_slide_pc_07.jpg' ) }}" alt="">
-                            <img class="visible-xs" src="{{ asset('frontend/img/slider/SP_uniqueness.jpg' ) }}" alt="">
-                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -216,103 +194,16 @@
                                     </h2>
                                     <div>
                                         <div class="l-news">
-
                                             <ul>
-
+                                                <?php foreach ($News as $key=>$val){ ?>
                                                 <li>
-                                                    <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                        <span class="_day">2021.07.13</span>
-                                                        <span class="_category _category-03">Products</span>
-                                                        <span class="_title">High heat resistant resistors HSG73P series
-                                                            has
-                                                            now added Sn plating
-                                                            type</span>
+                                                    <a class="card-news" href="{{ ($val->url != '')? $val->url : url('/news000') }}" target="_blank">
+                                                        <span class="_day">{{ $val->save_date }}</span>
+                                                        <span class="_category _category-03">{{ $val->news_release_topics_en }}</span>
+                                                        <span class="_title">{{ $val->news_name_en }}</span>
                                                     </a>
                                                 </li>
-
-                                                <li>
-                                                    <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                        <span class="_day">2021.03.03</span>
-                                                        <span class="_category _category-03">Products</span>
-                                                        <span class="_title">New Flat Chip Resistors HSG73P series -
-                                                            High
-                                                            Temperature Resistance up to
-                                                            200 deg. C </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a class="card-news" href="javascript:void(0)" target="_self">
-                                                        <span class="_day">2020.10.12</span>
-                                                        <span class="_category _category-01">Notices Events</span>
-                                                        <span class="_title">
-                                                            <div style="text-align: left;">
-                                                                <span style="color: #366092;">
-                                                                    KOA to Exhibit at [CEATEC 2020 ONLINE] from 20-23
-                                                                    Oct
-                                                                    2020.<strong><br>
-                                                                    </strong>
-                                                                </span>
-                                                            </div>
-                                                        </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a class="card-news" href="{{ url('/news000')}}" target="_self">
-                                                        <span class="_day">2020.07.30</span>
-                                                        <span class="_category _category-01">Notices Events</span>
-                                                        <span class="_title">
-                                                            <div style="text-align: left;">
-                                                                <p><span
-                                                                        style="font-family: tahoma; font-size: 14px; color: #c00000;">Relocation
-                                                                        of Koa
-                                                                        Denko (S) Pte. Ltd. Thailand Representative
-                                                                        Office
-                                                                        &amp; Contact Number</span>
-                                                                </p>
-                                                            </div>
-                                                            <div id="gtx-trans"
-                                                                style="position: absolute; left: -118px; top: -25.0119px;">
-                                                                <div class="gtx-trans-icon">&nbsp;</div>
-                                                            </div>
-                                                        </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                        <span class="_day">2020.07.07</span>
-                                                        <span class="_category _category-03">Products</span>
-                                                        <span class="_title">New Voltage Divider RK92D series(SIP Type)
-                                                            for
-                                                            High Voltage Circuit up to
-                                                            4kV</span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                        <span class="_day">2020.06.11</span>
-                                                        <span class="_category _category-03">Products</span>
-                                                        <span class="_title">Small Type Platinum Thin Film Thermal
-                                                            Sensor
-                                                            SDT101 series offers 1kΩ
-                                                        </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a class="card-news" href="javascript:void(0)" target="_blank">
-                                                        <span class="_day">2020.05.25</span>
-                                                        <span class="_category _category-03">Products</span>
-                                                        <span class="_title">Current Sense Power Shunt Resistors HS
-                                                            Series
-                                                            enables 50W(1000A) by
-                                                            50μΩ</span>
-                                                    </a>
-                                                </li>
-
+                                                <?php } ?>
                                                 <li>
                                                     <a class="card-news" href="javascript:void(0)" target="_self">
                                                         <span class="_day">2020.04.28</span>
@@ -363,10 +254,8 @@
                                 <div class="l-searchBox">
                                     <p><strong>Search by Product Series</strong></p>
                                     <div id="searchBoxName">
-                                        <input id="SearchWord" name="SearchWord" type="text"
-                                            placeholder="Input text here">
-                                        <input id="searchBtnName" type="image"
-                                            src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
+                                        <input type="text" id="SearchWord" name="SearchWord" placeholder="Input text here">
+                                        <input type="image" id="searchBtnName" name="searchBtnName" src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
                                     </div>
                                     <!-- <div id="searchBoxName">
                                     <input id="SearchWord" name="SearchWord" type="text" onkeydown="checkEnter(event,&#39;nms&#39;);"
@@ -378,9 +267,8 @@
                                 <div class="l-searchBox">
                                     <p><strong>Cross Reference (Resistors)</strong></p>
                                     <div id="searchBoxCross">
-                                        <input id="select" name="select" type="text" placeholder="Input text here">
-                                        <input id="searchBtnCross" type="image"
-                                            src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
+                                        <input type="text" id="select" name="select" placeholder="Input text here">
+                                        <input type="image" id="searchBtnCross" name="searchBtnCross" src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
                                     </div>
                                     <!-- <div id="searchBoxCross">
                                     <input id="select" name="select" type="text" onkeydown="checkEnter(event,&#39;crs&#39;);"
@@ -422,7 +310,24 @@
     <!-- Footer Scripts
         ============================================= -->
     @include('layouts.frontend.inc_script');
+    <script type="text/javascript">    
+        $('#searchBtnName').click(function(){
+            $keyword =  $('#SearchWord').val();
+            $url = "https://www.koaglobal.com/Parametric/public/ParametricSearch.aspx?sc_lang=en&amp;SearchWord=" + $keyword;
+            window.open($url, "_blank");
+            
+           
+        });
+    </script>
+    <script type="text/javascript">
+        $('#searchBtnCross').click(function(){
+                $keyword = $('#select').val();
+                $url = "https://www.koaglobal.com/CrossReference/crs.aspx?sc_lang=en&amp;condition=" + $keyword;
+                window.open($url, "_blank");
+        });
+    </script>
     <!-- Footer Scripts END -->
 </body>
+
 
 </html>
