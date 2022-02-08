@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use App\Mail\register;
 use App\Imports\RegisterImport;
 use App\Exports\RegisterExport;
 use App\Models\RegisterModel;
@@ -52,6 +55,19 @@ class RegisterController extends Controller
         $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
         $time = date('H:i:s');
         $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
+        $data_insert = [
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'title_name' => $request->title_name,
+            'department_name' => $request->department_name,
+            'organization_name' => $request->organization_name,
+            'location_name' => $request->location_name,
+            'product_message' => $request->product_message,
+            
+        ];
+        Mail::send(new register($data_insert));
         RegisterModel::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
@@ -68,7 +84,8 @@ class RegisterController extends Controller
             'created_at' => Carbon::now(),
             'update_at' => Carbon::now(),
         ]);
-        return redirect('register');
+        return redirect(Session::get('lang')."/register");
+        // return redirect('register');
     }
 
     /**

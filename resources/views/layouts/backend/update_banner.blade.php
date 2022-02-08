@@ -62,7 +62,7 @@
                                                                     name="image_banner" required/>
                                                             </span>
                                                             <br>
-                                                            <br><img src="{{ asset('backend/assets/images/banner/'.$ban->image_banner) }}"
+                                                            <br><img src="{{ ($ban->image_banner != '')? asset('backend/assets/images/banner/'.$ban->image_banner) : asset('backend/assets/images/banner/nopic.jpg') }}"
                                                                 class="rounded" id="images" alt="Cinque Terre"
                                                                 width="40%">
                                                         </div>
@@ -90,7 +90,7 @@
                                                                     name="image_banner2" required/>
                                                             </span>
                                                             <br>
-                                                            <br><img src="{{ asset('backend/assets/images/banner/'.$ban->image_banner2) }}"
+                                                            <br><img src="{{ ($ban->image_banner2 != '')? asset('backend/assets/images/banner/'.$ban->image_banner2) : asset('backend/assets/images/banner/nopic.jpg') }}"
                                                                 class="rounded" id="images2" alt="Cinque Terre"
                                                                 width="40%">
                                                         </div>

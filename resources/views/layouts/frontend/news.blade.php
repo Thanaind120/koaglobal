@@ -99,14 +99,57 @@
                                         <ul>
                                             <?php foreach ($news as $key=>$val){ ?>
                                             <li>
-                                                <a class="card-news" href="{{ ($val->url != '')? $val->url : url('/news000/'.$val->id_news) }}" target="_blank">
+                                                <?php if ($val->id_news_releases == 1) {?>
+                                                <a class="card-news"
+                                                    href="{{ ($val->url != '')? $val->url : url('/news000/'.$val->id_news) }}"
+                                                    target="_blank">
                                                     <span class="_day">{{ $val->save_date }}</span>
-                                                    <span class="_category _category-03">{{ $val->news_release_topics_en }}</span>
+                                                    <span
+                                                        class="_category _category-03">{{ $val->news_release_topics_en }}</span>
                                                     <span class="_title">{{ $val->news_name_en }}</span>
                                                 </a>
+                                                <?php } ?>
+                                                <?php if ($val->id_news_releases == 2){ ?>
+                                                <?php if($val->image != ''){?>
+                                                <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                    target="_self">
+                                                    <span class="_day">{{ $val->save_date }}</span>
+                                                    <span
+                                                        class="_category _category-01">{{ $val->news_release_topics_en }}</span>
+                                                    <span class="_title">
+                                                        <div style="text-align: left;"><span
+                                                                style="color: #c00000;"><span
+                                                                    style="font-family: tahoma;">{{ $val->news_name_en }}</span><strong><span
+                                                                        style="font-family: tahoma;"></span><br>
+                                                                </strong></span></div>
+                                                        <div id="gtx-trans"
+                                                            style="position: absolute; left: -118px; top: -25.0119px;">
+                                                            <div class="gtx-trans-icon">&nbsp;</div>
+                                                        </div>
+                                                    </span>
+                                                </a>
+                                                <?php }else{ ?>
+                                                <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                    target="_self">
+                                                    <span class="_day">{{ $val->save_date }}</span>
+                                                    <span
+                                                        class="_category _category-01">{{ $val->news_release_topics_en }}</span>
+                                                    <span class="_title">{{ $val->news_name_en }}</span>
+                                                </a>
+                                                <?php } ?>
+                                                <?php } ?>
+                                                <?php if ($val->id_news_releases == 3){ ?>
+                                                <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                    target="_self">
+                                                    <span class="_day">{{ $val->save_date }}</span>
+                                                    <span
+                                                        class="_category _category-04">{{ $val->news_release_topics_en }}</span>
+                                                    <span class="_title">{{ $val->news_name_en }}</span>
+                                                </a>
+                                                <?php } ?>
                                             </li>
                                             <?php } ?>
-                                            <li>
+                                            {{-- <li>
                                                 <a class="card-news" href="javascript:void(0)" target="_self">
                                                     <span class="_day">2020.04.28</span>
                                                     <span class="_category _category-01">Notices Events</span>
@@ -124,8 +167,7 @@
                                                         </div>
                                                     </span>
                                                 </a>
-                                            </li>
-
+                                            </li> --}}
                                         </ul>
                                     </div>
                                 </div>

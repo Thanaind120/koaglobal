@@ -42,8 +42,10 @@
                     <ul class="slides">
                         <?php foreach ($banner as $key=>$val){ ?>
                         <li class="slide-item clearfix">
-                            <img class="hidden-xs" src="{{ asset('backend/assets/images/banner/'.$val->image_banner) }}" alt="">
-                            <img class="visible-xs" src="{{ asset('backend/assets/images/banner/'.$val->image_banner2) }}" alt="">
+                            <img class="hidden-xs" src="{{ asset('backend/assets/images/banner/'.$val->image_banner) }}"
+                                alt="">
+                            <img class="visible-xs"
+                                src="{{ asset('backend/assets/images/banner/'.$val->image_banner2) }}" alt="">
                         </li>
                         <?php } ?>
                     </ul>
@@ -56,13 +58,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a id="frame_0_main_1_pickup_0_HomePickupLink" class="l-pickup" href="javascript:void(0)"
+                            <a id="frame_0_main_1_pickup_0_HomePickupLink" class="l-pickup" href="https://www.koaglobal.com/app?sc_lang=en"
                                 target="_blank">
                                 <h2>
                                     PICKUP <br>APPLICATIONS<br>
                                 </h2>
                                 <p class="_image">
-                                    <img src="{{ asset('frontend/./img/top_pickup_01.png' ) }}" alt="" style="
+                                    <img src="{{ asset('frontend/./img/Applications01.png' ) }}" alt="" style="
                                 max-height: 100px;">
                                 </p>
                                 <p class="_outline">
@@ -197,14 +199,57 @@
                                             <ul>
                                                 <?php foreach ($News as $key=>$val){ ?>
                                                 <li>
-                                                    <a class="card-news" href="{{ ($val->url != '')? $val->url : url('/news000') }}" target="_blank">
+                                                    <?php if ($val->id_news_releases == 1) {?>
+                                                    <a class="card-news"
+                                                        href="{{ ($val->url != '')? $val->url : url('/news000') }}"
+                                                        target="_blank">
                                                         <span class="_day">{{ $val->save_date }}</span>
-                                                        <span class="_category _category-03">{{ $val->news_release_topics_en }}</span>
+                                                        <span
+                                                            class="_category _category-03">{{ $val->news_release_topics_en }}</span>
                                                         <span class="_title">{{ $val->news_name_en }}</span>
+                                                        <?php } ?>
+                                                        <?php if ($val->id_news_releases == 2) {?>
+                                                        <?php if($val->image != ''){?>
+                                                        <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                            target="_self">
+                                                            <span class="_day">{{ $val->save_date }}</span>
+                                                            <span
+                                                                class="_category _category-01">{{ $val->news_release_topics_en }}</span>
+                                                            <span class="_title">
+                                                                <div style="text-align: left;"><span
+                                                                        style="color: #c00000;"><span
+                                                                            style="font-family: tahoma;">{{ $val->news_name_en }}</span><strong><span
+                                                                                style="font-family: tahoma;"></span><br>
+                                                                        </strong></span></div>
+                                                                <div id="gtx-trans"
+                                                                    style="position: absolute; left: -118px; top: -25.0119px;">
+                                                                    <div class="gtx-trans-icon">&nbsp;</div>
+                                                                </div>
+                                                            </span>
+                                                        </a>
+                                                        <?php }else{ ?>
+                                                        <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                            target="_self">
+                                                            <span class="_day">{{ $val->save_date }}</span>
+                                                            <span
+                                                                class="_category _category-01">{{ $val->news_release_topics_en }}</span>
+                                                            <span class="_title">{{ $val->news_name_en }}</span>
+                                                        </a>
+                                                        <?php } ?>
+                                                        <?php } ?>
+                                                        <?php if ($val->id_news_releases == 3) {?>
+                                                        <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                            target="_self">
+                                                            <span class="_day">{{ $val->save_date }}</span>
+                                                            <span
+                                                                class="_category _category-04">{{ $val->news_release_topics_en }}</span>
+                                                            <span class="_title">{{ $val->news_name_en }}</span>
+                                                        </a>
+                                                        <?php } ?>
                                                     </a>
                                                 </li>
                                                 <?php } ?>
-                                                <li>
+                                                {{-- <li>
                                                     <a class="card-news" href="javascript:void(0)" target="_self">
                                                         <span class="_day">2020.04.28</span>
                                                         <span class="_category _category-01">Notices Events</span>
@@ -223,8 +268,7 @@
                                                             </div>
                                                         </span>
                                                     </a>
-                                                </li>
-
+                                                </li> --}}
                                             </ul>
 
                                             <a href="{{ url('news') }}" class="btn-ghost">
@@ -254,8 +298,10 @@
                                 <div class="l-searchBox">
                                     <p><strong>Search by Product Series</strong></p>
                                     <div id="searchBoxName">
-                                        <input type="text" id="SearchWord" name="SearchWord" placeholder="Input text here">
-                                        <input type="image" id="searchBtnName" name="searchBtnName" src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
+                                        <input type="text" id="SearchWord" name="SearchWord"
+                                            placeholder="Input text here">
+                                        <input type="image" id="searchBtnName" name="searchBtnName"
+                                            src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
                                     </div>
                                     <!-- <div id="searchBoxName">
                                     <input id="SearchWord" name="SearchWord" type="text" onkeydown="checkEnter(event,&#39;nms&#39;);"
@@ -268,7 +314,8 @@
                                     <p><strong>Cross Reference (Resistors)</strong></p>
                                     <div id="searchBoxCross">
                                         <input type="text" id="select" name="select" placeholder="Input text here">
-                                        <input type="image" id="searchBtnCross" name="searchBtnCross" src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
+                                        <input type="image" id="searchBtnCross" name="searchBtnCross"
+                                            src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
                                     </div>
                                     <!-- <div id="searchBoxCross">
                                     <input id="select" name="select" type="text" onkeydown="checkEnter(event,&#39;crs&#39;);"
@@ -285,11 +332,13 @@
                             <div class="l-bnr" style="display: none;">
                                 <div>
                                     <p class="img-bnr">
-                                        <img alt="" src="{{ asset('frontend/./img/ID6_Corporation-trust.png') }}" width="250" height="150">
+                                        <img alt="" src="{{ asset('frontend/./img/ID6_Corporation-trust.png') }}"
+                                            width="250" height="150">
                                     </p>
                                     <p class="img-bnr">
-                                        <img alt="" src="{{ asset('frontend/./img/ID6_Corporation-koaNoPhilosophy.png') }}" width="250"
-                                            height="150">
+                                        <img alt=""
+                                            src="{{ asset('frontend/./img/ID6_Corporation-koaNoPhilosophy.png') }}"
+                                            width="250" height="150">
                                     </p>
                                 </div>
                             </div>
@@ -310,21 +359,25 @@
     <!-- Footer Scripts
         ============================================= -->
     @include('layouts.frontend.inc_script');
-    <script type="text/javascript">    
-        $('#searchBtnName').click(function(){
-            $keyword =  $('#SearchWord').val();
-            $url = "https://www.koaglobal.com/Parametric/public/ParametricSearch.aspx?sc_lang=en&amp;SearchWord=" + $keyword;
+    <script type="text/javascript">
+        $('#searchBtnName').click(function () {
+            $keyword = $('#SearchWord').val();
+            $url =
+                "https://www.koaglobal.com/Parametric/public/ParametricSearch.aspx?sc_lang=en&amp;SearchWord=" +
+                $keyword;
             window.open($url, "_blank");
-            
-           
+
+
         });
+
     </script>
     <script type="text/javascript">
-        $('#searchBtnCross').click(function(){
-                $keyword = $('#select').val();
-                $url = "https://www.koaglobal.com/CrossReference/crs.aspx?sc_lang=en&amp;condition=" + $keyword;
-                window.open($url, "_blank");
+        $('#searchBtnCross').click(function () {
+            $keyword = $('#select').val();
+            $url = "https://www.koaglobal.com/CrossReference/crs.aspx?sc_lang=en&amp;condition=" + $keyword;
+            window.open($url, "_blank");
         });
+
     </script>
     <!-- Footer Scripts END -->
 </body>

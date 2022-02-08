@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use App\Imports\ContactUsImport;
+use App\Mail\contactus;
 use App\Exports\ContactUsExport;
 use App\Models\ContactUsModel;
 use App\Models\ApplicationModel;
@@ -66,6 +69,20 @@ class ContactUsController extends Controller
         $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
         $time = date('H:i:s');
         $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
+        $data_insert = [
+            'type_inquiry' => $request->type_inquiry,
+            'application' => $request->application,
+            'product_category' => $request->product_category,
+            'product_message' => $request->product_message,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'company_name' => $request->company_name,
+            'area' => $request->area,
+            'zip_code' => $request->zip_code,
+            
+        ];
+        Mail::send(new contactus($data_insert));
         ContactUsModel::create([
             'type_inquiry' => $request->type_inquiry,
             'application' => $request->application,
@@ -82,7 +99,8 @@ class ContactUsController extends Controller
             'created_at' => Carbon::now(),
             'update_at' => Carbon::now(),
         ]);
-        return redirect('contactus');
+        return redirect(Session::get('lang')."/contactus");
+        // return redirect('/contactus');
     }
 
     /**
@@ -135,4 +153,5 @@ class ContactUsController extends Controller
     {
         //
     }
+
 }

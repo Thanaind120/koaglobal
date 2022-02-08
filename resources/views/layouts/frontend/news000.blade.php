@@ -76,7 +76,7 @@
                             NEWS
                         </li>
                         <li>
-                            Notices Events
+                            {{ $news->news_release_topics_en }}
                         </li>
                     </ul>
 
@@ -94,7 +94,7 @@
                             <div class="fxb-news ">
 
                                 <h2 class="headline-h4">
-                                    NEWS
+                                    NEWS : {{ $news->news_release_topics_en }}
                                 </h2>
                                 <!-- content NEWS START
                                 ============================================= -->
@@ -103,14 +103,21 @@
 
 
                                         <h1>
-                                            {{-- <div style="text-align: left;">
-                                                <p><span style="font-family: tahoma; font-size: 14px; color: #c00000;">Relocation
-                                                        of Koa Denko (S) Pte. Ltd.
-                                                        Thailand Representative Office &amp; Contact Number</span></p>
-                                            </div> --}}
-                                            <div style="text-align: left;">
-                                                <p><span style="font-family: tahoma; font-size: 14px;">{{ $news->news_name_en }}</span></p>
-                                            </div>
+                                            <?php if ($news->id_news_releases == 2){ ?>
+                                                <?php if($news->image != ''){ ?>
+                                                    <div style="text-align: left;">
+                                                        <p><span style="font-family: tahoma; font-size: 14px; color: #c00000;">{{ $news->news_name_en }}</span></p>
+                                                    </div>
+                                                <?php }else{ ?>
+                                                    <div style="text-align: left;">
+                                                        <p><span style="font-family: tahoma; font-size: 14px;">{{ $news->news_name_en }}</span></p>
+                                                    </div>
+                                                <?php } ?>
+                                            <?php }else{ ?>
+                                                <div style="text-align: left;">
+                                                    <p><span style="font-family: tahoma; font-size: 14px;">{{ $news->news_name_en }}</span></p>
+                                                </div>
+                                            <?php } ?>
                                             <div id="gtx-trans"
                                                 style="position: absolute; left: -118px; top: -25.0119px;">
                                                 <div class="gtx-trans-icon">&nbsp;</div>
@@ -118,6 +125,10 @@
                                         </h1>
                                         <p class="_day">
                                             {{ $news->save_date }}
+                                        </p>
+                                        <p class="_detail">
+                                            {{ $news->detail_en }}
+                                            
                                         </p>
                                         <img src="{{ asset('backend/assets/images/image_news/'.$news->image) }}" alt="">
                                         {{-- <img src="{{ asset('frontend/img/imgnews100.png') }}" alt=""> --}}

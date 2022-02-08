@@ -123,11 +123,11 @@
                                             <td class="center" width="10%">{{ $i }}</td>
 
                                             <td class="center"><img
-                                                    src="{{ asset('backend/assets/images/banner/'.$val->image_banner) }}"
+                                                    src="{{ ($val->image_banner != '')? asset('backend/assets/images/banner/'.$val->image_banner) : asset('backend/assets/images/banner/nopic.jpg') }}"
                                                     class="img-slide" width="200"></td>
 
                                             <td class="center"><img
-                                                    src="{{ asset('backend/assets/images/banner/'.$val->image_banner2) }}"
+                                                    src="{{ ($val->image_banner != '')? asset('backend/assets/images/banner/'.$val->image_banner2) : asset('backend/assets/images/banner/nopic.jpg') }}"
                                                     class="img-slide" width="200"></td>
 
                                             <td class="center" width="25%">

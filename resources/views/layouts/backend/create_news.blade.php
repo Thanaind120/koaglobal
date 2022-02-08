@@ -132,87 +132,101 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr id="hide_one" style="display: none;">
-                                    <div class="row" id="hidden_one" style="display: none;">
+                                    {{-- <hr id="hide_one" style="display: none;"> --}}
+                                    <hr>
+                                    {{-- <div class="row" id="hidden_one" style="display: none;"> --}}
+                                    <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">News Content (TH) :</label>
                                                 <div class="col-md-7">
-                                                    <textarea type="text" id="editor1" rows="2" class="form-control"
+                                                    {{-- <textarea type="text" id="editor1" rows="2" class="form-control"
                                                         name="detail_th" data-toggle="tooltip" data-trigger="hover"
-                                                        data-placement="top"
-                                                        data-title="detail_th">
+                                                        data-placement="top" data-title="detail_th">
+                                                    </textarea> --}}
+                                                    <textarea type="text" rows="2" class="summernote" name="detail_th"
+                                                        data-title="detail_th" data-plugin-summernote
+                                                        data-plugin-options='{ "height": 180, "codemirror": { "theme": "ambiance" } }'>
                                                     </textarea>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p></p>
-                                    <div class="row" id="hidden_two" style="display: none;">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">News Content (EN) :</label>
-                                                <div class="col-md-7">
-                                                    <textarea type="text" id="editor2" rows="2" class="form-control"
-                                                        name="detail_en" data-toggle="tooltip" data-trigger="hover"
-                                                        data-placement="top"
-                                                        data-title="detail_en">
-                                                    </textarea>
+                                        <p></p>
+                                        {{-- <div class="row" id="hidden_two" style="display: none;"> --}}
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">News Content (EN) :</label>
+                                                    <div class="col-md-7">
+                                                        {{-- <textarea type="text" id="editor2" rows="2" class="form-control"
+                                                            name="detail_en" data-toggle="tooltip" data-trigger="hover"
+                                                            data-placement="top" data-title="detail_en">
+                                                    </textarea> --}}
+                                                        <textarea type="text" rows="2" class="summernote"
+                                                            name="detail_en" data-title="detail_en"
+                                                            data-plugin-summernote
+                                                            data-plugin-options='{ "height": 180, "codemirror": { "theme": "ambiance" } }'>
+                                                        </textarea>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <hr id="hide_two" style="display: none;">
-                                    <div class="row" id="hidden_three" style="display: none;">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Upload File :</label>
-                                                <div class="col-md-6">
-                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                        <div class="input-append">
-                                                            <div class="uneditable-input">
-                                                                <i class="fa fa-file fileupload-exists"></i>
-                                                                <span class="fileupload-preview"></span>
+                                        {{-- <hr id="hide_two" style="display: none;"> --}}
+                                        <hr>
+                                        {{-- <div class="row" id="hidden_three" style="display: none;"> --}}
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Upload File :</label>
+                                                    <div class="col-md-6">
+                                                        <div class="fileupload fileupload-new"
+                                                            data-provides="fileupload">
+                                                            <div class="input-append">
+                                                                <div class="uneditable-input">
+                                                                    <i class="fa fa-file fileupload-exists"></i>
+                                                                    <span class="fileupload-preview"></span>
+                                                                </div>
+                                                                <span class="btn btn-default btn-file">
+                                                                    <span class="fileupload-exists">Change</span>
+                                                                    <span class="fileupload-new">Select file</span>
+                                                                    <input type="file" accept="image/*" id="img"
+                                                                        name="image" />
+                                                                </span>
+                                                                <br>
+                                                                <br><img
+                                                                    src="{{ asset('backend/assets/images/image_news/nopic.jpg') }}"
+                                                                    class="rounded" id="images" alt="Cinque Terre"
+                                                                    width="40%">
                                                             </div>
-                                                            <span class="btn btn-default btn-file">
-                                                                <span class="fileupload-exists">Change</span>
-                                                                <span class="fileupload-new">Select file</span>
-                                                                <input type="file" accept="image/*" id="img"
-                                                                    name="image" />
-                                                            </span>
-                                                            <br>
-                                                            <br><img
-                                                                src="{{ asset('backend/assets/images/image_news/nopic.jpg') }}"
-                                                                class="rounded" id="images" alt="Cinque Terre"
-                                                                width="40%">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <hr id="hide_three" style="display: none;">
-                                    <div class="row" id="hidden_four" style="display: none;">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="inputDefault">Url
-                                                    :</label>
-                                                <div class="col-md-3">
-                                                    <input type="text" class="form-control" name="url" value="">
+                                        {{-- <hr id="hide_three" style="display: none;"> --}}
+                                        <hr>
+                                        {{-- <div class="row" id="hidden_four" style="display: none;"> --}}
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="inputDefault">Url
+                                                        :</label>
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control" name="url" value="">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="panel-title-sign mt-xl text-center">
-                                                <a href="{{ url('backoffice/news') }}" type="button"
-                                                    class="btn btn-into m-r-5"><i class="fa fa-chevron-left"></i>
-                                                    Back</a>
-                                                <input type="submit" value="Submit" class="btn btn-primary">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="panel-title-sign mt-xl text-center">
+                                                    <a href="{{ url('backoffice/news') }}" type="button"
+                                                        class="btn btn-into m-r-5"><i class="fa fa-chevron-left"></i>
+                                                        Back</a>
+                                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -225,34 +239,33 @@
     </section>
     @include('layouts.backend.inc_footer');
     <script>
-
-        $("#id_news_release").change(function () {
-            var x = document.getElementById("id_news_release").value;
-            console.log(x);
-            if(x == 3){
-                $('#hidden_one').show();
-                $('#hidden_two').show();
-                $('#hide_one').show();
-            }else{
-                $('#hidden_one').hide();
-                $('#hidden_two').hide();
-                $('#hide_one').hide();
-            }
-            if(x == 2){
-                $('#hidden_three').show();
-                $('#hide_two').show();
-            }else{
-                $('#hidden_three').hide();
-                $('#hide_two').hide();
-            }
-            if(x == 1){
-                $('#hidden_four').show();
-                $('#hide_three').show();
-            }else{
-                $('#hidden_four').hide();
-                $('#hide_three').hide();
-            }
-        });
+        // $("#id_news_release").change(function () {
+        //     var x = document.getElementById("id_news_release").value;
+        //     console.log(x);
+        //     if(x == 3){
+        //         $('#hidden_one').show();
+        //         $('#hidden_two').show();
+        //         $('#hide_one').show();
+        //     }else{
+        //         $('#hidden_one').hide();
+        //         $('#hidden_two').hide();
+        //         $('#hide_one').hide();
+        //     }
+        //     if(x == 2){
+        //         $('#hidden_three').show();
+        //         $('#hide_two').show();
+        //     }else{
+        //         $('#hidden_three').hide();
+        //         $('#hide_two').hide();
+        //     }
+        //     if(x == 1){
+        //         $('#hidden_four').show();
+        //         $('#hide_three').show();
+        //     }else{
+        //         $('#hidden_four').hide();
+        //         $('#hide_three').hide();
+        //     }
+        // });
 
         var _URL = window.URL || window.webkitURL;
 
@@ -296,66 +309,83 @@
 
         }
 
-        CKEDITOR.replace('editor1', {
-            toolbar: [{
-                    name: 'document',
-                    groups: ['mode', 'document', 'doctools'],
-                    items: ['Source']
-                },
-                {
-                    name: 'clipboard',
-                    items: ['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord']
-                },
-                {
-                    name: 'basicstyles',
-                    groups: ['basicstyles', 'cleanup'],
-                    items: ['Bold', 'Italic', 'Strike', '-', 'TextColor']
-                },
-                {
-                    name: 'paragraph',
-                    groups: ['list', 'indent', 'blocks', 'align'],
-                    items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blocks']
-                }
-            ],
-            height: 250,
-            resize_enabled: true,
-            wordcount: {
-                showParagraphs: false,
-                showWordCount: true,
-                showCharCount: true,
-                countSpacesAsChars: false,
-                countHTML: false,
-                maxWordCount: -1,
-                maxCharCount: 20000
-            }
-        });
+        // CKEDITOR.replace('editor1', {
+        //     toolbar: [{
+        //             name: 'document',
+        //             groups: ['mode', 'document', 'doctools'],
+        //             items: ['Source']
+        //         },
+        //         {
+        //             name: 'clipboard',
+        //             items: ['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord']
+        //         },
+        //         {
+        //             name: 'basicstyles',
+        //             groups: ['basicstyles', 'cleanup'],
+        //             items: ['Bold', 'Italic', 'Strike', '-', 'TextColor']
+        //         },
+        //         {
+        //             name: 'paragraph',
+        //             groups: ['list', 'indent', 'blocks', 'align'],
+        //             items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blocks']
+        //         }
+        //     ],
+        //     height: 250,
+        //     resize_enabled: true,
+        //     wordcount: {
+        //         showParagraphs: false,
+        //         showWordCount: true,
+        //         showCharCount: true,
+        //         countSpacesAsChars: false,
+        //         countHTML: false,
+        //         maxWordCount: -1,
+        //         maxCharCount: 20000
+        //     }
+        // });
 
-        function CKupdate() {
-            for (instance in CKEDITOR.instances)
-                CKEDITOR.instances[instance].updateElement();
-        }
+        // function CKupdate() {
+        //     for (instance in CKEDITOR.instances)
+        //         CKEDITOR.instances[instance].updateElement();
+        // }
 
-        CKEDITOR.replace( 'editor2', {toolbar:[
-            { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] },
-            { name: 'clipboard', items: [ 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord' ] },
-            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike', '-', 'TextColor' ] },
-            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blocks' ] }
-        ],
-        height:250,
-        resize_enabled:true,
-        wordcount: {
-            showParagraphs: false,
-            showWordCount: true,
-            showCharCount: true,
-            countSpacesAsChars: false,
-            countHTML: false,
-            maxWordCount: -1,
-            maxCharCount: 20000}
-        });
-        function CKupdate(){
-            for ( instance in CKEDITOR.instances )
-                CKEDITOR.instances[instance].updateElement();
-        }
+        // CKEDITOR.replace('editor2', {
+        //     toolbar: [{
+        //             name: 'document',
+        //             groups: ['mode', 'document', 'doctools'],
+        //             items: ['Source']
+        //         },
+        //         {
+        //             name: 'clipboard',
+        //             items: ['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord']
+        //         },
+        //         {
+        //             name: 'basicstyles',
+        //             groups: ['basicstyles', 'cleanup'],
+        //             items: ['Bold', 'Italic', 'Strike', '-', 'TextColor']
+        //         },
+        //         {
+        //             name: 'paragraph',
+        //             groups: ['list', 'indent', 'blocks', 'align'],
+        //             items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blocks']
+        //         }
+        //     ],
+        //     height: 250,
+        //     resize_enabled: true,
+        //     wordcount: {
+        //         showParagraphs: false,
+        //         showWordCount: true,
+        //         showCharCount: true,
+        //         countSpacesAsChars: false,
+        //         countHTML: false,
+        //         maxWordCount: -1,
+        //         maxCharCount: 20000
+        //     }
+        // });
+
+        // function CKupdate() {
+        //     for (instance in CKEDITOR.instances)
+        //         CKEDITOR.instances[instance].updateElement();
+        // }
 
     </script>
 

@@ -4003,14 +4003,12 @@ footer .l-footerPolicy .l-copy {
 a.l-pickup {
   position: relative;
   display: block;
-  background: #e86800;
+  background: #012060;
   height: 120px;
   margin: 30px 0;
 }
 
-a.l-pickup:hover img {
-  opacity: 1;
-}
+
 
 a.l-pickup:hover>._outline>._link {
   background: #e86800;
@@ -4093,7 +4091,6 @@ a.l-pickup>._image {
 a.l-pickup>._image img {
   width: 100%;
   padding: 0 5%;
-  background: #fff;
 }
 
 @media only screen and (max-width: 767px) {
@@ -4103,13 +4100,14 @@ a.l-pickup>._image img {
 }
 
 a.l-pickup>._outline {
-  width: 41.6%;
+  width: 38.6%;
   display: inline-block;
   color: #fff;
   font-size: 2.2rem;
   line-height: 2.4rem;
-  margin: 0;
+  margin: auto;
   padding: 12px 20px 12px 10px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 767px) {
@@ -4142,7 +4140,7 @@ a.l-pickup>._outline>._link {
   margin: 10px auto 0 auto;
   padding: 5px 26px;
   position: absolute;
-  right: 20px;
+  right: 5%;
   bottom: 12px;
 }
 
@@ -7504,4 +7502,14 @@ ul.l-pagenation li img {
 header.is-openMenu .header-style-2 {
   display: block !important;
   z-index: 999;
+}
+
+select.scfEmailTextBox {
+  width: 100%;
+  border: 2px solid #0055a4;
+  padding: 10px 12px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0.3em 0 1em 0;
+  height: 40px;
 }
