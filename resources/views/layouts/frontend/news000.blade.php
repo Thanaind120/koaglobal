@@ -127,7 +127,7 @@
                                             {{ $news->save_date }}
                                         </p>
                                         <p class="_detail">
-                                            {{ $news->detail_en }}
+                                            {!! $news->detail_en !!}
                                             
                                         </p>
                                         <img src="{{ asset('backend/assets/images/image_news/'.$news->image) }}" alt="">
