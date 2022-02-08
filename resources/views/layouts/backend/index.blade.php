@@ -79,6 +79,7 @@
                                             </div>
                                             <div class="summary-footer">
                                                 <a class="text-muted text-uppercase">(All Reports)</a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -239,6 +240,43 @@
                 </div> --}}
 
             </div>
+            <h3 class="h3 mb-0 text-gray-800">Product Category Report</h3>
+            <?php foreach($register_one as $key=>$val){ ?>
+            <font color="black">1.Resistors(SMD) จำนวนผู้เข้าชม <font color="red">{{ ($val->register_one != '')? $val->register_one : 0 }}</font>
+                ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_two as $key=>$val){ ?>
+            <font color="black">2.Low Resistance/Current Sense Shunt Resistors จำนวนผู้เข้าชม
+                <font color="red">{{ ($val->register_two != '')? $val->register_two : 0 }}</font> ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_three as $key=>$val){ ?>
+            <font color="black">3.Resistors(Leaded) จำนวนผู้เข้าชม
+                <font color="red">{{ ($val->register_three != '')? $val->register_three : 0 }}</font> ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_four as $key=>$val){ ?>
+            <font color="black">4.Thermistors Thermal Sensors จำนวนผู้เข้าชม
+                <font color="red">{{ ($val->register_four != '')? $val->register_four : 0 }}</font> ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_five as $key=>$val){ ?>
+            <font color="black">5.Inductors จำนวนผู้เข้าชม <font color="red">{{ ($val->register_five != '')? $val->register_five : 0 }}</font>
+                ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_six as $key=>$val){ ?>
+            <font color="black">6.Fuses จำนวนผู้เข้าชม <font color="red">{{ ($val->register_six != '')? $val->register_six : 0 }}</font> ครั้ง
+            </font><br>
+            <?php } ?>
+            <?php foreach($register_seven as $key=>$val){ ?>
+            <font color="black">7.Varistors จำนวนผู้เข้าชม <font color="red">{{ ($val->register_seven != '')? $val->register_seven : 0 }}</font>
+                ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_eight as $key=>$val){ ?>
+            <font color="black">8.LTCC Substrates จำนวนผู้เข้าชม
+                <font color="red">{{ ($val->register_eight != '')? $val->register_eight : 0 }}</font> ครั้ง</font><br>
+            <?php } ?>
+            <?php foreach($register_nine as $key=>$val){ ?>
+            <font color="black">9.Others จำนวนผู้เข้าชม <font color="red">{{ ($val->register_nine != '')? $val->register_nine : 0 }}</font> ครั้ง
+            </font>
+            <?php } ?>
             <!-- end: page -->
 
         </section>

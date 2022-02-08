@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/slick.css' ) }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('frontend/css/style_multi_domain.css' ) }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('frontend/css/custom.css' ) }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('frontend/sweetalert2/dist/sweetalert2.min.css' ) }}" type="text/css" />
 
 <!-- JavaScripts
     ============================================= -->
