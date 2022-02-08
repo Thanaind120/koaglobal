@@ -95,6 +95,8 @@
 
                                         <tr>
 
+                                            <th class="center">No</th>
+
                                             <th class="center">Type of Inquiry</th>
 
                                             <th class="center">Application</th>
@@ -120,10 +122,14 @@
                                     <tbody>
 
                                         <?php
+                                        $i = 0;
                                             foreach ($contact as $key=>$val){
+                                                $i++;
                                         ?>
 
                                         <tr class="gradeX">
+
+                                            <td class="center">{{ $i }}</td>
 
                                             <td class="center">{{ $val->type_inquiry }}</td>
                                             {{-- <td class="center">{{ $val->type_iunqiry_en }}</td> --}}

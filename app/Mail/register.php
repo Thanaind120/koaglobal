@@ -35,14 +35,11 @@ class register extends Mailable
         ->to('thanai.ots2565@gmail.com')
         ->to('fordfocus120@gmail.com')
        ->markdown('emails.register')->with([
-            'firstname' => $this->data['firstname'],
-            'lastname' => $this->data['lastname'],
+            'name' => $this->data['name'],
             'email' => $this->data['email'],
             'tel' => $this->data['tel'],
-            'title_name' => $this->data['title_name'],
-            'department_name' => $this->data['department_name'],
-            'organization_name' => $this->data['organization_name'],
-            'location_name' => $this->data['location_name'],
+            'product_category' => $this->data['product_category'],
+            'company_name' => $this->data['company_name'],
             'product_message' => $this->data['product_message'],
             
        ]);

@@ -91,24 +91,39 @@
                                                     Fields marked with an * are required</p>
                                                 <div class="row">
                                                     <div class="name col-md-3">
-                                                        <label>First Name<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="firstname">
-                                                    </div>
-                                                    <div class="name col-md-3">
-                                                        <label>Last Name<span>*</span></label>
-                                                        <input type="text" maxlength="100"
-                                                            class="sscfSingleLineTextBox" name="lastname">
+                                                        <label>Name <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="name" required>
                                                     </div>
                                                     <div class="name col-md-3">
                                                         <label>Email <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfEmailTextBox" name="email">
+                                                        <input type="text" maxlength="100" class="scfEmailTextBox" name="email" required>
                                                     </div>
                                                     <div class="name col-md-3">
-                                                        <label>Contact number<span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfEmailTextBox" name="tel">
+                                                        <label>Contact number <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfEmailTextBox" name="tel" required>
+                                                    </div>
+                                                    <div class="name col-md-3">
+                                                        <label>Company Name <span>*</span></label>
+                                                        <input type="text" maxlength="100"
+                                                            class="sscfSingleLineTextBox" name="company_name" required>
+                                                    </div>
+                                                    <div class="name col-md-3">
+                                                        <label>Product Category <span>*</span></label>
+                                                        <select class="scfDropList" name="product_category" required>
+                                                            <option name="product_category" selected="selected" value=""></option>
+                                                            <option name="product_category" value="Resistors(SMD)">Resistors(SMD)</option>
+                                                            <option name="product_category" value="Low Resistance/Current Sense Shunt Resistors">Low Resistance/Current Sense Shunt Resistors</option>
+                                                            <option name="product_category" value="Resistors(Leaded)">Resistors(Leaded)</option>
+                                                            <option name="product_category" value="Thermistors Thermal Sensors">Thermistors Thermal Sensors</option>
+                                                            <option name="product_category" value="Inductors">Inductors</option>
+                                                            <option name="product_category" value="Fuses">Fuses</option>
+                                                            <option name="product_category" value="Varistors">Varistors</option>
+                                                            <option name="product_category" value="LTCC Substrates">LTCC Substrates</option>
+                                                            <option name="product_category" value="Others">Others</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                {{-- <div class="row">
                                                     <div class="name col-md-3">
                                                         <label>You job title<span>*</span></label>
                                                         <input type="text" maxlength="100" class="scfSingleLineTextBox" name="title_name">
@@ -126,11 +141,11 @@
                                                         <input type="text" maxlength="100"
                                                             class="sscfSingleLineTextBox" name="location_name">
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="row">
                                                     <div class="name col-md-12 scfMultipleLineGeneralPanel">
-                                                        <label>Primary Product Category <span>*</span></label>
-                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox" name="product_message">
+                                                        <label>MESSAGE <span>*</span></label>
+                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox" name="product_message" required>
                                                         </textarea>
                                                     </div>
                                                 </div>

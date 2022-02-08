@@ -95,21 +95,19 @@
 
                                         <tr>
 
-                                            <th class="center">First-Last Name</th>
+                                            <th class="center">No</th>
+
+                                            <th class="center">Name</th>
 
                                             <th class="center">E-mail</th>
 
                                             <th class="center">Contact Number</th>
 
-                                            <th class="center">Job Title</th>
-
-                                            <th class="center">Department</th>
-
-                                            <th class="center">Organization</th>
-
-                                            <th class="center">Location</th>
-
                                             <th class="center">Product Category</th>
+
+                                            <th class="center">Company Name</th>
+
+                                            <th class="center">Message</th>
 
                                         </tr>
 
@@ -118,24 +116,24 @@
                                     <tbody>
 
                                         <?php
+                                        $i = 0;
                                             foreach ($register as $key=>$val){
+                                                $i++;
                                         ?>
 
                                         <tr class="gradeX">
 
-                                            <td class="center">{{ $val->firstname }} {{ $val->lastname }}</td>
+                                            <td class="center">{{ $i }}</td>
+
+                                            <td class="center">{{ $val->name }}</td>
 
                                             <td class="center">{{ $val->email }}</td>
 
                                             <td class="center">{{ $val->tel }}</td>
 
-                                            <td class="center">{{ $val->title_name }}</td>
+                                            <td class="center">{{ $val->product_category }}</td>
 
-                                            <td class="center">{{ $val->department_name }}</td>
-
-                                            <td class="center">{{ $val->organization_name }}</td>
-
-                                            <td class="center">{{ $val->location_name }}</td>
+                                            <td class="center">{{ $val->company_name }}</td>
 
                                             <td class="center">{{ $val->product_message }}</td>
 

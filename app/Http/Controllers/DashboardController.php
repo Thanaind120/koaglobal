@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\RegisterModel;
 use App\Models\bannerModel;
 use App\Models\MasterSetupModel;
+use App\Models\ProductCategoryModel;
 use App\Models\NewsModel;
 use Carbon\Carbon;
 
@@ -17,10 +18,11 @@ class DashboardController extends Controller
 
     public function index(){
         $banner = bannerModel::get();
+        $product_category = ProductCategoryModel::get();
         $news = DB::table('news')
         ->leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
         ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
-        return view('layouts/frontend/index')->with('banner', $banner)->with('News', $news);
+        return view('layouts/frontend/index')->with('banner', $banner)->with('news', $news)->with('product_category', $product_category);
     }
     
     public function home(){

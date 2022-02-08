@@ -10,7 +10,7 @@
                     </h1>
                 </div>
 
-                <div class="info col-md-8 ">
+                <div class="info col-md-8">
                     <div>
                         <ul class="l-extraNav l-extraNavB">
                             <li class="l-region">
@@ -38,7 +38,7 @@
                                                                             <tr>
                                                                                 <td id="gs_tti50"
                                                                                     class="gsib_a">
-                                                                                    <input
+                                                                                    {{-- <input
                                                                                         autocomplete="off"
                                                                                         type="text"
                                                                                         size="10"
@@ -48,8 +48,9 @@
                                                                                         id="gsc-i-id1"
                                                                                         dir="ltr"
                                                                                         spellcheck="false"
-                                                                                        style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;">
-                                                                                </td>
+                                                                                        style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;" id="google" name="google"> --}}
+                                                                                        <input type="text" size="10" class="gsc-input" title="search" id="google" name="google">
+                                                                                    </td>
                                                                                 <td class="gsib_b">
                                                                                     <div class="gsst_b"
                                                                                         id="gs_st50"
@@ -70,7 +71,7 @@
                                                                 </div>
                                                             </td>
                                                             <td class="gsc-search-button"><button
-                                                                    class="gsc-search-button gsc-search-button-v2"><svg
+                                                                    class="gsc-search-button gsc-search-button-v2" id="searchBtnGoogle" name="searchBtnGoogle"><svg
                                                                         width="13" height="13"
                                                                         viewBox="0 0 13 13">
                                                                         <title>search</title>
@@ -172,3 +173,11 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('#searchBtnGoogle').click(function () {
+        $keyword = $('#google').val();
+        $url = "https://www.google.co.th/search?q=" + $keyword;
+        window.open($url, "_blank");
+    });
+
+</script>

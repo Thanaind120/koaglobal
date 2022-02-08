@@ -12,6 +12,6 @@ class RegisterExport implements FromCollection
     */
     public function collection()
     {
-        return RegisterModel::all('firstname','lastname','email','tel','title_name','department_name','organization_name','location_name','product_message');
+        return RegisterModel::all('name','email','tel','product_category','company_name','product_message');
     }
 }

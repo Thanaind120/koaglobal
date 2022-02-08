@@ -89,18 +89,20 @@
                                     </div>
                                 </div>
                                 <div class="fxb-block fxb-margin">
+                                    <?php foreach ($product_category as $key=>$val){ ?>
                                     <div class="col-3 col-xs-12">
                                         <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
-                                                <img src="{{ asset('frontend/./img/top_products_01.jpg')}}" alt="">
+                                                <img src="{{ ($val->product_image != '')? asset('backend/assets/images/product_category/'.$val->product_image) : asset('backend/assets/images/product_category/nopic.jpg') }}" alt="">
                                             </p>
                                             <p>
-                                                <span>Resistors(SMD)</span>
+                                                <span>{{ $val->product_category_en }}</span>
                                             </p>
 
                                         </a>
                                     </div>
-                                    <div class="col-3 col-xs-12">
+                                    <?php } ?>
+                                    {{-- <div class="col-3 col-xs-12">
                                         <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products02v.jpg')}}" alt="">
@@ -171,8 +173,8 @@
                                                 <span>LTCC Substrates</span>
                                             </p>
                                         </a>
-                                    </div>
-                                    <div class="col-3 col-xs-12">
+                                    </div> --}}
+                                    {{-- <div class="col-3 col-xs-12">
                                         <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ asset('frontend/./img/top_products_09.jpg')}}" alt="">
@@ -181,7 +183,7 @@
                                                 <span>Others</span>
                                             </p>
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <!-- SERVICES END -->
@@ -197,7 +199,7 @@
                                     <div>
                                         <div class="l-news">
                                             <ul>
-                                                <?php foreach ($News as $key=>$val){ ?>
+                                                <?php foreach ($news as $key=>$val){ ?>
                                                 <li>
                                                     <?php if ($val->id_news_releases == 1) {?>
                                                     <a class="card-news"
@@ -288,10 +290,10 @@
                             <div class="l-search">
                                 <h2><strong>SEARCH</strong></h2>
                                 <div class="l-searchBox">
-                                    <a class="btn" href="javascript:void(0)" target="_blank">
+                                    <a class="btn" href="https://www.koaglobal.com/Parametric/public/ParametricSearch.aspx?sc_lang=en" target="_blank">
                                         <p><strong>Parametric Search</strong></p>
                                     </a>
-                                    <a class="btn" href="javascript:void(0)" target="_blank">
+                                    <a class="btn" href="https://www.koaglobal.com/app?sc_lang=en" target="_blank">
                                         <p><strong>Application Search</strong></p>
                                     </a>
                                 </div>

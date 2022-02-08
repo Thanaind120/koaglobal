@@ -102,7 +102,7 @@
                                                 <div class="row">
                                                     <div class="name col-md-4">
                                                         <label>Type of Inquiry <span>*</span></label>
-                                                        <select class="scfDropList" name="type_inquiry">
+                                                        <select class="scfDropList" name="type_inquiry" required>
                                                             <option name="type_inquiry" selected="selected" value=""></option>
                                                             <option name="type_inquiry" value="Customer Service">Customer Service</option>
                                                             <option name="type_inquiry" value="Samples">Samples</option>
@@ -126,7 +126,7 @@
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Primary Application <span>*</span></label>
-                                                        <select class="scfDropList" name="application">
+                                                        <select class="scfDropList" name="application" required>
                                                             <option name="application" selected="selected" value=""></option>
                                                             <option name="application" value="Smart home">Smart home</option>
                                                             <option name="application" value="Healthcare">Healthcare</option>
@@ -159,7 +159,7 @@
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>Primary Product Category <span>*</span></label>
-                                                        <select class="scfDropList" name="product_category">
+                                                        <select class="scfDropList" name="product_category" required>
                                                             <option name="product_category" selected="selected" value=""></option>
                                                             <option name="product_category" value="Resistors">Resistors</option>
                                                             <option name="product_category" value="Inductors">Inductors</option>
@@ -188,41 +188,41 @@
                                                     <div class="name col-md-12 scfMultipleLineGeneralPanel">
                                                         <label>Primary Product Category <span>*</span></label>
                                                         <textarea rows="5" cols="20" class="scfMultipleLineTextBox"
-                                                            name="product_message">
+                                                            name="product_message" required>
                                                         </textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-4">
-                                                        <label>First Name<span>*</span></label>
+                                                        <label>First Name <span>*</span></label>
                                                         <input type="text" maxlength="100" class="scfSingleLineTextBox"
-                                                            name="firstname">
+                                                            name="firstname" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Last Name<span>*</span></label>
+                                                        <label>Last Name <span>*</span></label>
                                                         <input type="text" maxlength="100" class="sscfSingleLineTextBox"
-                                                            name="lastname">
+                                                            name="lastname" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>(Company) Email Address<span>*</span></label>
+                                                        <label>(Company) Email Address <span>*</span></label>
                                                         <input type="text" maxlength="100" class="scfEmailTextBox"
-                                                            name="email">
+                                                            name="email" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-4">
-                                                        <label>Company Name<span>*</span></label>
+                                                        <label>Company Name <span>*</span></label>
                                                         <input type="text" maxlength="100" class="scfSingleLineTextBox"
-                                                            name="company_name">
+                                                            name="company_name" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Country / Area<span>*</span></label>
+                                                        <label>Country / Area <span>*</span></label>
                                                         <input type="text" maxlength="100" class="sscfSingleLineTextBox"
-                                                            name="area">
+                                                            name="area" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Postal / Zip Code<span>*</span></label>
-                                                        <select class="scfDropList" name="zip_code">
+                                                        <label>Postal / Zip Code <span>*</span></label>
+                                                        <select class="scfDropList" name="zip_code" required>
                                                             <option name="zip_code" selected="selected" value=""></option>
                                                             <option name="zip_code" value="	Samphanthawong">Samphanthawong</option>
                                                             <option name="zip_code" value="Udon Thani">Udon Thani</option>

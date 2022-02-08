@@ -12,6 +12,7 @@ use App\Mail\register;
 use App\Imports\RegisterImport;
 use App\Exports\RegisterExport;
 use App\Models\RegisterModel;
+use App\Models\ProductCategoryModel;
 use Carbon\Carbon;
 
 class RegisterController extends Controller
@@ -51,32 +52,27 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
+        // $url = ProductCategoryModel::Join('register', 'product_category.product_category_en', '=', 'register.product_category')->select('product_category.*')->first();
         $date = date('Y-m-d');
         $newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
         $time = date('H:i:s');
         $newTime = \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('H:i:s');
         $data_insert = [
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
+            'name' => $request->name,
             'email' => $request->email,
             'tel' => $request->tel,
-            'title_name' => $request->title_name,
-            'department_name' => $request->department_name,
-            'organization_name' => $request->organization_name,
-            'location_name' => $request->location_name,
+            'product_category' => $request->product_category,
+            'company_name' => $request->company_name,
             'product_message' => $request->product_message,
             
         ];
         Mail::send(new register($data_insert));
         RegisterModel::create([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
+            'name' => $request->name,
             'email' => $request->email,
             'tel' => $request->tel,
-            'title_name' => $request->title_name,
-            'department_name' => $request->department_name,
-            'organization_name' => $request->organization_name,
-            'location_name' => $request->location_name,
+            'product_category' => $request->product_category,
+            'company_name' => $request->company_name,
             'product_message' => $request->product_message,
             'save_date' => $newDate,
             'save_time' => $newTime,
@@ -84,8 +80,28 @@ class RegisterController extends Controller
             'created_at' => Carbon::now(),
             'update_at' => Carbon::now(),
         ]);
-        return redirect(Session::get('lang')."/register");
-        // return redirect('register');
+        
+        if($request->product_category == 'Resistors(SMD)'){
+            return redirect()->to('https://www.koaglobal.com/product/category/smd_resistor?sc_lang=en');
+        }elseif($request->product_category == 'Low Resistance/Current Sense Shunt Resistors'){
+            return redirect()->to('https://www.koaglobal.com/product/category/lowresistance_powershunt?sc_lang=en');
+        }elseif($request->product_category == 'Resistors(Leaded)'){
+            return redirect()->to('https://www.koaglobal.com/product/category/lead_resistor?sc_lang=en');
+        }elseif($request->product_category == 'Thermistors Thermal Sensors'){
+            return redirect()->to('https://www.koaglobal.com/product/category/th_sensor?sc_lang=en');
+        }elseif($request->product_category == 'Inductors'){
+            return redirect()->to('https://www.koaglobal.com/product/category/inductor?sc_lang=en');
+        }elseif($request->product_category == 'Fuses'){
+            return redirect()->to('https://www.koaglobal.com/product/category/fuse?sc_lang=en');
+        }elseif($request->product_category == 'Varistors'){
+            return redirect()->to('https://www.koaglobal.com/product/category/fuse?sc_lang=en');
+        }elseif($request->product_category == 'LTCC Substrates'){
+            return redirect()->to('https://www.koaglobal.com/product/category/ltcc?sc_lang=en');
+        }elseif($request->product_category == 'Others'){
+            return redirect()->to('https://www.koaglobal.com/product/category/others?sc_lang=en');
+        }else{
+            return redirect(Session::get('lang')."/register");
+        }
     }
 
     /**
