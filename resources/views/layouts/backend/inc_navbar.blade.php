@@ -1,7 +1,7 @@
 <!-- start: header -->
 <header class="header">
     <div class="logo-container">
-        <a href="../" class="logo">
+        <a href="{{ url('backoffice/dashboard') }}" class="logo">
             <img src="{{ asset('backend/assets/images/header_logo.png') }}" height="35" alt="JSOFT Admin" />
         </a>
         <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"
