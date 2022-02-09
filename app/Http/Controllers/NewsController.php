@@ -12,22 +12,6 @@ use Carbon\Carbon;
 
 class NewsController extends Controller
 {
-
-    public function index(){
-        $news_release = MasterSetupModel::get();
-        $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
-        $news = DB::table('news')
-        ->leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
-        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
-        return view('layouts/frontend/news')->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
-    }
-
-    public function index000($id){
-        $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
-        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->find($id);
-        return view('layouts/frontend/news000')->with('news', $news);
-    }
-
     /**
      * Display a listing of the resource.
      *

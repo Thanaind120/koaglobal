@@ -57,23 +57,23 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12"  style="padding: 0;">
+                        <div class="col-sm-12">
                             <a id="frame_0_main_1_pickup_0_HomePickupLink" class="l-pickup" href="https://www.koaglobal.com/app?sc_lang=en"
                                 target="_blank">
                                 <h2>
-                                    @lang('lang.pickup') <br>@lang('lang.applications')<br>
+                                    PICKUP <br>APPLICATIONS<br>
                                 </h2>
                                 <p class="_image">
                                     <img src="{{ asset('frontend/./img/Applications01.png' ) }}" alt="" style="
                                 max-height: 100px;">
                                 </p>
                                 <p class="_outline">
-                                    @lang('lang.productforindustrialapplication')
+                                    Products for Industrial Applications
                                     <span class="_text">
 
                                     </span>
                                     <span class="_link">
-                                        @lang('lang.clickhere') -
+                                        Click Here -
                                     </span>
                                 </p>
                             </a>
@@ -85,23 +85,105 @@
                             <div class="features-wrap row">
                                 <div class="fxb-basic">
                                     <div class="col-1">
-                                        <h4>@lang('lang.productcategory')</h4>
+                                        <h4>PRODUCT CATEGORY</h4>
                                     </div>
                                 </div>
                                 <div class="fxb-block fxb-margin">
                                     <?php foreach ($product_category as $key=>$val){ ?>
                                     <div class="col-3 col-xs-12">
-                                        <a class="block" href="{{ url(Session::get('lang').'/register')}}" target="_blank">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
                                             <p class="image-wrap">
                                                 <img src="{{ ($val->product_image != '')? asset('backend/assets/images/product_category/'.$val->product_image) : asset('backend/assets/images/product_category/nopic.jpg') }}" alt="">
                                             </p>
                                             <p>
-                                                <span>{{ $val["product_category_".Session::get('lang')]}}</span>
+                                                <span>{{ $val->product_category_en }}</span>
                                             </p>
 
                                         </a>
                                     </div>
                                     <?php } ?>
+                                    {{-- <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products02v.jpg')}}" alt="">
+                                            </p>
+                                            <p>
+                                                <span>Low Resistance/Current Sense Shunt Resistors</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products03v.jpg')}}" alt="">
+                                            </p>
+                                            <p>
+                                                <span>Resistors(Leaded)</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products_04.jpg')}}" alt="">
+                                            </p>
+                                            <p>
+                                                <span>Thermistors Thermal Sensors</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products_05.jpg')}}"
+                                                    alt="inductors">
+                                            </p>
+                                            <p>
+                                                <span>Inductors</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products_06.jpg')}}" alt="">
+                                            </p>
+                                            <p>
+                                                <span>Fuses</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products_07.jpg')}}"
+                                                    alt="varistors">
+                                            </p>
+                                            <p>
+                                                <span>Varistors</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products_08.jpg')}}" alt="">
+                                            </p>
+                                            <p>
+                                                <span>LTCC Substrates</span>
+                                            </p>
+                                        </a>
+                                    </div> --}}
+                                    {{-- <div class="col-3 col-xs-12">
+                                        <a class="block" href="{{ url('/register')}}" target="_blank">
+                                            <p class="image-wrap">
+                                                <img src="{{ asset('frontend/./img/top_products_09.jpg')}}" alt="">
+                                            </p>
+                                            <p>
+                                                <span>Others</span>
+                                            </p>
+                                        </a>
+                                    </div> --}}
                                 </div>
                             </div>
                             <!-- SERVICES END -->
@@ -112,7 +194,7 @@
                                 <div class="fxb-news ">
 
                                     <h2 class="headline-h4">
-                                        @lang('lang.news')
+                                        NEWS
                                     </h2>
                                     <div>
                                         <div class="l-news">
@@ -125,8 +207,8 @@
                                                         target="_blank">
                                                         <span class="_day">{{ $val->save_date }}</span>
                                                         <span
-                                                            class="_category _category-03">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
-                                                        <span class="_title">{{ $val["news_name_".Session::get('lang')]}}</span>
+                                                            class="_category _category-03">{{ $val->news_release_topics_en }}</span>
+                                                        <span class="_title">{{ $val->news_name_en }}</span>
                                                         <?php } ?>
                                                         <?php if ($val->id_news_releases == 2) {?>
                                                         <?php if($val->image != ''){?>
@@ -134,11 +216,11 @@
                                                             target="_self">
                                                             <span class="_day">{{ $val->save_date }}</span>
                                                             <span
-                                                                class="_category _category-01">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
+                                                                class="_category _category-01">{{ $val->news_release_topics_en }}</span>
                                                             <span class="_title">
                                                                 <div style="text-align: left;"><span
                                                                         style="color: #c00000;"><span
-                                                                            style="font-family: tahoma;">{{ $val["news_name_".Session::get('lang')]}}</span><strong><span
+                                                                            style="font-family: tahoma;">{{ $val->news_name_en }}</span><strong><span
                                                                                 style="font-family: tahoma;"></span><br>
                                                                         </strong></span></div>
                                                                 <div id="gtx-trans"
@@ -152,8 +234,8 @@
                                                             target="_self">
                                                             <span class="_day">{{ $val->save_date }}</span>
                                                             <span
-                                                                class="_category _category-01">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
-                                                            <span class="_title">{{ $val["news_name_".Session::get('lang')]}}</span>
+                                                                class="_category _category-01">{{ $val->news_release_topics_en }}</span>
+                                                            <span class="_title">{{ $val->news_name_en }}</span>
                                                         </a>
                                                         <?php } ?>
                                                         <?php } ?>
@@ -162,8 +244,8 @@
                                                             target="_self">
                                                             <span class="_day">{{ $val->save_date }}</span>
                                                             <span
-                                                                class="_category _category-04">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
-                                                            <span class="_title">{{ $val["news_name_".Session::get('lang')]}}</span>
+                                                                class="_category _category-04">{{ $val->news_release_topics_en }}</span>
+                                                            <span class="_title">{{ $val->news_name_en }}</span>
                                                         </a>
                                                         <?php } ?>
                                                     </a>
@@ -191,9 +273,9 @@
                                                 </li> --}}
                                             </ul>
 
-                                            <a href="{{ Session::get('lang')}}/news" class="btn-ghost">
+                                            <a href="{{ url('news') }}" class="btn-ghost">
                                                 <p>
-                                                    - @lang('lang.viewhistory') -
+                                                    - View History -
                                                 </p>
                                             </a>
                                         </div>
@@ -206,34 +288,46 @@
                         <!--  right block -->
                         <div class="col-sm-12 col-md-3">
                             <div class="l-search">
-                                <h2><strong>@lang('lang.search')</strong></h2>
+                                <h2><strong>SEARCH</strong></h2>
                                 <div class="l-searchBox">
                                     <a class="btn" href="https://www.koaglobal.com/Parametric/public/ParametricSearch.aspx?sc_lang=en" target="_blank">
-                                        <p><strong>@lang('lang.parametricsearch')</strong></p>
+                                        <p><strong>Parametric Search</strong></p>
                                     </a>
                                     <a class="btn" href="https://www.koaglobal.com/app?sc_lang=en" target="_blank">
-                                        <p><strong>@lang('lang.appsearch')</strong></p>
+                                        <p><strong>Application Search</strong></p>
                                     </a>
                                 </div>
                                 <div class="l-searchBox">
-                                    <p><strong>@lang('lang.searchby')</strong></p>
+                                    <p><strong>Search by Product Series</strong></p>
                                     <div id="searchBoxName">
                                         <input type="text" id="SearchWord" name="SearchWord"
                                             placeholder="Input text here">
                                         <input type="image" id="searchBtnName" name="searchBtnName"
                                             src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
                                     </div>
-                                   
+                                    <!-- <div id="searchBoxName">
+                                    <input id="SearchWord" name="SearchWord" type="text" onkeydown="checkEnter(event,&#39;nms&#39;);"
+                                        placeholder="Input text here">
+                                    <input id="searchBtnName" type="image" src="./img/icon_search.svg" alt="Search"
+                                        onclick="moveToSearch(&#39;nms&#39;); return false;">
+                                </div> -->
                                 </div>
                                 <div class="l-searchBox">
-                                    <p><strong>@lang('lang.cross')</strong></p>
+                                    <p><strong>Cross Reference (Resistors)</strong></p>
                                     <div id="searchBoxCross">
                                         <input type="text" id="select" name="select" placeholder="Input text here">
                                         <input type="image" id="searchBtnCross" name="searchBtnCross"
                                             src="{{ asset('frontend/./img/icon_search.svg')}}" alt="Search">
                                     </div>
-                                    
-                                    <p class="text-search">@lang('lang.koadetail')</p>
+                                    <!-- <div id="searchBoxCross">
+                                    <input id="select" name="select" type="text" onkeydown="checkEnter(event,&#39;crs&#39;);"
+                                        placeholder="Input text here">
+                                    <input id="searchBtnCross" type="image" src="./img/icon_search.svg" alt="Search"
+                                        onclick="moveToSearch(&#39;crs&#39;); return false;">
+                                </div> -->
+                                    <p class="text-search">KOA Denko is not responsible for any inaccuracies, errors or
+                                        omissions contained in
+                                        or relating to this information. Please contact us for further information.</p>
                                 </div>
                             </div>
 

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ContactUsController;
+use Illuminate\Support\Facades\Session;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,28 +19,53 @@ use App\Http\Controllers\ContactUsController;
 */
 
 //*---------------------------------------------------------------- FRONTEND ---------------------------------------------------------------*//
+$lang_db = \App\LanguageModel::find(4);
+Route::get('/set/lang/{lang}', 'HomeController@setLang');
 
-Route::get('/','DashboardController@index');
+Route::get('/', function () use ($lang_db) {
+ $default = $lang_db->set;  // -----th
+
+ $lang = Session('lang'); // -----en
+
+
+
+ if ($lang) {
+  $check = \App\LanguageModel::where('set', $lang)->first();
+  if ($check->status == "on") {
+   $default = $check->set;
+  } else {
+   $data = \App\LanguageModel::where(['status' => "on", 'default' => "on"])->first();
+   $default = $data->set;
+  }
+  Session::put('lang', $default);
+  return redirect("/$default");
+ } else {
+  Session::put('lang', $default);
+  return redirect("/$default");
+ }
+});
 
 Auth::routes(); // Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/product', function () { return view('layouts/frontend/product'); });
-
-Route::get('/applications', function () { return view('layouts/frontend/app'); });
-
-Route::get('/corporation', function () { return view('layouts/frontend/corporate'); });
-
-Route::get('/salesnetwork', function () { return view('layouts/frontend/salesnetwork'); });
-
-Route::get('/contactus','ContactUsController@index');
-Route::post('/contactus','ContactUsController@store')->name('contactus.insert');
-
-Route::get('/news','NewsController@index');
-
-Route::get('/news000/{id}','NewsController@index000');
-
-Route::get('/register','RegisterController@index');
-Route::post('/register','RegisterController@store')->name('register.insert');
+Route::group(['middleware' => 'Language'], function () {
+    $lang_db = \App\LanguageModel::where('status', "on")->get();
+    foreach ($lang_db as $lang) {
+        Route::prefix($lang->set)->group(function () {
+            Route::get('/','HomeController@index');
+            Route::get('/news','HomeController@news');
+            Route::get('/register','HomeController@register');
+            Route::post('/register','HomeController@store_register')->name('register.insert');
+            Route::get('/contactus','HomeController@contact_us');
+            Route::post('/contactus','HomeController@store_contact')->name('contactus.insert');
+            Route::get('/news000/{id}','HomeController@news000');
+        });
+    }
+});
+Route::get('/product','HomeController@product');
+Route::get('/applications','HomeController@applications');
+Route::get('/corporation','HomeController@corporation');
+Route::get('/salesnetwork','HomeController@salesnetwork');
+            
+            
 
 //*-----------------------------------------------------------------------------------------------------------------------------------------*//
 

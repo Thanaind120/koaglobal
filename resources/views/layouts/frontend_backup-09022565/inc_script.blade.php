@@ -10,7 +10,7 @@
     <script type="text/javascript" src="{{ asset('frontend/js/easyResponsiveTabs.js' ) }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/ofi.min.js' ) }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/sweetalert2/dist/sweetalert2.min.js' ) }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('frontend/js/sweetalert-data.js' ) }}"></script> --}}
+    <script type="text/javascript" src="{{ asset('frontend/js/sweetalert-data.js' ) }}"></script>
     <script type="text/javascript">
         function checkEnter(event, page) {
             if (event.keyCode == 13) {

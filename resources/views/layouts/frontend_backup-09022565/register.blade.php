@@ -42,7 +42,7 @@
                     <div class="col-sm-12">
                         <div class="wrap-h1">
                             <h1>
-                                @lang('lang.registerform')
+                                Register form
                             </h1>
                             <div class="bg-h1">
                                 <img src="{{ asset('frontend/./img/Banner_LOGO_NEW.jpg') }}" alt=""
@@ -62,9 +62,9 @@
                 <div class="row">
                     <div class="breadcrumbs">
                         <p>
-                            <span><a href="#">@lang('lang.home')</a></span>
+                            <span><a href="#">Home</a></span>
                             <span class="arrow"><i class="icon icon-arrow-right"></i></span>
-                            <span>@lang('lang.registerform')</span>
+                            <span>Register form</span>
                         </p>
                     </div>
                 </div>
@@ -83,79 +83,101 @@
                         <div class="contact-wrap row">
                             <div class="contact-form col-md-12">
                                 <form class="row" method="POST" enctype="multipart/form-data"
-                                    action="{{ url(Session::get('lang').'/register') }}">
+                                    action="{{ route('register.insert') }}">
                                     @csrf
                                     <div class="l-main1col">
                                         <div class="l-contact">
                                             <div class="scfForm">
-                                                <p>@lang('lang.detail_1')</p>
+                                                <p>Please ensure all required fields are completed.
+                                                    Fields marked with an * are required</p>
                                                 <div class="row">
-                                                    <div class="name col-md-4">
-                                                        <label>@lang('lang.name') <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox"
-                                                            id="name" name="name" required>
+                                                    <div class="name col-md-3">
+                                                        <label>Name <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" id="name"
+                                                            name="name" required>
                                                     </div>
-                                                    <div class="name col-md-4">
-                                                        <label>@lang('lang.email') <span>*</span></label>
-                                                        <input type="text" class="scfEmailTextBox" id="email"
-                                                            name="email" onblur="check_email(this)" required>
+                                                    <div class="name col-md-3">
+                                                        <label>Email <span>*</span></label>
+                                                        <input type="text" class="scfEmailTextBox" id="email" name="email"
+                                                            onblur="check_email(this)" required>
                                                     </div>
-                                                    <div class="name col-md-4">
-                                                        <label>@lang('lang.contact_number') <span>*</span></label>
+                                                    <div class="name col-md-3">
+                                                        <label>Contact number <span>*</span></label>
                                                         <input type="text" class="scfEmailTextBox" maxlength="10"
                                                             pattern="[0-9]{10}" id="tel" name="tel" required>
                                                     </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <div class="name col-md-6">
-                                                        <label>@lang('lang.company_name') <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox"
-                                                            id="company_name" name="company_name" required>
+                                                    <div class="name col-md-3">
+                                                        <label>Company Name <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox" id="company_name"
+                                                            name="company_name" required>
                                                     </div>
-                                                    <div class="name col-md-6">
-                                                        <label>@lang('lang.product_category') <span>*</span></label>
-                                                        <select class="scfDropList" id="product_category"
-                                                            name="product_category" required>
+                                                    <div class="name col-md-3">
+                                                        <label>Product Category <span>*</span></label>
+                                                        <select class="scfDropList" id="product_category" name="product_category" required>
                                                             <option name="product_category" selected="selected"
                                                                 value=""></option>
                                                             <option name="product_category" value="Resistors(SMD)">
-                                                                @lang('lang.resistors')</option>
+                                                                Resistors(SMD)</option>
                                                             <option name="product_category"
-                                                                value="Low Resistance/Current Sense Shunt Resistors">@lang('lang.low_resistance')</option>
+                                                                value="Low Resistance/Current Sense Shunt Resistors">Low
+                                                                Resistance/Current Sense Shunt Resistors</option>
                                                             <option name="product_category" value="Resistors(Leaded)">
-                                                                @lang('lang.resistors')</option>
+                                                                Resistors(Leaded)</option>
                                                             <option name="product_category"
-                                                                value="Thermistors Thermal Sensors">@lang('lang.thermistors_thermal')</option>
-                                                            <option name="product_category" value="Inductors">@lang('lang.inductors')
+                                                                value="Thermistors Thermal Sensors">Thermistors Thermal
+                                                                Sensors</option>
+                                                            <option name="product_category" value="Inductors">Inductors
                                                             </option>
-                                                            <option name="product_category" value="Fuses">@lang('lang.fuses')</option>
-                                                            <option name="product_category" value="Varistors">@lang('lang.varistors')
+                                                            <option name="product_category" value="Fuses">Fuses</option>
+                                                            <option name="product_category" value="Varistors">Varistors
                                                             </option>
-                                                            <option name="product_category" value="LTCC Substrates">@lang('lang.ltcc_substrates')</option>
-                                                            <option name="product_category" value="Others">@lang('lang.others')
+                                                            <option name="product_category" value="LTCC Substrates">LTCC
+                                                                Substrates</option>
+                                                            <option name="product_category" value="Others">Others
                                                             </option>
                                                         </select>
                                                     </div>
                                                 </div>
+                                                {{-- <div class="row">
+                                                    <div class="name col-md-3">
+                                                        <label>You job title<span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="title_name">
+                                                    </div>
+                                                    <div class="name col-md-3">
+                                                        <label>You department<span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="department_name">
+                                                    </div>
+                                                    <div class="name col-md-3">
+                                                        <label>You organization<span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" name="organization_name">
+                                                    </div>
+                                                    <div class="name col-md-3">
+                                                        <label>Your location<span>*</span></label>
+                                                        <input type="text" maxlength="100"
+                                                            class="sscfSingleLineTextBox" name="location_name">
+                                                    </div>
+                                                </div> --}}
                                                 <div class="row">
                                                     <div class="name col-md-12 scfMultipleLineGeneralPanel">
-                                                        <label>@lang('lang.message')<span>*</span></label>
-                                                        <textarea class="scfMultipleLineTextBox" rows="5" cols="20" id="product_message"
+                                                        <label>MESSAGE <span>*</span></label>
+                                                        <textarea class="scfMultipleLineTextBox" id="product_message"
                                                             name="product_message" required>
                                                         </textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 scfSubmitButtonBorder">
-                                                        <button type="submit" id="submit" class="btn btn-24 scfSubmitButton">@lang('lang.send_message')</button>
+                                                        <button type="submit" id="submit"
+                                                            class="btn btn-24 scfSubmitButton" disabled>Send
+                                                            Message</button>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <p> @lang('lang.detail_2') </p>
-                                                        <p>@lang('lang.detail_3') <strong>@lang('lang.detail_4')</strong></p>
-                                                        <p>@lang('lang.detail_5')</p>
+                                                        <p> How we handling your personal information </p>
+                                                        <p>Please read this <strong>Privacy Policy.</strong></p>
+                                                        <p>*Read and confirm our privacy policy and agreed to the
+                                                            contents.</p>
 
                                                     </div>
                                                 </div>
@@ -205,8 +227,7 @@
             }
         }
         $('#name').click(function () {
-            if ($('#product_message').val() != '' && $('#email').val() != '' && $('#tel').val() != '' && $(
-                    '#company_name')
+            if ($('#product_message').val() != '' && $('#email').val() != '' && $('#tel').val() != '' && $('#company_name')
                 .val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
@@ -217,10 +238,8 @@
             }
         });
         $('#email').click(function () {
-            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#tel').val() != '' && $(
-                    '#company_name')
-                .val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $(
-                    '#product_message').val() != '') {
+            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#tel').val() != '' && $('#company_name')
+                .val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $('#product_message').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -230,8 +249,7 @@
             }
         });
         $('#tel').click(function () {
-            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#email').val() != '' && $(
-                    '#company_name')
+            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#email').val() != '' && $('#company_name')
                 .val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
@@ -242,8 +260,7 @@
             }
         });
         $('#company_name').click(function () {
-            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#email').val() != '' && $(
-                    '#tel')
+            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#email').val() != '' && $('#tel')
                 .val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
@@ -254,8 +271,7 @@
             }
         });
         $('#product_category').click(function () {
-            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#email').val() != '' && $(
-                    '#tel')
+            if ($('#product_message').val() != '' && $('#name').val() != '' && $('#email').val() != '' && $('#tel')
                 .val() != '' && $('#company_name').val() != '' && $('#product_message').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);

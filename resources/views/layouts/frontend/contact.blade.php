@@ -42,7 +42,7 @@
                     <div class="col-sm-12">
                         <div class="wrap-h1">
                             <h1>
-                                Contact Us
+                                @lang('lang.contactus')
                             </h1>
                             <div class="bg-h1">
                                 <img src="{{ asset('frontend/./img/Banner_LOGO_NEW.jpg') }}" alt=""
@@ -62,9 +62,9 @@
                 <div class="row">
                     <div class="breadcrumbs">
                         <p>
-                            <span><a href="#">Home</a></span>
+                            <span><a href="#">@lang('lang.home')</a></span>
                             <span class="arrow"><i class="icon icon-arrow-right"></i></span>
-                            <span>Contact</span>
+                            <span>@lang('lang.contact')</span>
                         </p>
                     </div>
                 </div>
@@ -83,205 +83,162 @@
                         <div class="contact-wrap row">
                             <div class="contact-details col-md-3">
                                 <div class="address wow fadeInLeft" data-wow-delay="0.3s">
-                                    <h4 class="title">Our Office Address</h4>
-                                    <p>KOA DENKO (S) PTE. LTD. THAILAND</p>
-                                    <p>24TH FLOOR, ROOM 24101</p>
-                                    <p>PHAYATHAI ROAD, PATHUMWAN,BANGKOK,10330</p>
+                                    <h4 class="title">@lang('lang.detail_6')</h4>
+                                    <p>@lang('lang.detail_7')</p>
+                                    <p>@lang('lang.detail_8')</p>
+                                    <p>@lang('lang.detail_9')</p>
                                 </div>
                             </div>
 
                             <div class="contact-form col-md-9">
                                 <form class="row" method="POST" enctype="multipart/form-data"
-                                    action="{{ route('contactus.insert') }}">
+                                    action="{{ url(Session::get('lang').'/contactus') }}">
                                     @csrf
                                     <div class="l-main1col">
                                         <div class="l-contact">
                                             <div class="scfForm">
-                                                <p>Please ensure all required fields are completed.
-                                                    Fields marked with an * are required</p>
+                                                <p>@lang('lang.detail_1')</p>
                                                 <div class="row">
                                                     <div class="name col-md-4">
-                                                        <label>Type of Inquiry <span>*</span></label>
-                                                        <select class="scfDropList" id="type_inquiry" name="type_inquiry" required>
+                                                        <label>@lang('lang.type_inquiry')<span>*</span></label>
+                                                        <select class="scfDropList" id="type_inquiry"
+                                                            name="type_inquiry" required>
                                                             <option name="type_inquiry" selected="selected" value="">
                                                             </option>
                                                             <option name="type_inquiry" value="Customer Service">
-                                                                Customer Service</option>
-                                                            <option name="type_inquiry" value="Samples">Samples</option>
-                                                            <option name="type_inquiry" value="Support">Support</option>
+                                                                @lang('lang.customer')</option>
+                                                            <option name="type_inquiry" value="Samples">@lang('lang.samples')</option>
+                                                            <option name="type_inquiry" value="Support">@lang('lang.support')</option>
                                                             <option name="type_inquiry"
-                                                                value="Product Engineering＆Quality">Product
-                                                                Engineering＆Quality</option>
-                                                            <option name="type_inquiry" value="Sales">Sales</option>
+                                                                value="Product Engineering＆Quality">@lang('lang.proQty')</option>
+                                                            <option name="type_inquiry" value="Sales">@lang('lang.sales')</option>
                                                             <option name="type_inquiry"
-                                                                value="Field Application Engineer">Field Application
-                                                                Engineer</option>
-                                                            <option name="type_inquiry" value="Catalogue">Catalogue
+                                                                value="Field Application Engineer">@lang('lang.field')</option>
+                                                            <option name="type_inquiry" value="Catalogue">@lang('lang.catalogue')
                                                             </option>
                                                         </select>
-                                                        {{-- <select class="scfDropList" id="id_iunqiry" name="type_inquiry">
-                                                            <option selected="selected" value=""></option>
-                                                            <?php
-                                                            // foreach ($type_of_iunqiry as $key=>$val){
-                                                          ?>
-                                                            <option name="type_inquiry" value="{{ $val->id_iunqiry }}">
-                                                        {{ $val->type_iunqiry_en }}</option>
-                                                        <?php
-                                                        // }
-                                                        ?>
-                                                        </select> --}}
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Primary Application <span>*</span></label>
-                                                        <select class="scfDropList" id="application" name="application" required>
+                                                        <label>@lang('lang.pri_application') <span>*</span></label>
+                                                        <select class="scfDropList" id="application" name="application"
+                                                            required>
                                                             <option name="application" selected="selected" value="">
                                                             </option>
-                                                            <option name="application" value="Smart home">Smart home
+                                                            <option name="application" value="Smart home">@lang('lang.smart')
                                                             </option>
-                                                            <option name="application" value="Healthcare">Healthcare
+                                                            <option name="application" value="Healthcare">@lang('lang.healthcare')
                                                             </option>
-                                                            <option name="application" value="Automotive">Automotive
+                                                            <option name="application" value="Automotive">@lang('lang.automotive')
                                                             </option>
-                                                            <option name="application" value="Smartphone">Smartphone
+                                                            <option name="application" value="Smartphone">@lang('lang.smartphone')
                                                             </option>
-                                                            <option name="application" value="Wearable">Wearable
+                                                            <option name="application" value="Wearable">@lang('lang.wearable')
                                                             </option>
-                                                            <option name="application" value="Base Station">Base Station
+                                                            <option name="application" value="Base Station">@lang('lang.base')
                                                             </option>
-                                                            <option name="application" value="Network">Network</option>
-                                                            <option name="application" value="Data Center">Data Center
+                                                            <option name="application" value="Network">@lang('lang.network')</option>
+                                                            <option name="application" value="Data Center">@lang('lang.data')
                                                             </option>
-                                                            <option name="application" value="Lighting">Lighting
+                                                            <option name="application" value="Lighting">@lang('lang.lighting')
                                                             </option>
-                                                            <option name="application" value="White Goods">White Goods
+                                                            <option name="application" value="White Goods">@lang('lang.white')
                                                             </option>
-                                                            <option name="application" value="Industrial">Industrial
+                                                            <option name="application" value="Industrial">@lang('lang.industrial')
                                                             </option>
                                                             <option name="application" value="Security＆Safety">
-                                                                Security＆Safety</option>
-                                                            <option name="application" value="Others">Others</option>
+                                                                @lang('lang.security')</option>
+                                                            <option name="application" value="Others">@lang('lang.oothers')</option>
                                                         </select>
-                                                        {{-- <select class="scfDropList" id="id_application"
-                                                            name="application">
-                                                            <option selected="selected" value=""></option>
-                                                            <?php
-                                                            // foreach ($application as $key=>$val){
-                                                          ?>
-                                                            <option name="application"
-                                                                value="{{ $val->id_application }}">
-                                                        {{ $val->application_name_en }}
-                                                        </option>
-                                                        <?php
-                                                        // }
-                                                        ?>
-                                                        </select> --}}
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Primary Product Category <span>*</span></label>
-                                                        <select class="scfDropList" id="product_category" name="product_category" required>
+                                                        <label>@lang('lang.pri_pro') <span>*</span></label>
+                                                        <select class="scfDropList" id="product_category"
+                                                            name="product_category" required>
                                                             <option name="product_category" selected="selected"
                                                                 value=""></option>
-                                                            <option name="product_category" value="Resistors">Resistors
+                                                            <option name="product_category" value="Resistors">@lang('lang.resistors')
                                                             </option>
-                                                            <option name="product_category" value="Inductors">Inductors
+                                                            <option name="product_category" value="Inductors">@lang('lang.inductors')
                                                             </option>
-                                                            <option name="product_category" value="Sensors">Sensors
+                                                            <option name="product_category" value="Sensors">@lang('lang.sensors')
                                                             </option>
-                                                            <option name="product_category" value="Fuses">Fuses</option>
-                                                            <option name="product_category" value="Varistors">Varistors
+                                                            <option name="product_category" value="Fuses">@lang('lang.fuses')</option>
+                                                            <option name="product_category" value="Varistors">@lang('lang.varistors')
                                                             </option>
-                                                            <option name="product_category" value="LTCC">LTCC</option>
+                                                            <option name="product_category" value="LTCC">@lang('lang.lTCC')</option>
                                                         </select>
-                                                        {{-- <select class="scfDropList" id="id_product_category"
-                                                            name="product_category">
-                                                            <option selected="selected" value=""></option>
-                                                            <?php
-                                                            // foreach ($product_category as $key=>$val){
-                                                          ?>
-                                                            <option name="product_category"
-                                                                value="{{ $val->id_product_category }}">
-                                                        {{ $val->product_category_en }}
-                                                        </option>
-                                                        <?php
-                                                        // }
-                                                        ?>
-                                                        </select> --}}
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-12 scfMultipleLineGeneralPanel">
-                                                        <label>Primary Product Category <span>*</span></label>
-                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox" id="product_message"
-                                                            name="product_message" required>
+                                                        <label>@lang('lang.detail_10') <span>*</span></label>
+                                                        <textarea rows="5" cols="20" class="scfMultipleLineTextBox"
+                                                            id="product_message" name="product_message" required>
                                                         </textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-4">
-                                                        <label>First Name <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" id="firstname"
-                                                            name="firstname" required>
+                                                        <label>@lang('lang.first') <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox"
+                                                            id="firstname" name="firstname" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Last Name <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox" id="lastname"
-                                                            name="lastname" required>
+                                                        <label>@lang('lang.last') <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox"
+                                                            id="lastname" name="lastname" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>(Company) Email Address <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfEmailTextBox" id="email"
-                                                            name="email" onblur="check_email(this)" required>
+                                                        <label>@lang('lang.eaddress') <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfEmailTextBox"
+                                                            id="email" name="email" onblur="check_email(this)" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="name col-md-4">
-                                                        <label>Company Name <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox" id="company_name"
-                                                            name="company_name" required>
+                                                        <label>@lang('lang.com') <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="scfSingleLineTextBox"
+                                                            id="company_name" name="company_name" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Country / Area <span>*</span></label>
-                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox" id="area"
-                                                            name="area" required>
+                                                        <label>@lang('lang.Country') <span>*</span></label>
+                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox"
+                                                            id="area" name="area" required>
                                                     </div>
                                                     <div class="name col-md-4">
-                                                        <label>Postal / Zip Code <span>*</span></label>
-                                                        <select class="scfDropList" id="zip_code" name="zip_code" required>
+                                                        <label>@lang('lang.Postal') <span>*</span></label>
+                                                        <select class="scfDropList" id="zip_code" name="zip_code"
+                                                            required>
                                                             <option name="zip_code" selected="selected" value="">
                                                             </option>
                                                             <option name="zip_code" value="	Samphanthawong">
-                                                                Samphanthawong</option>
-                                                            <option name="zip_code" value="Udon Thani">Udon Thani
+                                                                @lang('lang.Samphanthawong')</option>
+                                                            <option name="zip_code" value="Udon Thani">@lang('lang.Udon')
                                                             </option>
-                                                            <option name="zip_code" value="Nong Khai">Nong Khai</option>
+                                                            <option name="zip_code" value="Nong Khai">@lang('lang.Nong')</option>
                                                         </select>
-                                                        {{-- <select class="scfDropList" id="id_zip_code" name="zip_code">
-                                                            <option selected="selected" value=""></option>
-                                                            <?php
-                                                            // foreach ($zip_code as $key=>$val){
-                                                          ?>
-                                                            <option name="zip_code"
-                                                                value="{{ $val->id_zip_code }}">
-                                                        {{ $val->zip_code_en }}
-                                                        </option>
-                                                        <?php
-                                                        // }
-                                                        ?>
-                                                        </select> --}}
-                                                    </div>
-                                                    <div class="col-md-12 scfSubmitButtonBorder">
-                                                        <button type="submit" id="submit" class="btn btn-24 scfSubmitButton" disabled>Send
-                                                            Message</button>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <p> How we handling your personal information </p>
-                                                        <p>Please read this <strong>Privacy Policy.</strong></p>
-                                                        <p>*Read and confirm our privacy policy and agreed to the
-                                                            contents.</p>
+                                                        <p>@lang('lang.detail_2')</p>
+                                                        <p>@lang('lang.detail_3') <strong><a class="text-sizeLarger"
+                                                                    href="https://www.koaspore.com.sg/privacy"
+                                                                    target="_blank">@lang('lang.detail_4')</a></strong></p>
+                                                        <p>@lang('lang.detail_5')</p>
 
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    {{-- <div class="col-md-12" align="center"> --}}
+                                                    <input type="submit" name="submit"
+                                                        value="@lang('lang.submit')" id="submit"
+                                                        class="scfSubmitButton" disabled>
+                                                    {{-- <button type="submit" id="submit" class="btn btn-24 scfSubmitButton"
+                                                        style="font-size: 24px;" disabled>I agree to the above terms and
+                                                        submit
+                                                    </button> --}}
+                                                    {{-- </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -324,8 +281,10 @@
             }
         }
         $('#type_inquiry').click(function () {
-            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#company_name').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '') {
+            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#company_name')
+                .val() != '' && $('#area').val() != '' && $('#zip_code').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -335,8 +294,10 @@
             }
         });
         $('#application').click(function () {
-            if ($('#company_name').val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#company_name').val() != '' && $('#product_category').val() != '' && $('#product_message')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -346,8 +307,10 @@
             }
         });
         $('#product_category').click(function () {
-            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_message').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_message')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -357,8 +320,10 @@
             }
         });
         $('#product_message').click(function () {
-            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -368,8 +333,10 @@
             }
         });
         $('#firstname').click(function () {
-            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category')
+                .val() != '' && $('#product_message')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -379,8 +346,10 @@
             }
         });
         $('#lastname').click(function () {
-            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
-                .val() != '' && $('#firstname').val() != '' && $('#email').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category')
+                .val() != '' && $('#product_message')
+                .val() != '' && $('#firstname').val() != '' && $('#email').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -390,8 +359,10 @@
             }
         });
         $('#email').click(function () {
-            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
-                .val() != '' && $('#firstname').val() != '' && $('#lastname').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#company_name').val() != '' && $('#application').val() != '' && $('#product_category')
+                .val() != '' && $('#product_message')
+                .val() != '' && $('#firstname').val() != '' && $('#lastname').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -401,8 +372,10 @@
             }
         });
         $('#company_name').click(function () {
-            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#area').val() !=
+                '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -412,8 +385,10 @@
             }
         });
         $('#area').click(function () {
-            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#company_name').val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#company_name')
+                .val() != '' && $('#zip_code').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');
@@ -423,8 +398,10 @@
             }
         });
         $('#zip_code').click(function () {
-            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message').val() != '' && $('#firstname')
-                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#company_name').val() != '' && $('#area').val() != '' && $('#type_inquiry').val() != '') {
+            if ($('#application').val() != '' && $('#product_category').val() != '' && $('#product_message')
+                .val() != '' && $('#firstname')
+                .val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#company_name')
+                .val() != '' && $('#area').val() != '' && $('#type_inquiry').val() != '') {
                 document.getElementById('submit').disabled = false;
                 $('#submit').prop('disabled', false);
                 var inputs = document.getElementsByClassName('submit');

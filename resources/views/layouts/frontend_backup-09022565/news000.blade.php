@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h1>
-                                @lang('lang.news')
+                                NEWS
                             </h1>
                             <div class="bg-h1">
                             </div>
@@ -67,12 +67,16 @@
                         <li>
                             <a href="javascript:void(0)">
                                 <span>
-                                    @lang('lang.news')
+                                    Home
                                 </span>
                             </a>
                         </li>
+
                         <li>
-                            {{ $news["news_release_topics_".Session::get('lang')]}}
+                            NEWS
+                        </li>
+                        <li>
+                            {{ $news->news_release_topics_en }}
                         </li>
                     </ul>
 
@@ -90,34 +94,29 @@
                             <div class="fxb-news ">
 
                                 <h2 class="headline-h4">
-                                    @lang('lang.news') : {{ $news["news_release_topics_".Session::get('lang')]}}
+                                    NEWS : {{ $news->news_release_topics_en }}
                                 </h2>
                                 <!-- content NEWS START
                                 ============================================= -->
                                 <div>
                                     <div class="l-mainSecond">
-                                        
+
+
                                         <h1>
                                             <?php if ($news->id_news_releases == 2){ ?>
-                                            <?php if($news->image != ''){ ?>
-                                            <div style="text-align: left;">
-                                                <p><span
-                                                        style="font-family: tahoma; font-size: 14px; color: #c00000;">{{ $news["news_name_".Session::get('lang')]}}</span>
-                                                </p>
-                                            </div>
+                                                <?php if($news->image != ''){ ?>
+                                                    <div style="text-align: left;">
+                                                        <p><span style="font-family: tahoma; font-size: 14px; color: #c00000;">{{ $news->news_name_en }}</span></p>
+                                                    </div>
+                                                <?php }else{ ?>
+                                                    <div style="text-align: left;">
+                                                        <p><span style="font-family: tahoma; font-size: 14px;">{{ $news->news_name_en }}</span></p>
+                                                    </div>
+                                                <?php } ?>
                                             <?php }else{ ?>
-                                            <div style="text-align: left;">
-                                                <p><span
-                                                        style="font-family: tahoma; font-size: 14px;">{{ $news["news_name_".Session::get('lang')]}}</span>
-                                                </p>
-                                            </div>
-                                            <?php } ?>
-                                            <?php }else{ ?>
-                                            <div style="text-align: left;">
-                                                <p><span
-                                                        style="font-family: tahoma; font-size: 14px;">{{ $news["news_name_".Session::get('lang')]}}</span>
-                                                </p>
-                                            </div>
+                                                <div style="text-align: left;">
+                                                    <p><span style="font-family: tahoma; font-size: 14px;">{{ $news->news_name_en }}</span></p>
+                                                </div>
                                             <?php } ?>
                                             <div id="gtx-trans"
                                                 style="position: absolute; left: -118px; top: -25.0119px;">
@@ -128,10 +127,15 @@
                                             {{ $news->save_date }}
                                         </p>
                                         <p class="_detail">
-                                            {!! $news["detail_".Session::get('lang')] !!}
-
+                                            {!! $news->detail_en !!}
+                                            
                                         </p>
                                         <img src="{{ asset('backend/assets/images/image_news/'.$news->image) }}" alt="">
+                                        {{-- <img src="{{ asset('frontend/img/imgnews100.png') }}" alt=""> --}}
+
+
+
+
 
                                     </div>
                                 </div>
@@ -147,32 +151,39 @@
                         <aside class="l-sideSecond l-sideNews">
                             <a class="btn-acc link-disable " href="javascript:void(0)">
                                 <h2 class="headline-h4">
-                                    @lang('lang.news_release')
+                                    News Release
                                 </h2>
                             </a>
                             <ul class="l-localNav wrap-acc">
 
-                                <?php foreach ($news_release as $key=>$val){ ?>
+                                <li><a href="javascript:void(0)" class="">Product News</a></li>
 
-                                <li><a href="javascript:void(0)"
-                                        class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li>
+                                <li><a href="javascript:void(0)" class="">Event・Information</a></li>
 
-                                <?php } ?>
+                                <li><a href="javascript:void(0)" class="">IR News</a></li>
 
                             </ul>
 
                             <a class="btn-acc link-disable " href="javascript:void(0)">
                                 <h2 class="headline-h4">
-                                    @lang('lang.archive')
+                                    Archive
                                 </h2>
                             </a>
                             <ul class="l-localNav wrap-acc">
 
-                                <?php foreach ($archive as $key=>$val){ ?>
+                                <li><a href="javascript:void(0)" class="is-active">2021</a></li>
 
-                                <li><a href="javascript:void(0)">{{ $val->year }}</a></li>
+                                <li><a href="javascript:void(0)" class="">2020</a></li>
 
-                                <?php } ?>
+                                <li><a href="javascript:void(0)" class="">2019</a></li>
+
+                                <li><a href="javascript:void(0)" class="">2018</a></li>
+
+                                <li><a href="javascript:void(0)" class="">2017</a></li>
+
+                                <li><a href="javascript:void(0)" class="">2016</a></li>
+
+                                <li><a href="javascript:void(0)" class="">2015</a></li>
 
                             </ul>
 

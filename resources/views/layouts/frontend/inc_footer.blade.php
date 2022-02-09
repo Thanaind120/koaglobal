@@ -4,31 +4,31 @@
         <div class="row">
             <div class="col-sm-12 col-md-3">
                 <div class="footer-content">
-                    <h4 class="title">Contact Us</h4>
+                    <h4 class="title">@lang('lang.contactus')</h4>
                     <div class="contact-section">
-                        <p>KOA DENKO (S) PTE. LTD. THAILAND</p>
-                        <p>319 CHAMCHURI SQUARE BUILDING</p>
-                        <p>24TH FLOOR, ROOM 24101</p>
-                        <p>PHAYATHAI ROAD, PATHUMWAN, BANGKOK</p>
-                        <p>10330</p>
+                        <p>@lang('lang.address_1')</p>
+                        <p>@lang('lang.address_2')</p>
+                        <p>@lang('lang.address_3')</p>
+                        <p>@lang('lang.address_4')</p>
+                        <p>@lang('lang.address_5')</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-3">
                 <div class="l-footerNav">
                     <ul>
-                        <li><a href="product.html" target="_blank">Products</a></li>
-                        <li><a href="app.html">Application</a></li>
-                        <li><a href="corporate.html">Corporation</a></li>
-                        <li><a href="salesnetwork.html">Sales Network</a> </li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="https://www.koaglobal.com/product?sc_lang=en" target="_blank">{{ trans('lang.products') }}</a></li>
+                        <li><a href="https://www.koaglobal.com/app?sc_lang=en">{{ trans('lang.application') }}</a></li>
+                        <li><a href="https://www.koaspore.com.sg/corporation">{{ trans('lang.corporation') }}</a></li>
+                        <li><a href="https://www.koaspore.com.sg/salesnetwork">{{ trans('lang.salesnetwork') }}</a> </li>
+                        <li><a href="{{ url(Session::get('lang').'/contactus') }}">{{ trans('lang.contactus') }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-12 col-md-3">
-                <div class="l-cta"><a href="javascript:void(0)">
-                        <h2>Contact Form</h2>
-                        <p class="_btn">Contact Form</p>
+                <div class="l-cta"><a href="{{ url(Session::get('lang').'/contactus') }}">
+                        <h2>{{ trans('lang.contactform') }}</h2>
+                        <p class="_btn">{{ trans('lang.contactform') }}</p>
                     </a>
                 </div>
             </div>
@@ -39,15 +39,17 @@
                 ============================================= -->
     <div class="text-center">
         <div class="l-footerPolicy">
-            <div class="l-inner-footerPolicy">
-                <ul class="l-pp"><a href="javascript:void(0)">Privacy Policy</a></ul>
-                <div class="l-copy"><span>Copyright © KOA DENKO (S) PTE LTD, All rights reserved.</span>
+            <div class="container">
+                <div class="l-inner-footerPolicy">
+                <ul class="l-pp"><a href="https://www.koaspore.com.sg/-/media/Files/KOA_MultiDomain/singapore/corporation/salesagreement/GeneralSalesAgreement.pdf">{{ trans('lang.privacypolicy') }}</a></ul>
+                <div class="l-copy"><span>{{ trans('lang.copyright') }}</span>
                 </div>
                 <p class="l-pagetop">
-                    <a href="javascript:void(0)">
-                        <img src="{{ asset('frontend/./img/btn_pagetop.png' ) }}" alt="PAGE TOP"></a>
+                    <a href="{{ url('/')}}">
+                        <img src="{{ asset('frontend/./img/btn_pagetop.png' ) }}" alt="{{ trans('lang.page_top') }}"></a>
                 </p>
-            </div>
+                </div>
+            </div>            
         </div>
     </div>
     <!-- COPYRIGHT END -->

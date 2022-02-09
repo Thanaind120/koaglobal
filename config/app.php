@@ -229,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Webpanel' => \App\Http\Middleware\Webpanel::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Language' => \App\Http\Middleware\Language::class,
     ],
 
 ];
