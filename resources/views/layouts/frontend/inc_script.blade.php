@@ -88,6 +88,8 @@
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/scwCookie.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/js-cookie.js')}}"></script>
     <div id="RegionSelect">
         <div id="is-region" class="close">
             <div class="is-content">

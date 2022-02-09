@@ -100,7 +100,7 @@
             </div>
         </li>
         <li class="l-region">
-            <a class="is-openRegion" href="#">{{ trans('lang.selectyourregion') }}</a>
+            <a class="is-openRegion" onclick="return false;" href="#">{{ trans('lang.selectyourregion') }}</a>
         </li>
         <li class="l-language">
             <select id="HeaderLanguage" onchange="window.location.href=this.value;" name="Language">
