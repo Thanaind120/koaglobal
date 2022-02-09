@@ -207,7 +207,7 @@
                                                     </div>
                                                     <div class="name col-md-4">
                                                         <label>@lang('lang.Postal') <span>*</span></label>
-                                                        <select class="scfDropList" id="zip_code" name="zip_code"
+                                                        {{-- <select class="scfDropList" id="zip_code" name="zip_code"
                                                             required>
                                                             <option name="zip_code" selected="selected" value="">
                                                             </option>
@@ -216,7 +216,9 @@
                                                             <option name="zip_code" value="Udon Thani">@lang('lang.Udon')
                                                             </option>
                                                             <option name="zip_code" value="Nong Khai">@lang('lang.Nong')</option>
-                                                        </select>
+                                                        </select> --}}
+                                                        <input type="text" maxlength="100" class="sscfSingleLineTextBox"
+                                                            id="zip_code" name="zip_code" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">

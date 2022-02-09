@@ -67,3 +67,254 @@ footer .l-footerInfo .l-inner-footerInfo>._logo {
 .maleft-15 {
   margin-left: -15px;
 }
+
+/*  cookie  */
+.scw-cookie-details {
+  clear: both;
+  display: none;
+  padding-top: 15px;
+}
+
+.scw-cookie:not(.scw-cookie-out) {
+  animation: slideIn .5s ease-in-out;
+}
+
+.scwc-icon.scwc-icon-cookie {
+  background-position: 0 0;
+}
+
+.scw-cookie {
+  background: #2d34368c;
+  bottom: 0;
+  color: #fff;
+  font-family: Arial;
+  font-size: 14px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 9999999999;
+}
+
+.scw-cookie-panel-toggle-left {
+  left: 10px;
+}
+
+.scw-cookie-panel-toggle {
+  background: inherit;
+  border-top: solid 3px #fff;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  transform: translateY(-100%);
+}
+
+.scw-cookie-btn,
+.scw-cookie-panel-toggle,
+.scw-cookie-policy,
+.scw-cookie-settings,
+.scw-cookie-settings .scwc-icon,
+.scw-cookie-switch {
+  transition: all .3s ease;
+}
+
+.scw-cookie-panel-toggle::before {
+  background: #2d3436;
+  content: 'Turn cookies on / off';
+  float: left;
+  height: 20px;
+  line-height: 25px;
+  margin-right: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: all .3s ease;
+  visibility: hidden;
+  width: 0;
+}
+
+
+.scwc-icon {
+  background-image: url("../img/icons.png");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.scw-cookie-content {
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 20px;
+  width: 1170px;
+}
+
+.scw-cookie-message {
+  float: left;
+  line-height: 1;
+  width: 70%;
+}
+
+.scw-cookie-decision {
+  text-align: right;
+  float: left;
+  width: 30%;
+}
+
+.scw-cookie-btn {
+  background: #20bf6b;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  width: 40px;
+  color: #1d1d1d;
+}
+
+.scw-cookie-tooltip-trigger {
+  position: relative;
+}
+
+.scw-cookie-settings {
+  cursor: pointer;
+}
+
+.scw-cookie-policy,
+.scw-cookie-settings {
+  display: inline-block;
+  line-height: 30px;
+  margin-left: 13px;
+  text-align: center;
+  width: 20px;
+}
+
+.scw-cookie-policy .scwc-icon,
+.scw-cookie-settings .scwc-icon {
+  margin-top: -5px;
+  opacity: .7;
+  position: relative;
+  top: 7px;
+}
+
+.scwc-icon.scwc-icon-settings {
+  background-position: -50px 0;
+}
+
+.scwc-icon.scwc-icon-policy {
+  background-position: -25px 0;
+}
+
+.scw-cookie-toggle:nth-child(even) {
+  margin-right: 5px;
+}
+
+
+.scw-cookie.scw-cookie-slide-out {
+  animation: slideOut .5s ease-in-out;
+  transform: translateY(100%);
+}
+
+.scw-cookie:not(.scw-cookie-out) {
+  animation: slideIn .5s ease-in-out;
+}
+
+.scw-cookie-details-title {
+  font-weight: 700;
+}
+
+.scw-cookie-toggle {
+  border: solid 1px;
+  box-sizing: border-box;
+  float: left;
+  margin-top: 10px;
+  padding: 5px;
+  width: calc(50% - 5px);
+}
+
+.scw-cookie-toggle:nth-child(odd) {
+  margin-left: 5px;
+}
+
+.scw-cookie-toggle:nth-child(even) {
+  margin-right: 5px;
+}
+
+.scw-cookie-switch.disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.scw-cookie-switch.checked {
+  background: #20bf6b;
+}
+
+.scw-cookie-switch {
+  background: #bdb9a6;
+  border-radius: 1em;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  height: 0.8em;
+  margin: 0;
+  position: relative;
+  top: 4px;
+  width: 2em;
+}
+
+.scw-cookie-toggle input[type=checkbox] {
+  cursor: pointer;
+  float: left;
+  height: 25px;
+  margin: 0;
+  width: 20%;
+}
+
+.scw-cookie-switch div {
+  background: #fff;
+  border-radius: 0.8em;
+  box-shadow: 0 0.1em 0.3em rgb(0 0 0 / 30%);
+  height: 0.8em;
+  width: 1em;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
+.scw-cookie-switch input:checked+div {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+.scw-cookie-switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.scw-cookie-switch {
+  background: #bdb9a6;
+  border-radius: 1em;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  height: 0.8em;
+  margin: 0;
+  position: relative;
+  top: 4px;
+  width: 2em;
+}
+
+.scw-cookie-details::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.scw-cookie-name {
+  cursor: pointer;
+  float: left;
+  line-height: 23px;
+  padding-left: 15px;
+  width: 80%;
+}
