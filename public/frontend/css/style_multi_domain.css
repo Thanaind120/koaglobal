@@ -1044,7 +1044,7 @@ header .l-globalNav {
 }
 
 header .l-globalNav ul {
-  width: 980px;
+  width: 1170px;
   margin: 0 auto;
 }
 
@@ -1349,7 +1349,6 @@ footer .l-footerPolicy {
 }
 
 footer .l-footerPolicy .l-inner-footerPolicy {
-  width: 980px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -2835,7 +2834,6 @@ header.is-openMenu .l-globalNav {
 }
 
 .l-extraNav {
-  width: 477px;
   list-style: none;
   overflow: hidden;
   float: right;
@@ -2909,6 +2907,7 @@ header.is-openMenu .l-globalNav {
   background: #F3F3F3;
   padding: 6px;
   position: relative;
+  height: 32px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2976,6 +2975,7 @@ header.is-openMenu .l-globalNav {
 .l-extraNav li.l-language {
   width: 140px;
   position: relative;
+  height: 32px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -3025,14 +3025,13 @@ header.is-openMenu .l-globalNav {
 .l-extraNav li.l-language select {
   font-family: "Open Sans", arial, sans-serif;
   width: 140px;
-  height: 25px;
   display: inline-block;
   color: #888;
   font-size: 1.2rem;
   border: none;
   background: #F3F3F3;
   margin: 0 .1em;
-  padding: 0 3px;
+  padding: 6px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -3060,7 +3059,7 @@ header.is-openMenu .l-globalNav {
 
 @media only screen and (max-width: 767px) {
   .l-extraNav.l-extraNavB li.l-region {
-    width: 86% !important;
+    width: 40% !important;
   }
 
   .l-extraNav.l-extraNavB li.l-region a {
@@ -3130,7 +3129,7 @@ header #___gcse_0 .gsc-control-cse .gsc-control-wrapper-cse .gsc-search-box tabl
 header #___gcse_0 .gsc-control-cse .gsc-control-wrapper-cse .gsc-search-box table.gsc-search-box td.gsc-search-button button.gsc-search-button {
   border: none;
   background-color: #0055a4;
-  padding: 5px 10px;
+  padding: 8px 10px;
 }
 
 header #___gcse_0 .gsc-control-cse .gsc-control-wrapper-cse .gsc-search-box table.gsc-search-box td.gsc-search-button button.gsc-search-button:hover {
@@ -4081,7 +4080,6 @@ a.l-pickup>._image {
   a.l-pickup>._image {
     display: block;
     width: 80%;
-    background: #fff;
     height: auto;
     margin: 0 auto;
     padding: 10% 2%;
