@@ -1,10 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Session;
+use  App\LanguageModel;
 
 
 /*
@@ -19,9 +22,21 @@ use Illuminate\Support\Facades\Session;
 */
 
 //*---------------------------------------------------------------- FRONTEND ---------------------------------------------------------------*//
-$lang_db = \App\LanguageModel::find(4);
+$lang_db = LanguageModel::find(4);
 Route::get('/set/lang/{lang}', 'HomeController@setLang');
-
+// clear cache
+Route::get('/clc', function() {
+	Artisan::call('cache:clear');
+	Artisan::call('config:clear');
+	Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    
+    // Artisan::call('optimize');
+    // Artisan::call('clear-compiled');
+        // Artisan::call('view:clear');
+        // session()->forget('key');
+	return "Cleared!";
+});
 Route::get('/', function () use ($lang_db) {
  $default = $lang_db->set;  // -----th
 
@@ -45,7 +60,7 @@ Route::get('/', function () use ($lang_db) {
  }
 });
 
-Auth::routes(); // Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
 Route::group(['middleware' => 'Language'], function () {
     $lang_db = \App\LanguageModel::where('status', "on")->get();
     foreach ($lang_db as $lang) {
