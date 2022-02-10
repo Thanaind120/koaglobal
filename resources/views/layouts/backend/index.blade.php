@@ -47,7 +47,7 @@
 
             </header>
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h1 mb-0 text-gray-800">Analytics</h1>
+                <h1 class="h1 mb-0 text-gray-800">Overview</h1>
             </div>
             <!-- start: page -->
             <div class="row">
@@ -242,39 +242,39 @@
             </div>
             <h3 class="h3 mb-0 text-gray-800">Product Category Report</h3>
             <?php foreach($register_one as $key=>$val){ ?>
-            <font color="black">1.Resistors(SMD) จำนวนผู้เข้าชม <font color="red">{{ ($val->register_one != '')? $val->register_one : 0 }}</font>
-                ครั้ง</font><br>
+            <font color="black">1.Resistors(SMD) Number of Visitors <font color="red">{{ ($val->register_one != '')? $val->register_one : 0 }}</font>
+                Time</font><br>
             <?php } ?>
             <?php foreach($register_two as $key=>$val){ ?>
-            <font color="black">2.Low Resistance/Current Sense Shunt Resistors จำนวนผู้เข้าชม
-                <font color="red">{{ ($val->register_two != '')? $val->register_two : 0 }}</font> ครั้ง</font><br>
+            <font color="black">2.Low Resistance/Current Sense Shunt Resistors Number of Visitors
+                <font color="red">{{ ($val->register_two != '')? $val->register_two : 0 }}</font> Time</font><br>
             <?php } ?>
             <?php foreach($register_three as $key=>$val){ ?>
-            <font color="black">3.Resistors(Leaded) จำนวนผู้เข้าชม
-                <font color="red">{{ ($val->register_three != '')? $val->register_three : 0 }}</font> ครั้ง</font><br>
+            <font color="black">3.Resistors(Leaded) Number of Visitors
+                <font color="red">{{ ($val->register_three != '')? $val->register_three : 0 }}</font> Time</font><br>
             <?php } ?>
             <?php foreach($register_four as $key=>$val){ ?>
-            <font color="black">4.Thermistors Thermal Sensors จำนวนผู้เข้าชม
-                <font color="red">{{ ($val->register_four != '')? $val->register_four : 0 }}</font> ครั้ง</font><br>
+            <font color="black">4.Thermistors Thermal Sensors Number of Visitors
+                <font color="red">{{ ($val->register_four != '')? $val->register_four : 0 }}</font> Time</font><br>
             <?php } ?>
             <?php foreach($register_five as $key=>$val){ ?>
-            <font color="black">5.Inductors จำนวนผู้เข้าชม <font color="red">{{ ($val->register_five != '')? $val->register_five : 0 }}</font>
-                ครั้ง</font><br>
+            <font color="black">5.Inductors Number of Visitors <font color="red">{{ ($val->register_five != '')? $val->register_five : 0 }}</font>
+                Time</font><br>
             <?php } ?>
             <?php foreach($register_six as $key=>$val){ ?>
-            <font color="black">6.Fuses จำนวนผู้เข้าชม <font color="red">{{ ($val->register_six != '')? $val->register_six : 0 }}</font> ครั้ง
+            <font color="black">6.Fuses Number of Visitors <font color="red">{{ ($val->register_six != '')? $val->register_six : 0 }}</font> Time
             </font><br>
             <?php } ?>
             <?php foreach($register_seven as $key=>$val){ ?>
-            <font color="black">7.Varistors จำนวนผู้เข้าชม <font color="red">{{ ($val->register_seven != '')? $val->register_seven : 0 }}</font>
-                ครั้ง</font><br>
+            <font color="black">7.Varistors Number of Visitors <font color="red">{{ ($val->register_seven != '')? $val->register_seven : 0 }}</font>
+                Time</font><br>
             <?php } ?>
             <?php foreach($register_eight as $key=>$val){ ?>
-            <font color="black">8.LTCC Substrates จำนวนผู้เข้าชม
-                <font color="red">{{ ($val->register_eight != '')? $val->register_eight : 0 }}</font> ครั้ง</font><br>
+            <font color="black">8.LTCC Substrates Number of Visitors
+                <font color="red">{{ ($val->register_eight != '')? $val->register_eight : 0 }}</font> Time</font><br>
             <?php } ?>
             <?php foreach($register_nine as $key=>$val){ ?>
-            <font color="black">9.Others จำนวนผู้เข้าชม <font color="red">{{ ($val->register_nine != '')? $val->register_nine : 0 }}</font> ครั้ง
+            <font color="black">9.Others Number of Visitors <font color="red">{{ ($val->register_nine != '')? $val->register_nine : 0 }}</font> Time
             </font>
             <?php } ?>
             <!-- end: page -->
