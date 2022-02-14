@@ -40,6 +40,13 @@ class HomeController extends Controller
         // $this->middleware('auth');
     }
 
+    public function store_cookie()
+    {
+        $hh = Session::put('cookie','1');
+        return redirect()->back();
+        // return redirect(Session::put('cookie',1)."/");
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -47,11 +54,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+            $cookie = Session::get('cookie'); 
             $banner = bannerModel::get();
             $product_category = ProductCategoryModel::get();
             $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
-            ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
-            return view('layouts/frontend/index')->with('banner', $banner)->with('news', $news)->with('product_category', $product_category);
+            ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->orderBy('save_date', 'DESC')->get();
+            return view('layouts/frontend/index')->with('cookie', $cookie)->with('banner', $banner)->with('news', $news)->with('product_category', $product_category);
     }
 
     public function product()
@@ -81,7 +89,8 @@ class HomeController extends Controller
         // $product_category = ProductCategoryModel::get();
         // $type_of_iunqiry = TypeOfInquiryModel::get();
         // return view('layouts/frontend/contact', compact('application'), compact('zip_code'))->with('product_category',$product_category)->with('type_of_iunqiry',$type_of_iunqiry);
-        return view('layouts/frontend/contact');
+        $cookie = Session::get('cookie'); 
+        return view('layouts/frontend/contact')->with('cookie', $cookie);
     }
 
     /**
@@ -131,24 +140,59 @@ class HomeController extends Controller
     }
 
     public function news(){
+        $cookie = Session::get('cookie'); 
         $news_release = MasterSetupModel::get();
         $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
+        $dateY = date('Y');
+        $dateM = date('m');
         $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
-        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
-        return view('layouts/frontend/news')->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
+        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->where(DB::raw('YEAR(save_date)'), '=', $dateY)->where(DB::raw('MONTH(save_date)'), '=', $dateM)->get();
+        return view('layouts/frontend/news')->with('cookie', $cookie)->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
     }
 
     public function news000($id){
+        $cookie = Session::get('cookie'); 
         $news_release = MasterSetupModel::get();
         $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
         $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
         ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->find($id);
-        return view('layouts/frontend/news000')->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
+        return view('layouts/frontend/news000')->with('cookie', $cookie)->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
+    }
+
+    public function products()
+    {
+        $cookie = Session::get('cookie'); 
+        $news_release = MasterSetupModel::get();
+        $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
+        $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
+        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
+        return view('layouts/frontend/products')->with('cookie', $cookie)->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
+    }
+
+    public function events()
+    {
+        $cookie = Session::get('cookie'); 
+        $news_release = MasterSetupModel::get();
+        $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
+        $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
+        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
+        return view('layouts/frontend/events')->with('cookie', $cookie)->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
+    }
+
+    public function awards()
+    {
+        $cookie = Session::get('cookie'); 
+        $news_release = MasterSetupModel::get();
+        $archive = MasterSetuptwoModel::orderBy('id_archive', 'DESC')->get();
+        $news = NewsModel::leftJoin('news_release', 'news.id_news_releases', '=', 'news_release.id_news_release')
+        ->leftJoin('archive', 'news.id_archives', '=', 'archive.id_archive')->get();
+        return view('layouts/frontend/awards')->with('cookie', $cookie)->with('news_release', $news_release)->with('archive', $archive)->with('news', $news);
     }
 
     public function register()
     {
-        return view('layouts/frontend/register');
+        $cookie = Session::get('cookie'); 
+        return view('layouts/frontend/register')->with('cookie', $cookie);
     }
 
     /**

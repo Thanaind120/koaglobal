@@ -33,7 +33,7 @@ class ContactUsController extends Controller
         // ->leftJoin('type_of_iunqiry', 'contact_us.type_inquiry', '=', 'type_of_iunqiry.id_iunqiry')
         // ->leftJoin('zip_code', 'contact_us.zip_code', '=', 'zip_code.id_zip_code')
         // ->leftJoin('product_category', 'contact_us.product_category', '=', 'product_category.id_product_category')->get();
-        $contact = ContactUsModel::get();
+        $contact = ContactUsModel::orderBy('id', 'DESC')->get();
         return view('layouts/backend/contact')->with('contact',$contact);
     }
 

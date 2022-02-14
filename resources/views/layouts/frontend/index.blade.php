@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <!-- MAIN WRAPPER
+    <!-- MAIN WRAPPER 
         ============================================= -->
     <div id="main-wrapper" class="clearfix">
 
@@ -51,7 +51,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- CONTENT START
+            <!-- CONTENT START  
             ============================================= -->
             <section id="content" class="clearfix">
 
@@ -200,7 +200,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- LATEST NEWS END -->
+                            <!-- LATEST NEWS END --> 
                         </div>
                         <!-- //left block -->
                         <!--  right block -->
@@ -256,7 +256,7 @@
                 </div>
             </section>
             <!-- CONTENT END -->
-            <!-- FOOTER START
+            <!-- FOOTER START  
             ============================================= -->
             @include('layouts.frontend.inc_footer');
             <!-- FOOTER END -->

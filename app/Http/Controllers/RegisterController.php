@@ -25,8 +25,9 @@ class RegisterController extends Controller
 
     public function register()
     {
-        $register = RegisterModel::get();
-        return view('layouts/backend/register')->with('register',$register);
+        $register = RegisterModel::orderBy('save_date', 'DESC')->get();
+        // $register = DB::table('register')->orderBy('id', 'ASC')->get();
+        return view('layouts/backend/register',compact('register'));
     }
 
     /**

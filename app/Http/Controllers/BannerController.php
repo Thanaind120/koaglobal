@@ -59,6 +59,10 @@ class BannerController extends Controller
                 if (file_exists($path_img) != '') {
                     unlink($path_img);
                 }
+                bannerModel::find($id)->update([   // bannerModel::create([]);
+                    'image_banner' => $image_banner_gen,
+                    'updated_at' => Carbon::now()
+                ]);
             }
             if($image_banner2 != ''){
                 $image_banner2_gen = 'banner2_'.date('YmdHis').'.'.$image_banner2->getClientOriginalExtension();
@@ -68,27 +72,33 @@ class BannerController extends Controller
                 if (file_exists($path_img2) != '') {
                     unlink($path_img2);
                 }
+                bannerModel::find($id)->update([   // bannerModel::create([]);
+                    'image_banner2' => $image_banner2_gen,
+                    'updated_at' => Carbon::now()
+                ]);
+            }else{
+                bannerModel::find($id)->update([   // bannerModel::create([]);
+                    'updated_at' => Carbon::now()
+                ]);
             }
-            bannerModel::find($id)->update([   // bannerModel::create([]);
-                'image_banner' => $image_banner_gen,
-                'image_banner2' => $image_banner2_gen,
-                // 'topic' => $request->topic,
-                'updated_at' => Carbon::now()
-            ]);
             return redirect('backoffice/banner');
 	}
 
     public function destroy($id){
         $image1 = bannerModel::where('id_banner', $id)->first()->image_banner;
         $image2 = bannerModel::where('id_banner', $id)->first()->image_banner2;
-		$path_img = public_path('backend/assets/images/banner/'. $image1);
-		if (file_exists($path_img) != '') {
-			unlink($path_img);
-		}
-        $path_img2 = public_path('backend/assets/images/banner/'. $image2);
-		if (file_exists($path_img2) != '') {
-			unlink($path_img2);
-		}
-        bannerModel::find($id)->delete();
+        if($image1 != '' && $image2 != ''){
+		    $path_img = public_path('backend/assets/images/banner/'. $image1);
+            $path_img2 = public_path('backend/assets/images/banner/'. $image2);
+		    if (file_exists($path_img) != '') {
+			    unlink($path_img);
+		    } 
+		    if (file_exists($path_img2) != '') {
+			    unlink($path_img2);
+		    }
+            bannerModel::find($id)->delete();
+        }else{
+            bannerModel::find($id)->delete();
+        }
     }
 }

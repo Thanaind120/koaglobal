@@ -59,7 +59,7 @@
                                                                 <span class="fileupload-exists">Change</span>
                                                                 <span class="fileupload-new">Select file</span>
                                                                 <input type="file" accept="image/*" id="img"
-                                                                    name="image_banner" required/>
+                                                                    name="image_banner"/>
                                                             </span>
                                                             <br>
                                                             <br><img src="{{ ($ban->image_banner != '')? asset('backend/assets/images/banner/'.$ban->image_banner) : asset('backend/assets/images/banner/nopic.jpg') }}"
@@ -87,7 +87,7 @@
                                                                 <span class="fileupload-exists">Change</span>
                                                                 <span class="fileupload-new">Select file</span>
                                                                 <input type="file" accept="image/*" id="img2"
-                                                                    name="image_banner2" required/>
+                                                                    name="image_banner2"/>
                                                             </span>
                                                             <br>
                                                             <br><img src="{{ ($ban->image_banner2 != '')? asset('backend/assets/images/banner/'.$ban->image_banner2) : asset('backend/assets/images/banner/nopic.jpg') }}"

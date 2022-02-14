@@ -240,43 +240,425 @@
                 </div> --}}
 
             </div>
+            {{-- <br> --}}
             <h3 class="h3 mb-0 text-gray-800">Product Category Report</h3>
-            <?php foreach($register_one as $key=>$val){ ?>
-            <font color="black">1.Resistors(SMD) Number of Visitors <font color="red">{{ ($val->register_one != '')? $val->register_one : 0 }}</font>
-                Time</font><br>
-            <?php } ?>
-            <?php foreach($register_two as $key=>$val){ ?>
-            <font color="black">2.Low Resistance/Current Sense Shunt Resistors Number of Visitors
-                <font color="red">{{ ($val->register_two != '')? $val->register_two : 0 }}</font> Time</font><br>
-            <?php } ?>
-            <?php foreach($register_three as $key=>$val){ ?>
-            <font color="black">3.Resistors(Leaded) Number of Visitors
-                <font color="red">{{ ($val->register_three != '')? $val->register_three : 0 }}</font> Time</font><br>
-            <?php } ?>
-            <?php foreach($register_four as $key=>$val){ ?>
-            <font color="black">4.Thermistors Thermal Sensors Number of Visitors
-                <font color="red">{{ ($val->register_four != '')? $val->register_four : 0 }}</font> Time</font><br>
-            <?php } ?>
-            <?php foreach($register_five as $key=>$val){ ?>
-            <font color="black">5.Inductors Number of Visitors <font color="red">{{ ($val->register_five != '')? $val->register_five : 0 }}</font>
-                Time</font><br>
-            <?php } ?>
-            <?php foreach($register_six as $key=>$val){ ?>
-            <font color="black">6.Fuses Number of Visitors <font color="red">{{ ($val->register_six != '')? $val->register_six : 0 }}</font> Time
-            </font><br>
-            <?php } ?>
-            <?php foreach($register_seven as $key=>$val){ ?>
-            <font color="black">7.Varistors Number of Visitors <font color="red">{{ ($val->register_seven != '')? $val->register_seven : 0 }}</font>
-                Time</font><br>
-            <?php } ?>
-            <?php foreach($register_eight as $key=>$val){ ?>
-            <font color="black">8.LTCC Substrates Number of Visitors
-                <font color="red">{{ ($val->register_eight != '')? $val->register_eight : 0 }}</font> Time</font><br>
-            <?php } ?>
-            <?php foreach($register_nine as $key=>$val){ ?>
-            <font color="black">9.Others Number of Visitors <font color="red">{{ ($val->register_nine != '')? $val->register_nine : 0 }}</font> Time
+            {{-- <?php //foreach($register_one as $key=>$val){ ?>
+            <font color="black">1.Resistors(SMD) Number of Visitors <font color="red">{{ ($val->register_one != '')? $val->register_one : 0 }}
             </font>
-            <?php } ?>
+            Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_two as $key=>$val){ ?>
+            <font color="black">2.Low Resistance/Current Sense Shunt Resistors Number of Visitors
+                <font color="red">{{ ($val->register_two != '')? $val->register_two : 0 }}</font> Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_three as $key=>$val){ ?>
+            <font color="black">3.Resistors(Leaded) Number of Visitors
+                <font color="red">{{ ($val->register_three != '')? $val->register_three : 0 }}</font> Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_four as $key=>$val){ ?>
+            <font color="black">4.Thermistors Thermal Sensors Number of Visitors
+                <font color="red">{{ ($val->register_four != '')? $val->register_four : 0 }}</font> Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_five as $key=>$val){ ?>
+            <font color="black">5.Inductors Number of Visitors <font color="red">
+                    {{ ($val->register_five != '')? $val->register_five : 0 }}</font>
+                Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_six as $key=>$val){ ?>
+            <font color="black">6.Fuses Number of Visitors <font color="red">
+                    {{ ($val->register_six != '')? $val->register_six : 0 }}</font> Times
+            </font><br>
+            <?php //} ?>
+            <?php //foreach($register_seven as $key=>$val){ ?>
+            <font color="black">7.Varistors Number of Visitors <font color="red">
+                    {{ ($val->register_seven != '')? $val->register_seven : 0 }}</font>
+                Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_eight as $key=>$val){ ?>
+            <font color="black">8.LTCC Substrates Number of Visitors
+                <font color="red">{{ ($val->register_eight != '')? $val->register_eight : 0 }}</font> Times</font><br>
+            <?php //} ?>
+            <?php //foreach($register_nine as $key=>$val){ ?>
+            <font color="black">9.Others Number of Visitors <font color="red">
+                    {{ ($val->register_nine != '')? $val->register_nine : 0 }}</font> Times
+            </font>
+            <?php //} ?> --}}
+            <form action="{{ route('search.report') }}" method="get">
+
+                <div class="form-inline">
+
+                    <div class="block">
+
+                        <label>Date From :</label>
+
+                        <div class="form-group">
+
+                            <?php if(isset($d_from)) {?>
+                            <input type="date" class="form-control filter" id="date_from" name="date_from" autocomplete="off"
+                                value="{{ $d_from }}">
+                            <?php }else{ ?>
+                            <input type="date" class="form-control filter" id="date_from" name="date_from" autocomplete="off"
+                                value="">
+                            <?php } ?>
+
+                        </div>
+
+                        &nbsp;&nbsp;<label>Date To :</label>
+
+                        <div class="form-group">
+                            <?php if(isset($d_to)) {?>
+                            <input type="date" class="form-control filter" id="date_to" name="date_to" autocomplete="off"
+                                value="{{ $d_to }}">
+                            <?php }else{ ?>
+                            <input type="date" class="form-control filter" id="date_to" name="date_to" autocomplete="off"
+                                value="">
+                            <?php } ?>
+                        </div>
+
+                        &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">Search</button>
+
+                        <button type="button" id="btn_clear" class="btn btn-danger"
+                            onclick="clear_filter()">Clear</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+            <br>
+            <div class="col-md-12 ">
+
+                <div class="panel-group" id="accordionSuccess">
+
+                    <div class="panel panel-accordion panel-accordion-default">
+
+                        <div id="collapse1One" class="accordion-body collapse in">
+
+                            <div class="panel-body">
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="mb-md">
+                                            <?php if(isset($d_from) && isset($d_to)) {?>
+                                            <a href="{{ url('/backoffice/dashboard/file-export?date_from='.$d_from.'&date_to='.$d_to) }}"
+                                                class="btn btn-success"><img
+                                                    src="{{ asset('backend/assets/images/xls.png') }}"
+                                                    width="24" />&nbsp;&nbsp;Excel</a>
+                                            <?php }else{ ?>
+                                            <a href="{{ route('dashboard.file-export2') }}" class="btn btn-success"><img
+                                                    src="{{ asset('backend/assets/images/xls.png') }}"
+                                                    width="24" />&nbsp;&nbsp;Excel</a>
+                                            <?php } ?>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <table class="table table-bordered table-striped mb-none" id="datatable-default">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th class="center">No</th>
+
+                                            <th class="center">Save Date</th>
+
+                                            <th class="center">Product Category</th>
+
+                                            <th class="center"></th>
+
+                                            <th class="center"></th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <?php
+                                            $i = 0;
+                                            foreach ($result as $key=>$val){
+                                                $i++
+                                        ?>
+
+                                        <tr class="gradeX">
+
+                                            <td class="center" width="10%">{{ $i }}</td>
+
+                                            <td class="center" width="10%">{{ $val->save_date }}</td>
+
+                                            <td class="center" width="20%">{{ $val->product_category }}</td>
+
+                                            <td class="center" width="10%"></td>
+
+                                            <td class="center" width="10%"></td>
+
+                                        </tr>
+
+                                        <?php
+                                        }
+                                        ?>
+
+                                    </tbody>
+
+                                    <?php foreach($register_one as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">1.Resistors(SMD)</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">{{ ($val->register_one != '')? $val->register_one : 0 }}
+                                            </font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_two as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">2.Low Resistance/Current Sense Shunt Resistors</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">{{ ($val->register_two != '')? $val->register_two : 0 }}
+                                            </font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_three as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">3.Resistors(Leaded)</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">
+                                                {{ ($val->register_three != '')? $val->register_three : 0 }}</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_four as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">4.Thermistors Thermal Sensors</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">{{ ($val->register_four != '')? $val->register_four : 0 }}
+                                            </font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_five as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">5.Inductors</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">{{ ($val->register_five != '')? $val->register_five : 0 }}
+                                            </font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_six as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">6.Fuses</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">{{ ($val->register_six != '')? $val->register_six : 0 }}
+                                            </font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_seven as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">7.Varistors</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">
+                                                {{ ($val->register_seven != '')? $val->register_seven : 0 }}</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_eight as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">8.LTCC Substrates</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">
+                                                {{ ($val->register_eight != '')? $val->register_eight : 0 }}</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                    <?php foreach($register_nine as $key=>$val){ ?>
+
+                                    <tr class="gradeX">
+
+                                        <td class="center"></td>
+
+                                        <td class="center"></td>
+
+                                        <td class="left">
+                                            <font color="black">9.Others</font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="red">{{ ($val->register_nine != '')? $val->register_nine : 0 }}
+                                            </font>
+                                        </td>
+
+                                        <td class="center">
+                                            <font color="black"> Times </font>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
             <!-- end: page -->
 
         </section>
@@ -358,6 +740,13 @@
     </section>
 
     @include('layouts.backend.inc_footer');
+    <script type="text/javascript">
+        
+        const clear_filter = () => {
+            $('.filter').val('');
+        }
+
+    </script>
 
 </body>
 

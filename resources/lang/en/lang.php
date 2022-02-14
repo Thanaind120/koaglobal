@@ -16,7 +16,7 @@ return [
     'selectyourregion'=>'Select Your Region',
     'language'=>'Language',
     'english'=>'English',
-    'thailand'=>'Thailand',
+    'thailand'=>'Thai',
     'pickup'=>'Pickup',
     'applications'=>'Applications',
     'productforindustrialapplication'=>'Products for Industrial Applications',

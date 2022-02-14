@@ -98,8 +98,9 @@
 
                                         <ul>
                                             <?php foreach ($news as $key=>$val){ ?>
+                                            <?php if ($val->id_news_releases == 1) {?>
                                             <li>
-                                                <?php if ($val->id_news_releases == 1) {?>
+
                                                 <a class="card-news"
                                                     href="{{ ($val->url != '')? $val->url : url('/news000/'.$val->id_news) }}"
                                                     target="_blank">
@@ -109,51 +110,9 @@
                                                     <span
                                                         class="_title">{{ $val["news_name_".Session::get('lang')]}}</span>
                                                 </a>
-                                                <?php } ?>
-                                                <?php if ($val->id_news_releases == 2){ ?>
-                                                <?php if($val->image != ''){?>
-                                                <a class="card-news"
-                                                    href="{{ url(Session::get('lang').'/news000/'.$val->id_news) }}"
-                                                    target="_self">
-                                                    <span class="_day">{{ $val->save_date }}</span>
-                                                    <span
-                                                        class="_category _category-01">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
-                                                    <span class="_title">
-                                                        <div style="text-align: left;"><span
-                                                                style="color: #c00000;"><span
-                                                                    style="font-family: tahoma;">{{ $val["news_name_".Session::get('lang')]}}</span><strong><span
-                                                                        style="font-family: tahoma;"></span><br>
-                                                                </strong></span></div>
-                                                        <div id="gtx-trans"
-                                                            style="position: absolute; left: -118px; top: -25.0119px;">
-                                                            <div class="gtx-trans-icon">&nbsp;</div>
-                                                        </div>
-                                                    </span>
-                                                </a>
-                                                <?php }else{ ?>
-                                                <a class="card-news"
-                                                    href="{{ url(Session::get('lang').'/news000/'.$val->id_news) }}"
-                                                    target="_self">
-                                                    <span class="_day">{{ $val->save_date }}</span>
-                                                    <span
-                                                        class="_category _category-01">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
-                                                    <span
-                                                        class="_title">{{ $val["news_name_".Session::get('lang')]}}</span>
-                                                </a>
-                                                <?php } ?>
-                                                <?php } ?>
-                                                <?php if ($val->id_news_releases == 3){ ?>
-                                                <a class="card-news"
-                                                    href="{{ url(Session::get('lang').'/news000/'.$val->id_news) }}"
-                                                    target="_self">
-                                                    <span class="_day">{{ $val->save_date }}</span>
-                                                    <span
-                                                        class="_category _category-04">{{ $val["news_release_topics_".Session::get('lang')]}}</span>
-                                                    <span
-                                                        class="_title">{{ $val["news_name_".Session::get('lang')]}}</span>
-                                                </a>
-                                                <?php } ?>
+
                                             </li>
+                                            <?php } ?>
                                             <?php } ?>
                                         </ul>
                                     </div>
@@ -174,25 +133,8 @@
                             <ul class="l-localNav wrap-acc">
 
                                 <?php foreach ($news_release as $key=>$val){ ?>
-                                <?php if ($val->id_news_release == 1){ ?>
-                                {{-- <li><a href="{{ url(Session::get('lang').'/products')}}"
-                                class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li> --}}
-                                <li><a href="javascript:void(0)"
+                                <li><a href="{{ url(Session::get('lang').'/products')}}"
                                         class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li>
-
-                                <?php }?>
-                                <?php if ($val->id_news_release == 2){ ?>
-                                {{-- <li><a href="{{ url(Session::get('lang').'/events')}}"
-                                class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li> --}}
-                                <li><a href="javascript:void(0)"
-                                        class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li>
-                                <?php } ?>
-                                <?php if ($val->id_news_release == 3){ ?>
-                                {{-- <li><a href="{{ url(Session::get('lang').'/awards')}}"
-                                class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li> --}}
-                                <li><a href="javascript:void(0)"
-                                        class="">{{ $val["news_release_name_".Session::get('lang')]}}</a></li>
-                                <?php } ?>
                                 <?php } ?>
 
                             </ul>

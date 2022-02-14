@@ -17,11 +17,14 @@
             <div class="col-sm-12 col-md-3">
                 <div class="l-footerNav">
                     <ul>
-                        <li><a href="https://www.koaglobal.com/product?sc_lang=en" target="_blank">{{ trans('lang.products') }}</a></li>
+                        <li><a href="https://www.koaglobal.com/product?sc_lang=en"
+                                target="_blank">{{ trans('lang.products') }}</a></li>
                         <li><a href="https://www.koaglobal.com/app?sc_lang=en">{{ trans('lang.application') }}</a></li>
                         <li><a href="https://www.koaspore.com.sg/corporation">{{ trans('lang.corporation') }}</a></li>
-                        <li><a href="https://www.koaspore.com.sg/salesnetwork">{{ trans('lang.salesnetwork') }}</a> </li>
-                        <li><a href="{{ url(Session::get('lang').'/contactus') }}">{{ trans('lang.contactus') }}</a></li>
+                        <li><a href="https://www.koaspore.com.sg/salesnetwork">{{ trans('lang.salesnetwork') }}</a>
+                        </li>
+                        <li><a href="{{ url(Session::get('lang').'/contactus') }}">{{ trans('lang.contactus') }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -41,15 +44,18 @@
         <div class="l-footerPolicy">
             <div class="container">
                 <div class="l-inner-footerPolicy">
-                <ul class="l-pp"><a href="https://www.koaspore.com.sg/-/media/Files/KOA_MultiDomain/singapore/corporation/salesagreement/GeneralSalesAgreement.pdf">{{ trans('lang.privacypolicy') }}</a></ul>
-                <div class="l-copy"><span>{{ trans('lang.copyright') }}</span>
+                    <ul class="l-pp"><a
+                            href="https://www.koaspore.com.sg/-/media/Files/KOA_MultiDomain/singapore/corporation/salesagreement/GeneralSalesAgreement.pdf">{{ trans('lang.privacypolicy') }}</a>
+                    </ul>
+                    <div class="l-copy"><span>{{ trans('lang.copyright') }}</span>
+                    </div>
+                    <p class="l-pagetop">
+                        <a href="{{ url('/')}}">
+                            <img src="{{ asset('frontend/img/btn_pagetop.png' ) }}"
+                                alt="{{ trans('lang.page_top') }}"></a>
+                    </p>
                 </div>
-                <p class="l-pagetop">
-                    <a href="{{ url('/')}}">
-                        <img src="{{ asset('frontend/img/btn_pagetop.png' ) }}" alt="{{ trans('lang.page_top') }}"></a>
-                </p>
-                </div>
-            </div>            
+            </div>
         </div>
     </div>
     <!-- COPYRIGHT END -->
@@ -57,27 +63,32 @@
 </footer>
 
 <!---cookie---->
+
+@if($cookie == null)
 <div>
     <div class="scw-cookie">
         <div class="scw-cookie-panel-toggle scw-cookie-panel-toggle-left" onclick="scwCookiePanelToggle()">
             <span class="scwc-icon scwc-icon-cookie"></span>
-        </div>                
+        </div>
         <div class="scw-cookie-content">
             <div class="scw-cookie-message">
                 We use cookies to personalise content and to analyse our web traffic.
             </div>
-            
+
             <div class="scw-cookie-decision">
-                <div class="scw-cookie-btn" onclick="scwCookieHide()">OK</div>
-                <div class="scw-cookie-settings scw-cookie-tooltip-trigger" onclick="scwCookieDetails()"
-                    data-label="">
-                    <span class="scwc-icon scwc-icon-settings"></span>
-                </div>
-                <div class="scw-cookie-policy scw-cookie-tooltip-trigger" data-label="">
-                    <a href="https://www.koaspore.com.sg/-/media/Files/KOA_MultiDomain/singapore/corporation/salesagreement/GeneralSalesAgreement.pdf">
-                        <span class="scwc-icon scwc-icon-policy"></span>
-                    </a>
-                </div>
+                <form method="POST" action="{{ route('cookie.cookie') }}">
+                    @csrf
+                    <button class="scw-cookie-btn" onclick="scwCookieHide()">OK</button>
+                    <div class="scw-cookie-settings scw-cookie-tooltip-trigger" onclick="scwCookieDetails()" data-label="">
+                        <span class="scwc-icon scwc-icon-settings"></span>
+                    </div>
+                    <div class="scw-cookie-policy scw-cookie-tooltip-trigger" data-label="">
+                        <a
+                            href="https://www.koaspore.com.sg/-/media/Files/KOA_MultiDomain/singapore/corporation/salesagreement/GeneralSalesAgreement.pdf">
+                            <span class="scwc-icon scwc-icon-policy"></span>
+                        </a>
+                    </div>
+                </form>       
             </div>
             <div class="scw-cookie-details">
                 <div class="scw-cookie-details-title">Manage your cookies</div>
@@ -95,26 +106,37 @@
                         <div></div>
                     </label>
                 </div>
-                
-    
+
+
             </div>
         </div>
     </div>
 </div>
- <!--model-->
- <div id="RegionSelect">
+@endif
+
+
+<!--model-->
+<div id="RegionSelect">
     <div id="is-region" class="close" style="display: block;">
         <div class="is-content" style="top: 120px; left: 951px; display: block;">
             <div class="l-regionPC">
-                <p class="btn-close"><a class="close"><img src="{{ asset('frontend/img/icon_close.svg') }}" alt="close"></a></p>
+                <p class="btn-close"><a class="close"><img src="{{ asset('frontend/img/icon_close.svg') }}"
+                            alt="close"></a></p>
                 <p class="ttl-modal">{{ trans('lang.selectyourregion') }}</p>
                 <div class="_images">
-                    <div id="mapster_wrap_0" style="display: block; position: relative; padding: 0px; width: 959px; height: 332px;">
-                        <img class="mapster_el" src="{{ asset('frontend/img/img_country_on.png') }}" style="display: none;">
-                        <img class="mapster_el" src="{{ asset('frontend/img/countory/img_country_on.png') }}" style="display: none;">
-                        <canvas width="959" height="332" class="mapster_el" style="position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px;"></canvas>
-                        <canvas width="959" height="332" class="mapster_el" style="position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;"></canvas>
-                        <img id="mapWorld" src="{{ asset('frontend/img/img_country.png') }}" heifht="332" alt="Select your region" usemap="#mapWorld" width="959" style="border: 0px; position: absolute; left: 0px; top: 0px; padding: 0px; opacity: 0;">
+                    <div id="mapster_wrap_0"
+                        style="display: block; position: relative; padding: 0px; width: 959px; height: 332px;">
+                        <img class="mapster_el" src="{{ asset('frontend/img/img_country_on.png') }}"
+                            style="display: none;">
+                        <img class="mapster_el" src="{{ asset('frontend/img/countory/img_country_on.png') }}"
+                            style="display: none;">
+                        <canvas width="959" height="332" class="mapster_el"
+                            style="position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px;"></canvas>
+                        <canvas width="959" height="332" class="mapster_el"
+                            style="position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px; opacity: 1;"></canvas>
+                        <img id="mapWorld" src="{{ asset('frontend/img/img_country.png') }}" heifht="332"
+                            alt="Select your region" usemap="#mapWorld" width="959"
+                            style="border: 0px; position: absolute; left: 0px; top: 0px; padding: 0px; opacity: 0;">
                     </div>
                     <map name="mapWorld">
                         <area shape="poly"

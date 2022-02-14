@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Session;
 use  App\LanguageModel;
@@ -66,12 +67,16 @@ Route::group(['middleware' => 'Language'], function () {
     foreach ($lang_db as $lang) {
         Route::prefix($lang->set)->group(function () {
             Route::get('/','HomeController@index');
+            Route::post('/','HomeController@store_cookie')->name('cookie.cookie');
             Route::get('/news','HomeController@news');
             Route::get('/register','HomeController@register');
             Route::post('/register','HomeController@store_register')->name('register.insert');
             Route::get('/contactus','HomeController@contact_us');
             Route::post('/contactus','HomeController@store_contact')->name('contactus.insert');
             Route::get('/news000/{id}','HomeController@news000');
+            Route::get('/products','HomeController@products');
+            Route::get('/events','HomeController@events');
+            Route::get('/awards','HomeController@awards');
         });
     }
 });
@@ -95,6 +100,9 @@ Route::get('/backoffice/logout','AdminController@logout')->name('backoffice.logo
 Route::group(['middleware' => ['auth']], function(){
     //** DASHBOARD **//
     Route::get('/backoffice/dashboard','DashboardController@home');    
+    Route::get('/backoffice/dashboard/search','DashboardController@search')->name('search.report');    
+    Route::get('/backoffice/dashboard/file-export', [DashboardController::class, 'fileExport'])->name('dashboard.file-export');
+    Route::get('/backoffice/dashboard/file-export2', [DashboardController::class, 'fileExport2'])->name('dashboard.file-export2');
     //** BANNER **//
     Route::get('/backoffice/banner','BannerController@banner'); // get all Banner data  
     Route::get('/backoffice/banner/create','BannerController@create');  // create Banner view 

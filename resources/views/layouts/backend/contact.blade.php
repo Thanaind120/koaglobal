@@ -97,6 +97,8 @@
 
                                             <th class="center">No</th>
 
+                                            <th class="center">Save Date</th>
+
                                             <th class="center">Type of Inquiry</th>
 
                                             <th class="center">Application</th>
@@ -131,14 +133,13 @@
 
                                             <td class="center">{{ $i }}</td>
 
+                                            <td class="center">{{ $val->save_date }}</td>
+
                                             <td class="center">{{ $val->type_inquiry }}</td>
-                                            {{-- <td class="center">{{ $val->type_iunqiry_en }}</td> --}}
 
                                             <td class="center">{{ $val->application }}</td>
-                                            {{-- <td class="center">{{ $val->application_name_en }}</td> --}}
 
                                             <td class="center">{{ $val->product_category }}</td>
-                                            {{-- <td class="center">{{ $val->product_category_en }}</td> --}}
 
                                             <td class="center">{{ $val->product_message }}</td>
 

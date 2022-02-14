@@ -97,6 +97,8 @@
 
                                             <th class="center">No</th>
 
+                                            <th class="center">Save Date</th>
+
                                             <th class="center">Name</th>
 
                                             <th class="center">E-mail</th>
@@ -123,7 +125,9 @@
 
                                         <tr class="gradeX">
 
-                                            <td class="center">{{ $i }}</td>
+                                            <td class="center" width="3%">{{ $i }}</td>
+
+                                            <td class="center" width="8%">{{ $val->save_date }}</td>
 
                                             <td class="center">{{ $val->name }}</td>
 
