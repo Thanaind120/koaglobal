@@ -121,7 +121,7 @@
                                                 <li>
                                                     <?php if ($val->id_news_releases == 1) {?>
                                                     <a class="card-news"
-                                                        href="{{ ($val->url != '')? $val->url : url('/news000') }}"
+                                                        href="{{ ($val->url != '')? $val->url : url(Session::get('lang').'/news000/'.$val->id_news) }}"
                                                         target="_blank">
                                                         <span class="_day">{{ $val->save_date }}</span>
                                                         <span
@@ -130,7 +130,7 @@
                                                         <?php } ?>
                                                         <?php if ($val->id_news_releases == 2) {?>
                                                         <?php if($val->image != ''){?>
-                                                        <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                        <a class="card-news" href="{{ url(Session::get('lang').'/news000/'.$val->id_news) }}"
                                                             target="_self">
                                                             <span class="_day">{{ $val->save_date }}</span>
                                                             <span
@@ -148,7 +148,7 @@
                                                             </span>
                                                         </a>
                                                         <?php }else{ ?>
-                                                        <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                        <a class="card-news" href="{{ url(Session::get('lang').'/news000/'.$val->id_news) }}"
                                                             target="_self">
                                                             <span class="_day">{{ $val->save_date }}</span>
                                                             <span
@@ -158,7 +158,7 @@
                                                         <?php } ?>
                                                         <?php } ?>
                                                         <?php if ($val->id_news_releases == 3) {?>
-                                                        <a class="card-news" href="{{ url('/news000/'.$val->id_news) }}"
+                                                        <a class="card-news" href="{{ url(Session::get('lang').'/news000/'.$val->id_news) }}"
                                                             target="_self">
                                                             <span class="_day">{{ $val->save_date }}</span>
                                                             <span
