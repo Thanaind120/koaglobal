@@ -8,7 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Session;
-use  App\LanguageModel;
+use App\LanguageModel;
 
 
 /*

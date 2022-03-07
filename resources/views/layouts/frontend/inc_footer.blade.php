@@ -117,15 +117,15 @@
 
 <!--model-->
 <div id="RegionSelect">
-    <div id="is-region" class="close" style="display: block;">
-        <div class="is-content" style="top: 120px; left: 951px; display: block;">
+    <div id="is-region" class="close" style="display: none;">
+        <div class="is-content" style="top: 120px; left: 951px; display: none;">
             <div class="l-regionPC">
                 <p class="btn-close"><a class="close"><img src="{{ asset('frontend/img/icon_close.svg') }}"
                             alt="close"></a></p>
                 <p class="ttl-modal">{{ trans('lang.selectyourregion') }}</p>
                 <div class="_images">
                     <div id="mapster_wrap_0"
-                        style="display: block; position: relative; padding: 0px; width: 959px; height: 332px;">
+                        style="display: none; position: relative; padding: 0px; width: 959px; height: 332px;">
                         <img class="mapster_el" src="{{ asset('frontend/img/img_country_on.png') }}"
                             style="display: none;">
                         <img class="mapster_el" src="{{ asset('frontend/img/countory/img_country_on.png') }}"
