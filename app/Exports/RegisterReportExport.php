@@ -142,8 +142,17 @@ class RegisterReportExport implements FromCollection, ShouldAutoSize, WithMappin
     public function headings(): array
     {
         return [
-           '#',
-           'PRODUCT CATEGORY',
+        [
+            'Result filter : Date From',
+            $this->d_from,
+            'Date To',
+            $this->d_to,
+        ],
+        [
+            '#',
+            'PRODUCT CATEGORY',
+        ]
+        
         ];
     }
 
@@ -151,7 +160,7 @@ class RegisterReportExport implements FromCollection, ShouldAutoSize, WithMappin
     {
         return [
             AfterSheet::class => function(AfterSheet $event) {
-                $cellRange = 'B1:E1'; // All headers
+                $cellRange = 'B2:E2'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(12);
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setBold(true);
             },
